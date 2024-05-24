@@ -1,0 +1,243 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 700;
+  font-display: swap;
+  src: local("Pretendard Bold"), url("../font/Pretendard-Bold.woff2") format("woff2"), url("../font/Pretendard-Bold.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 600;
+  font-display: swap;
+  src: local("Pretendard SemiBold"), url("../font/Pretendard-SemiBold.woff2") format("woff2"), url("../font/Pretendard-SemiBold.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 400;
+  font-display: swap;
+  src: local("Pretendard Regular"), url("../font/Pretendard-Regular.woff2") format("woff2"), url("../font/Pretendard-Regular.woff") format("woff");
+}
+:root {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+       text-size-adjust: 100%;
+  cursor: default;
+  line-height: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  -moz-tab-size: 4;
+    -o-tab-size: 4;
+       tab-size: 4;
+}
+
+html {
+  height: 100%;
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 100%;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  line-height: normal;
+  letter-spacing: -0.04rem;
+}
+
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:link, a:visited, a:hover, a:active,
+button:link, button:visited, button:hover, button:active,
+a:link > span, a:visited > span, a:hover > span, a:active > span,
+button:link > span, button:visited > span, button:hover > span, button:active > span {
+  text-decoration: unset;
+  color: inherit;
+}
+
+iframe {
+  width: 100%;
+  border: 0;
+  outline: 0;
+}
+
+fieldset {
+  border: none;
+}
+
+table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+ul, ol, dl {
+  list-style-type: none;
+}
+
+em {
+  font-style: inherit;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus,
+select:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+}
+
+/* 디자인 제공 컬러만 root로 관리 */
+:root {
+  --primary: #0046FF;
+  --primary-900: #0047E7;
+  --primary-800: #005DF9;
+  --primary-700: #2680FF;
+  --primary-600: #4A86FF;
+  --primary-500: #689EFF;
+  --primary-400: #9DC1FF;
+  --primary-300: #CDE0FF;
+  --primary-200: #E5EEFF;
+  --primary-100: #EFF5FF;
+  --gray-900: #121315;
+  --gray-800: #242A34;
+  --gray-700: #373E4D;
+  --gray-600: #576072;
+  --gray-500: #8B95A9;
+  --gray-400: #C7CEDC;
+  --gray-300: #DCE2ED;
+  --gray-200: #E7EDF6;
+  --gray-100: #F3F6FB;
+}
+
+/** 접근성 숨김텍스트 */
+.ally-hidden {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  -webkit-clip-path: polygon(0 0, 0 0, 0 0);
+          clip-path: polygon(0 0, 0 0, 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* flex || @mixin flex($dir, $a, $j, $wrap, $gap) */
+.flex-row {
+  display: flex;
+  align-items: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-end {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.text-xs {
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  color: var(--gray-900);
+}
+
+.text-s {
+  font-size: 1.4rem;
+  line-height: 1.4rem;
+  color: var(--gray-900);
+}
+
+.text-m {
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  color: var(--gray-900);
+}
+
+.text-l {
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  color: var(--gray-900);
+}
+
+.text-xl {
+  font-size: 2rem;
+  line-height: 2rem;
+  color: var(--gray-900);
+}
+
+.text-xxl {
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  color: var(--gray-900);
+}
+
+.view-inner {
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.view-inner[ui-size=normal] {
+  max-width: 1280px;
+}
+
+.wrap {
+  width: 100%;
+}
+.wrap .header .view-inner {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 6rem;
+}

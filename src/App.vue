@@ -1,26 +1,24 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <component :is="layoutComponent">
+        <router-view></router-view>
+    </component>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script setup>
+import { ref, reactive, computed, onMounted, watch } from 'vue'
+import { useRoute } from 'vue-router'
+import layoutDefault from '@/components/layout/layoutDefault.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+// 컴포넌트 목록 정의
+const layoutComponents = {
+    layoutDefault
 }
+// Vue Router의 현재 경로 정보를 가져옴
+const route = useRoute()
+
+// route의 meta에서 layout 정보를 가져오는 computed 속성 정의
+const layoutComponent = computed(() => {
+    const layoutName = route.meta.layout || 'layoutDefault'
+    return layoutComponents[layoutName] || 'layoutDefault'
+})
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

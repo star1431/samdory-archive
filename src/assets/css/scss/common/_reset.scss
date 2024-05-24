@@ -1,0 +1,103 @@
+@charset "UTF-8";
+:root {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    cursor: default;
+    line-height: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    tab-size: 4;
+}
+html {
+    height: 100%;
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+body {
+    height: 100%;
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    line-height: normal;
+    letter-spacing: -0.04rem;
+}
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+button {
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+a:link, a:visited, a:hover, a:active,
+button:link, button:visited, button:hover, button:active,
+a:link > span, a:visited > span, a:hover > span, a:active > span,
+button:link > span, button:visited > span, button:hover > span, button:active > span {
+    text-decoration: unset;
+    color: inherit;
+}
+iframe {
+    width: 100%; border: 0; outline: 0;
+}
+fieldset {
+    border: none;
+}
+table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+ul, ol, dl {
+    list-style-type:none;
+}
+em {
+    font-style: inherit;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus,
+select:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px white inset !important;
+}
+
+// :root {
+//     --code-line-height: 1.4;
+//     --code-font-size: 90%;
+//     --code-bg-color: #f5f7fa;
+//     --code-text-color: #303133;
+//     --code-font-family: monospace;
+//     --code-tooltip-bg-color: #f5f7fa;
+// }
+// code {
+//     margin: 0;
+//     border-radius: 4px;
+//     padding: 0.15rem 0.5rem;
+//     font-family: var(--code-font-family);
+//     font-size: var(--code-font-size);
+//     color: var(--code-text-color);
+//     line-height: var(--code-line-height);
+//     background-color: var(--code-bg-color);
+// }

@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+/** 접근성 숨김텍스트 */
+.ally-hidden {
+    @include ally-hidden;
+}
+
+/* flex || @mixin flex($dir, $a, $j, $wrap, $gap) */
+.flex-row {
+    @include flex($a: center);
+}
+.flex-column {
+    @include flex($dir: column, $a: center);
+}
+.flex-between {
+    @include flex($a: center, $j: space-between);
+}
+.flex-center {
+    @include flex($dir: row, $a: center, $j: center);
+}
+.flex-end {
+    @include flex($dir: row, $a: flex-end, $j: flex-end);
+}
+
+.text-xs {
+    @include font-12;
+}
+.text-s {
+    @include font-14;
+}
+.text-m {
+    @include font-16;
+}
+.text-l {
+    @include font-18;
+}
+.text-xl {
+    @include font-20;
+}
+.text-xxl {
+    @include font-24;
+}

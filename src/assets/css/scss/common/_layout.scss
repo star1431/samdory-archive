@@ -1,0 +1,18 @@
+@charset "UTF-8";
+.view-inner {
+    @include container;
+    &[ui-size="normal"] {
+        max-width: 1280px;
+    }
+}
+.wrap {
+    width: 100%;
+    .header {
+        .view-inner {
+            @include flex($a: center, $wrap: wrap);
+            height: 6rem;
+        }
+    }
+    .main {}
+    .footer {}
+}

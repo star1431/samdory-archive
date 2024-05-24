@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+// 공통
+@import './common/_font';               // 폰트 지정
+@import './common/_reset';              // 리셋
+@import './common/_variable';           // 변수
+@import './common/_mixin';              // 믹스인
+@import './common/_common';             // 공통
+@import './common/_layout';             // 레이아웃
+
+// 컴포넌트
+@import './components/_button';
+@import './components/_input';
+
+// 템플릿
+@import './templates/_box';
+
+
+// 화면
+@import './pages/_home';
+@import './pages/_companyInfo';
+@import './pages/_training';
+@import './pages/_workRules';
+@import './pages/_resources';

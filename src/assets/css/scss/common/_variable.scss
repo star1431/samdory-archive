@@ -1,0 +1,36 @@
+@charset "UTF-8";
+/* 디자인 제공 컬러만 root로 관리 */
+:root {
+    // color - 메인
+    --primary      : #0046FF;
+    --primary-900  : #0047E7;
+    --primary-800  : #005DF9;
+    --primary-700  : #2680FF;
+    --primary-600  : #4A86FF;
+    --primary-500  : #689EFF;
+    --primary-400  : #9DC1FF;
+    --primary-300  : #CDE0FF;
+    --primary-200  : #E5EEFF;
+    --primary-100  : #EFF5FF;
+    // color - 검정
+    --gray-900 : #121315;
+    --gray-800 : #242A34;
+    --gray-700 : #373E4D;
+    --gray-600 : #576072;
+    --gray-500 : #8B95A9;
+    --gray-400 : #C7CEDC;
+    --gray-300 : #DCE2ED;
+    --gray-200 : #E7EDF6;
+    --gray-100 : #F3F6FB;
+}
+
+// 화면좌우 여백
+$containerPadding: 2rem;
+
+// 해상도
+$mobile: 359px;
+$tablet: 768px;
+$desktop: 1200px;
+
+// 텍스트 - 컬러
+$font-color-default: var(--gray-900);

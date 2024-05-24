@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+// 해상도 ================================================
+@mixin mobile {
+    @media (min-width: 280px) and (max-width: $mobile) {@content;}
+}
+@mixin tablet {
+    @media (max-width: $tablet) {@content;}
+}
+@mixin desktop {
+    @media (min-width: $desktop) {@content;}
+}
+
+@mixin container {
+    width: 100%;
+    padding-left: $containerPadding;
+    padding-right: $containerPadding;
+}
+
+// flex 정렬 ================================================
+@mixin flex($dir: null, $a: null, $j: null, $wrap: null, $gap: null) {
+    display: flex;
+    @if($dir != null) {flex-direction: $dir;}
+    @if($a != null) {align-items: $a;}
+    @if($j != null) {justify-content: $j;}
+    @if($wrap != null) {flex-wrap: $wrap;}
+    @if($gap != null) {gap: $gap;}
+}
+
+// 숨김텍스트 ================================================
+@mixin ally-hidden {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    clip-path: polygon(0 0, 0 0, 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+// 말줄임 ================================================
+@mixin ellipsis($lines: 1) {
+    @if ($lines==1) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    } @else {
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: $lines;
+        -webkit-box-orient: vertical;
+    }
+}
+
+// 커스텀폰트 ================================================
+@mixin font($s: null, $lh: null, $color: null, $wb: null) {
+    @if($s != null) {font-size: calc($s/10) + rem;}
+    @if($lh != null) {line-height: calc($s/10) + rem;}
+    @if($color != null) {color: $color;}
+    @if($wb != null) {word-break: $wb;}
+}
+
+// 지정폰트 ================================================
+@mixin font-12($color: null) { @include font($s: 12, $lh: 20); @if($color != null) {color:$color} @else {color: $font-color-default} }
+@mixin font-13($color: null) { @include font($s: 13, $lh: 20); @if($color != null) {color:$color} @else {color: $font-color-default} }
+@mixin font-14($color: null) { @include font($s: 14, $lh: 20); @if($color != null) {color:$color} @else {color: $font-color-default} }
+@mixin font-16($color: null) { @include font($s: 16, $lh: 24); @if($color != null) {color:$color} @else {color: $font-color-default} }
+@mixin font-18($color: null) { @include font($s: 18, $lh: 26); @if($color != null) {color:$color} @else {color: $font-color-default} }
+@mixin font-20($color: null) { @include font($s: 20, $lh: 28); @if($color != null) {color:$color} @else {color: $font-color-default} }
+@mixin font-20($color: null) { @include font($s: 20, $lh: 28); @if($color != null) {color:$color} @else {color: $font-color-default} }
+@mixin font-22($color: null) { @include font($s: 22, $lh: 32); @if($color != null) {color:$color} @else {color: $font-color-default} }
+@mixin font-24($color: null) { @include font($s: 24, $lh: 34); @if($color != null) {color:$color} @else {color: $font-color-default} }
+@mixin font-26($color: null) { @include font($s: 26, $lh: 36); @if($color != null) {color:$color} @else {color: $font-color-default} }
+@mixin font-28($color: null) { @include font($s: 28, $lh: 40); @if($color != null) {color:$color} @else {color: $font-color-default} }
