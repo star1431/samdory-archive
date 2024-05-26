@@ -22,21 +22,21 @@
     @include flex($dir: row, $a: flex-end, $j: flex-end);
 }
 
-.text-xs {
+.fs-xs {
     @include font-12;
 }
-.text-s {
+.fs-s {
     @include font-14;
 }
-.text-m {
+.fs-m {
     @include font-16;
 }
-.text-l {
+.fs-l {
     @include font-18;
 }
-.text-xl {
+.fs-xl {
     @include font-20;
 }
-.text-xxl {
+.fs-xxl {
     @include font-24;
 }

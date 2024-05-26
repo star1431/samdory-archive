@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 // 해상도 ================================================
+// $mobile: 359px; $tablet: 768px; $desktop: 1200px;
 @mixin mobile {
     @media (min-width: 280px) and (max-width: $mobile) {@content;}
 }

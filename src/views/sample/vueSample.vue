@@ -1,6 +1,6 @@
+<!-- 복붙용 vue샘플 -->
 <template>
-    <div class="sample">
-        <!-- 복붙용 vue샘플 -->
+    <div :class="['container', pageClass]">
     </div>
 </template>
 
@@ -20,6 +20,7 @@ export default {
     },
     data(){
         return{
+            pageClass: '페이지명'
         }
     },
     mounted(){
@@ -31,6 +32,8 @@ export default {
 <!--
 <script setup>
 import { ref, reactive, computed, onMounted, watch } from 'vue'
+
+const pageClass = ref(['페이지명'])
 
 computed(() => {
 

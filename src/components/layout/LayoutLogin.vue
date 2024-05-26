@@ -1,5 +1,5 @@
 <template>
-    <div class="wrap" ui-layout="layoutDefault">
+    <div class="wrap" ui-layout="layoutLogin">
         <Header/>
         <main class="main">
             <RouterView name="content" />
