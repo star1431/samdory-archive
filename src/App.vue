@@ -1,4 +1,11 @@
 <template>
+        <component :is="layoutComponent">
+        <router-view v-slot="{ Component, route }">
+            <component :is="childLayoutComponent(route)">
+                <component :is="Component" />
+            </component>
+        </router-view>
+    </component>
     <component :is="layoutComponent">
         <router-view />
     </component>
@@ -7,7 +14,7 @@
 <script setup>
 import { ref, reactive, computed, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import LayoutDefault from '@/components/layout/LayoutDefault.vue'
+import LayoutDefault from '@/components/layout/Layout1.vue'
 import LayoutLogin from '@/components/layout/LayoutLogin.vue'
 
 // 컴포넌트 목록 정의
@@ -18,9 +25,13 @@ const layoutComponents = {
 // Vue Router의 현재 경로 정보를 가져옴
 const route = useRoute()
 
-// route의 meta에서 layout 정보를 가져오는 computed 속성 정의
+// 현재 라우트의 메타에서 레이아웃 정보를 가져오는 computed 속성 정의
 const layoutComponent = computed(() => {
-    const layoutName = route.meta.layout || 'LayoutDefault'
-    return layoutComponents[layoutName] || 'LayoutDefault'
+    const matched = route.matched.find(m => m.meta && m.meta.layout)
+    if (matched && matched.meta.layout) {
+        const layoutName = matched.meta.layout
+        return layoutComponents[layoutName] || 'LayoutDefault'
+    }
+    return 'LayoutDefault'
 })
 </script>
