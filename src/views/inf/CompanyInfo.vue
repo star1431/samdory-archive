@@ -1,7 +1,7 @@
 <template>
     <div :class="['container', pageClass]">
         <h1>CompanyInfo</h1>
-        <p>비주얼 메인 페이지</p>
+        <p>안내사항 페이지</p>
     </div>
 </template>
 

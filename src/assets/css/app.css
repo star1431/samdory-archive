@@ -160,6 +160,11 @@ select:-webkit-autofill:active {
   display: flex;
   align-items: center;
 }
+.flex-row-8 {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
 
 .flex-column {
   display: flex;

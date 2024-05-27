@@ -8,6 +8,7 @@
 /* flex || @mixin flex($dir, $a, $j, $wrap, $gap) */
 .flex-row {
     @include flex($a: center);
+    &-8{@include flex($a: center,$gap:0.8rem);}
 }
 .flex-column {
     @include flex($dir: column, $a: center);

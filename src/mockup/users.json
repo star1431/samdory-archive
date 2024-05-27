@@ -3,42 +3,42 @@
         "username": "admin",
         "password": "samdory123!",
         "role": "employee",
-        "exp": "관리자"
+        "nick": "관리자"
     },
     {
         "username": "samdory",
         "password": "samdory!1",
         "role": "employee",
-        "exp": "직원"
+        "nick": "퍼블리셔"
     },
     {
         "username": "입사환영",
         "password": "samdory",
         "role": "employee",
-        "exp": "신규입사자"
+        "nick": "입사자"
     },
     {
         "username": "star1431",
         "password": "1",
         "role": "employee",
-        "exp": "테스트(직원)"
+        "nick": "테스트(직원)"
     },
     {
         "username": "testfree",
         "password": "1",
         "role": "freelancer",
-        "exp": "테스트(프리)"
+        "nick": "테스트(프리)"
     },
     {
         "username": "파트너",
         "password": "123",
         "role": "freelancer",
-        "exp": "파트너"
+        "nick": "파트너"
     },
     {
         "username": "partner",
         "password": "123",
         "role": "freelancer",
-        "exp": "파트너"
+        "nick": "파트너"
     }
 ]

@@ -1,14 +1,14 @@
 <template>
     <div :class="['container', pageClass]">
-        <h1>WorkRules</h1>
-        <p>비주얼 메인 페이지</p>
+        <h1>TrainingDesign</h1>
+        <p>디자인 교육 페이지</p>
     </div>
 </template>
 
 <script setup>
 import { ref, reactive, computed, onMounted, watch } from 'vue'
 
-const pageClass = ref(['WorkRules'])
+const pageClass = ref(['TrainingDesign'])
 
 computed(() => {
 
@@ -20,6 +20,5 @@ watch(() => {
 
 })
 </script>
-
 <style lang="scss" scoped>
 </style>
