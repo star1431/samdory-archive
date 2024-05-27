@@ -38,5 +38,4 @@ let routes = [
         ]
     },
 ]
-console.log('CompanyFile:', routes)
 export default routes

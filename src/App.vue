@@ -1,11 +1,4 @@
 <template>
-        <component :is="layoutComponent">
-        <router-view v-slot="{ Component, route }">
-            <component :is="childLayoutComponent(route)">
-                <component :is="Component" />
-            </component>
-        </router-view>
-    </component>
     <component :is="layoutComponent">
         <router-view />
     </component>
@@ -14,7 +7,7 @@
 <script setup>
 import { ref, reactive, computed, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import LayoutDefault from '@/components/layout/Layout1.vue'
+import LayoutDefault from '@/components/layout/LayoutDefault.vue'
 import LayoutLogin from '@/components/layout/LayoutLogin.vue'
 
 // 컴포넌트 목록 정의

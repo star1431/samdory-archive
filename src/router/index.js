@@ -39,8 +39,8 @@ router.beforeEach(async (to, from, next) => {
     console.log('유저:', store.getters.user) // 유저
     if(store.getters.user) console.log('권한:', store.getters.user.role) // 권한
 
-    console.log('Navigating to:', to)
-    console.log('Components:', to.matched.map(record => record.components))
+    // console.log('Navigating to:', to)
+    // console.log('Components:', to.matched)
 
     // if (to.matched.some(record => record.meta.requiresAuth)) {
     //     if (!store.getters.isAuthenticated) {
