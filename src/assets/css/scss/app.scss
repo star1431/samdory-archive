@@ -9,15 +9,16 @@
 @import './common/_layout';             // 레이아웃
 
 // 컴포넌트
-@import './components/_button';
-@import './components/_input';
+@import './components/_ui-button';
+@import './components/_ui-checkbox';
+@import './components/_ui-field';
 
 // 템플릿
 @import './templates/_box';
 
 
 // 화면
-@import './pages/_home';
+@import './pages/_com';
 @import './pages/_companyInfo';
 @import './pages/_training';
 @import './pages/_workRules';

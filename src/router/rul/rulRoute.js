@@ -4,7 +4,7 @@ let routes = [
 		redirect: '/rules/default',
 		meta: {
             title: '작업 가이드',
-            roles: ['employee', 'freelancer']
+            // roles: ['employee', 'freelancer']
 		},
 		children: [
             {
@@ -15,7 +15,7 @@ let routes = [
                     layout: 'LayoutDefault',
                     side: true,
                     requiresAuth: true,
-                    roles: ['employee', 'freelancer']
+                    // roles: ['employee', 'freelancer']
                 },
                 components: Object.assign({
                     content: () => import(/* webpackChunkName: "rul" */ '@/views/rul/RuleDefault.vue'),
@@ -29,7 +29,7 @@ let routes = [
                     layout: 'LayoutDefault',
                     side: true,
                     requiresAuth: true,
-                    roles: ['employee', 'freelancer']
+                    // roles: ['employee', 'freelancer']
                 },
                 components: Object.assign({
                     content: () => import(/* webpackChunkName: "rul" */ '@/views/rul/RuleCode.vue'),
@@ -43,7 +43,7 @@ let routes = [
                     layout: 'LayoutDefault',
                     side: true,
                     requiresAuth: true,
-                    roles: ['employee', 'freelancer']
+                    // roles: ['employee', 'freelancer']
                 },
                 components: Object.assign({
                     content: () => import(/* webpackChunkName: "rul" */ '@/views/rul/RuleName.vue'),

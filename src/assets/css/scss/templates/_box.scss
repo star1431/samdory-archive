@@ -1,1 +1,28 @@
 @charset "UTF-8";
+
+.form-default {
+    .form-field {
+        @include flex($dir:column, $wrap:wrap, $gap: 1.6rem);
+        &-item {
+            > label {
+                display: flex;
+                @include font-16($color: var(--gray-800));
+                font-weight: 600;
+                margin-bottom: 0.8rem;
+            }
+        }
+    }
+    .field-bottom-slot {
+        @include flex($dir: column, $gap: 1.2rem);
+        margin-top: 1.2rem;
+        .error-text {
+            margin-top: -0.4rem;
+        }
+    }
+    .field-footer {
+        margin-top: 2.4rem;
+        .error-text {
+            margin-top: 0;
+        }
+    }
+}

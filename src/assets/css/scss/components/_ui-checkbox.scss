@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+.ui-checkbox {
+    position: relative;
+    display: inline-block;
+    label {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        input[type="checkbox"] {
+            @include pos($pos: absolute, $tp: 0, $lt: 0, $index: 1);
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: transparent;
+            appearance: none;
+            &:checked ~ .check-inner {
+                    color: var(--gray-800);
+                &::before {
+                    @include xeiconBefore($icon: '\e92b', $color: var(--primary-800));
+                }
+            }
+        }
+        .check-inner {
+            @include flex($gap: 0.4rem);
+            @include font-16($color: var(--gray-600));
+            transition: all 0.2s;
+            z-index: 1;
+            &::before {
+                @include xeiconBefore($icon: '\e92c', $s: 24, $color: var(--gray-600));
+                display: block;
+                @include pos($pos: relative, $tp: 0, $lt: 0);
+                margin-top: -0.1rem;
+                transition: all 0.2s;
+                flex-shrink: 1;
+            }
+        }
+    }
+}

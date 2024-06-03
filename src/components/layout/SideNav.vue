@@ -1,24 +1,26 @@
 <template>
-    <header class="header">
-        <div class="view-inner" ui-size="normal">
-            <h1 class="logo">
-                <span class="ally-hidden">사이트 로고</span>
-                <img src="@/assets/images/common/img_logo_samdory.png" alt="SAMDORY LOGO">
-            </h1>
+    <nav class="side-nav">
+        <div class="user-info-box">
+            <div class="user-profile">
+                <img class="user-img" alt="유저 사진"/>
+                <span class="nick-name">닉네임</span>
+            </div>
+            <div class="slot-bottom">
+                <button type="button icon-only sm">
+                    
+                </button>
+            </div>
         </div>
-    </header>
+    </nav>
 </template>
 
 <script setup>
-import { ref, reactive, computed, onMounted, watch } from 'vue'
+import { ref, reactive, computed, onMounted } from 'vue'
 
 computed(() => {
 
 })
 onMounted(() => {
-
-})
-watch(() => {
 
 })
 </script>

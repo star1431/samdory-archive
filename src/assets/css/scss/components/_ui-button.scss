@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+.ui-button {
+    &.sq {
+        &-primary {
+            width: 100%;
+            height: 4.8rem;
+            border-radius: 8px;
+            @include font($s:20, $color:#fff, $fw:900);
+            background-color: var(--primary-800);
+            transition: all 0.2s;
+            &:hover:not(:active) {
+                color:#fff;
+                background-color: rgba(0, 93, 249, 0.9);
+            }
+            &:active {
+                background-color: var(--primary-900);
+            }
+        }
+    }
+
+    &.icon-only {
+        @include pos;
+        @include flex($a: center, $j: center);
+        width: auto;
+        height: auto;
+        transition: all 0.2s;
+        &::before {
+            display: block;
+        }
+
+        &.xs::before {@include xeiconBefore($s:18)};
+        &.sm::before {@include xeiconBefore($s:20)};
+        &.md::before {@include xeiconBefore($s:24)};
+        &.lg::before {@include xeiconBefore($s:28)};
+        &.xl::before {@include xeiconBefore($s:32)};
+
+        &.menu {
+            width: 3.6rem;
+            height: 3.6rem;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0);
+            &:hover {
+                background-color: rgba(255,255,255,0.2);
+            }
+            &:active {
+                background-color: rgba(255,255,255,0.3);
+            }
+            &::before {
+                @include xeiconBefore($icon: '\e91c', $s: 24, $color: #fff);
+            }
+        }
+    }
+}

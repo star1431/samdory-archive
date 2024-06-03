@@ -2,7 +2,9 @@ import { createApp } from 'vue'
 import App from '@/App.vue'
 import router from '@/router/index.js'
 // css,js
+import '@/assets/css/lib/xeicon.css'
 import '@/assets/css/app.css'
+import 'overlayscrollbars/overlayscrollbars.css'
 // import CommonJs from '@/assets/js/common.js'
 import store from '@/store/store'
 

@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+.ui-field {
+    width: 100%;
+    height: auto;
+    .input-item {
+        display: flex;
+        flex: 1;
+        gap:0.8rem;
+        width: 100%;
+        height: 48px;
+        padding: 0 1.6rem;
+        border: 1px solid var(--gray-400);
+        border-radius: 6px;
+        background-color: #fff;
+        transition: .15s opacity cubic-bezier(.4,0,.2,1);
+        &.is-focus {
+            border-color: var(--primary-800);
+        }
+        &.is-disabled {
+            border-color: var(--gray-scale-300);
+            background-color: var(--gray-scale-100);
+            .ui-input {
+                color: var(--gray-scale-500);
+            }
+        }
+        &.is-readonly {
+            border-color: var(--gray-scale-300);
+            background-color: var(--gray-scale-100);
+            .ui-input {
+                color: var(--gray-scale-600);
+            }
+        }
+        &.is-error {
+            &:not(.is-focus) {
+                border-color: var(--error);
+            }
+        }
+        button[class*="btn"] {
+            position: relative;
+        }
+    }
+    .ui-input {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border:0;
+        @include font($s:16, $lh:24, $color: var(--gray-800));
+        background-color: transparent;
+        &::placeholder {
+            color: var(--gray-500) !important;
+        }
+    }
+}

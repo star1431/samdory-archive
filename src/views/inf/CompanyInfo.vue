@@ -6,17 +6,14 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, onMounted, watch } from 'vue'
+import { ref, reactive, computed, onMounted } from 'vue'
 
-const pageClass = ref(['CompanyInfo'])
+const pageClass = ref(['inf', 'CompanyInfo'])
 
 computed(() => {
 
 })
 onMounted(() => {
-
-})
-watch(() => {
 
 })
 </script>

@@ -1,14 +1,3 @@
-
-/* 로컬용 */
-// import { createRouter, createWebHistory } from 'vue-router'
-// const router = createRouter({
-// 	history: createWebHistory(),
-// 	scrollBehavior() {
-// 		return { top: 0 }
-// 	},
-// 	routes,
-// })
-
 /* 서버용 */
 import { createRouter, createWebHashHistory } from 'vue-router'
 /* 페이지 */
@@ -39,27 +28,26 @@ router.beforeEach(async (to, from, next) => {
     console.log('유저:', store.getters.user) // 유저
     if(store.getters.user) console.log('권한:', store.getters.user.role) // 권한
 
-    // console.log('Navigating to:', to)
-    // console.log('Components:', to.matched)
+    console.log('Navigating to:', to)
+    console.log('Components:', to.matched)
 
-    // if (to.matched.some(record => record.meta.requiresAuth)) {
-    //     if (!store.getters.isAuthenticated) {
-    //         console.log('[메인이동] : 어떤url로 들어오든 로그인 안했음')
-    //         return next({ name: 'Home' })
-    //     } else {
-    //         const userRole = store.getters.user ? store.getters.user.role : null // 사용자 역할 가져오기
-    //         const requiredRoles = to.meta.roles
-    //         if (requiredRoles && (!userRole || !requiredRoles.includes(userRole))) {
-    //             console.log('[메인이동] : 로그인했지만 접근권한 없음')
-    //             return next({ name: 'Home' })
-    //         } else {
-    //             return next()
-    //         }
-    //     }
-    // } else {
-    //     return next()
-    // }
-    next()
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+        if (!store.getters.isAuthenticated) {
+            console.log('[로그인이동] : 어떤url로 들어오든 로그인 안했음')
+            return next({ name: 'Login' })
+        } else {
+            const userRole = store.getters.user ? store.getters.user.role : null // 사용자 역할 가져오기
+            const requiredRoles = to.meta.roles
+            if (requiredRoles && (!userRole || !requiredRoles.includes(userRole))) {
+                console.log('[메인이동] : 로그인했지만 접근권한 없음')
+                return next({ name: 'Home' })
+            } else {
+                return next()
+            }
+        }
+    } else {
+        return next()
+    }
 })
 
 export default router

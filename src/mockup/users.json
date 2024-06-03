@@ -1,8 +1,8 @@
 [
     {
         "username": "admin",
-        "password": "samdory123!",
-        "role": "employee",
+        "password": "samdory123!456!",
+        "role": ["admin","employee"],
         "nick": "관리자"
     },
     {
@@ -12,10 +12,10 @@
         "nick": "퍼블리셔"
     },
     {
-        "username": "입사환영",
+        "username": "삼도리신입",
         "password": "samdory",
         "role": "employee",
-        "nick": "입사자"
+        "nick": "신입s"
     },
     {
         "username": "star1431",

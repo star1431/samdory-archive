@@ -1,26 +1,26 @@
 <template>
     <div class="wrap" ui-layout="layoutLogin">
-        <Header/>
-        <main class="main">
-            <RouterView name="content" />
-        </main>
-        <Footer/>
+        <OverlayScrollbarsComponent 
+            :options="{scrollbars:{autoHide:'scroll'}}"
+            defer>
+            <main class="main">
+                <RouterView name="content" />
+            </main>
+        </OverlayScrollbarsComponent>
     </div>
 </template>
 
 <script setup>
-import { ref, reactive, computed, onMounted, watch } from 'vue'
+import { ref, reactive, computed, onMounted } from 'vue'
 import { RouterView, useRouter } from 'vue-router'
-import Header from '@/components/layout/Header.vue'
-import Footer from '@/components/layout/Footer.vue'
+// import Header from '@/components/layout/Header.vue'
+// import Footer from '@/components/layout/Footer.vue'
+import { OverlayScrollbarsComponent } from "overlayscrollbars-vue"
 
 computed(() => {
 
 })
 onMounted(() => {
-
-})
-watch(() => {
 
 })
 </script>

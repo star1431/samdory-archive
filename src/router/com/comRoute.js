@@ -6,7 +6,7 @@ let routes = [
             title: '홈',
             layout: 'LayoutDefault',
             side: false,
-            requiresAuth: false
+            requiresAuth: true
         },
         components: Object.assign({
             content: () => import(/* webpackChunkName: "com" */ '@/views/com/Home.vue'),

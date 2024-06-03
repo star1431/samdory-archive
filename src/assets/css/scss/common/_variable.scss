@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* 디자인 제공 컬러만 root로 관리 */
+/* 컬러만 root로 관리 */
 :root {
     // color - 메인
     --primary      : #0046FF;
@@ -22,6 +22,8 @@
     --gray-300 : #DCE2ED;
     --gray-200 : #E7EDF6;
     --gray-100 : #F3F6FB;
+    // error
+    --error    : #D61111;
 }
 
 // 화면좌우 여백

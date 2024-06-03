@@ -41,3 +41,9 @@
 .fs-xxl {
     @include font-24;
 }
+
+.error-text {
+    display: block;
+    margin-top: 0.8rem;
+    @include font-14($color: var(--error));
+}

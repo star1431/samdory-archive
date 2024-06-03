@@ -12,10 +12,21 @@
     @media (min-width: $desktop) {@content;}
 }
 
+// 공통여백 컨테이너 ================================================
 @mixin container {
     width: 100%;
     padding-left: $containerPadding;
     padding-right: $containerPadding;
+}
+
+// 포지션 ================================================
+@mixin pos($pos: relative, $tp: null, $bt: null, $lt: null, $rt: null, $index: null) {
+    position: $pos;
+    @if($tp != null) {top: $tp;}
+    @if($bt != null) {bottom: $bt;}
+    @if($lt != null) {left: $lt;}
+    @if($rt != null) {right: $rt;}
+    @if($index != null) {z-index: $index;}
 }
 
 // flex 정렬 ================================================
@@ -55,10 +66,25 @@
     }
 }
 
+// 아이콘 ================================================
+@mixin xeiconBefore($icon: '', $s: null, $fw: 200, $color: var(--gray-800)) {
+    content: $icon;
+    @if($s != null) {
+        width: calc($s/10) + rem;
+        height: calc($s/10) + rem;
+        font-size: calc($s/10) + rem;
+    }
+    color: $color;
+    font-family: 'xeicon';
+    font-weight: $fw;
+    line-height: 1;
+}
+
 // 커스텀폰트 ================================================
-@mixin font($s: null, $lh: null, $color: null, $wb: null) {
+@mixin font($s: null, $lh: null, $color: null, $wb: null, $fw: null) {
     @if($s != null) {font-size: calc($s/10) + rem;}
-    @if($lh != null) {line-height: calc($s/10) + rem;}
+    @if($lh != null) {line-height: calc($lh/10) + rem;}
+    @if($fw != null) {font-weight: $fw;}
     @if($color != null) {color: $color;}
     @if($wb != null) {word-break: $wb;}
 }

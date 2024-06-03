@@ -6,9 +6,9 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, onMounted, watch } from 'vue'
+import { ref, reactive, computed, onMounted } from 'vue'
 
-const pageClass = ref(['Resources'])
+const pageClass = ref(['res', 'Resources'])
 
 // const logout = () => {
 //     store.dispatch('logout')
@@ -19,9 +19,6 @@ computed(() => {
 
 })
 onMounted(() => {
-
-})
-watch(() => {
 
 })
 </script>

@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import { fetchUsers } from '@/api/userApi.js'
+import createPersistedState from 'vuex-persistedstate'
 // import axios from 'axios'
 
 export default createStore({
@@ -80,5 +81,7 @@ export default createStore({
     getters: {
         isAuthenticated: state => state.isAuthenticated,
         user: state => state.user
-    }
+    },
+    plugins: [createPersistedState()], // 새로고침 유지 플러그인
+
 })

@@ -6,7 +6,7 @@ let routes = [
             title: '자료모음',
             layout: 'LayoutDefault',
             side: false,
-            requiresAuth: false
+            requiresAuth: true
         },
         components: Object.assign({
             content: () => import(/* webpackChunkName: "res" */ '@/views/res/Resources.vue'),

@@ -1,10 +1,15 @@
 <template>
+    
     <div class="wrap" ui-layout="layoutDefault">
         <Header/>
-        <main class="main">
-            <router-view name="content" />
-        </main>
-        <Footer/>
+        <OverlayScrollbarsComponent 
+            :options="{scrollbars:{autoHide:'scroll'}}"
+            defer>
+            <main class="main">
+                <router-view name="content" />
+            </main>
+            <Footer/>
+        </OverlayScrollbarsComponent>
     </div>
 </template>
 
@@ -13,6 +18,7 @@ import { ref, reactive, computed, onMounted, watch } from 'vue'
 import { RouterView, useRoute } from 'vue-router'
 import Header from '@/components/layout/Header.vue'
 import Footer from '@/components/layout/Footer.vue'
+import { OverlayScrollbarsComponent } from "overlayscrollbars-vue"
 const router = useRoute()
 
 
