@@ -19,12 +19,13 @@
         }
     }
 
-    &.icon-only {
+    &.icon {
         @include pos;
-        @include flex($a: center, $j: center);
+        @include flex($a: center, $j: center, $gap: 0.4rem);
         width: auto;
         height: auto;
         transition: all 0.2s;
+        &::after,
         &::before {
             display: block;
         }
@@ -34,7 +35,10 @@
         &.md::before {@include xeiconBefore($s:24)};
         &.lg::before {@include xeiconBefore($s:28)};
         &.xl::before {@include xeiconBefore($s:32)};
-
+        .text {
+            @include font($s:14, $lh: 20, $fw:400);
+        }
+        
         &.menu {
             width: 3.6rem;
             height: 3.6rem;
@@ -46,8 +50,16 @@
             &:active {
                 background-color: rgba(255,255,255,0.3);
             }
-            &::before {
+            &.icon-right::after,
+            &:not(.icon-right)::before {
                 @include xeiconBefore($icon: '\e91c', $s: 24, $color: #fff);
+            }
+        }
+        &.logout {
+            .text {color: #fff;}
+            &.icon-right:after,
+            &:not(.icon-right)::before {
+                @include xeiconBefore($icon: '\e94c', $s: 18, $color: #fff);
             }
         }
     }

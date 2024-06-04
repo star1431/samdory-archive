@@ -9,7 +9,7 @@
             </h1>
             <div class="inner-content flex-row-8">
                 <div class="slot-left">
-                    <button type="button" class="ui-button icon-only menu">
+                    <button type="button" class="ui-button icon menu">
                         <span class="ally-hidden">메뉴</span>
                     </button>
                 </div>

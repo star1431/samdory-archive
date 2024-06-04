@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+
+.ui-accordion {
+    width:100%;
+    overflow:hidden;
+    .accordion-header {
+        display:flex;
+        align-items:center;
+        width:100%;
+        height: 4rem;
+        .toogle-button {
+            width: 100%;
+        }
+    }
+    .accordion-body {
+        max-height: 0;
+        transition: max-height 0.2s;
+        > .inner {}
+    }
+}

@@ -39,7 +39,7 @@ export default createStore({
                 const user = state.users.find(u => u.username === credentials.username && u.password === credentials.password)
 
                 if (user) {
-                    commit('setAuth', { isAuthenticated: true, user: { name: user.username, role: user.role } })
+                    commit('setAuth', { isAuthenticated: true, user: { name: user.username, nick: user.nick, role: user.role } })
                     resolve()
                 } else {
                     reject('잘못된 아이디 또는 비밀번호 입니다.')
@@ -82,6 +82,10 @@ export default createStore({
         isAuthenticated: state => state.isAuthenticated,
         user: state => state.user
     },
-    plugins: [createPersistedState()], // 새로고침 유지 플러그인
+    // 새로고침 유지 플러그인
+    // info : Vuex 상태를 로컬 스토리지에 저장하고, 이를 통해 페이지를 새로고침하거나 브라우저를 닫았다가 다시 열 때도 상태를 유지
+    plugins: [createPersistedState({
+        storage: window.sessionStorage, // 세션 스토리지 사용 (창을 아예 끌때 상태 초기화)
+    })],
 
 })

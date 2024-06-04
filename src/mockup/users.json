@@ -2,7 +2,7 @@
     {
         "username": "admin",
         "password": "samdory123!456!",
-        "role": ["admin","employee"],
+        "role": "admin",
         "nick": "관리자"
     },
     {
@@ -15,30 +15,30 @@
         "username": "삼도리신입",
         "password": "samdory",
         "role": "employee",
-        "nick": "신입s"
+        "nick": "삼도리 신입s"
     },
     {
         "username": "star1431",
         "password": "1",
         "role": "employee",
-        "nick": "테스트(직원)"
+        "nick": "테스트 (직원)"
     },
     {
         "username": "testfree",
         "password": "1",
         "role": "freelancer",
-        "nick": "테스트(프리)"
+        "nick": "테스트 (프리)"
     },
     {
         "username": "파트너",
         "password": "123",
         "role": "freelancer",
-        "nick": "파트너"
+        "nick": "삼도리 파트너"
     },
     {
         "username": "partner",
         "password": "123",
         "role": "freelancer",
-        "nick": "파트너"
+        "nick": "삼도리 파트너"
     }
 ]

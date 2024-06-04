@@ -95,6 +95,12 @@ const login = async () => {
         } else {
             localStorage.removeItem('savedId')
         }
+        if(document.querySelector('#app').classList.contains('logout-animation')) {
+            document.querySelector('#app').classList.remove('logout-animation')
+            document.querySelector('#app').classList.add('login-animation')
+        } else {
+            document.querySelector('#app').classList.add('login-animation')
+        }
         router.push({ name: 'Home' })
     } catch (err) {
         glError.value = err

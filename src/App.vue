@@ -1,7 +1,9 @@
 <template>
+    <Transition name="slide-fade">
         <component :is="layoutComponent">
             <router-view />
         </component>
+    </Transition>
 </template>
 
 <script setup>
@@ -28,3 +30,5 @@ const layoutComponent = computed(() => {
     return 'LayoutDefault'
 })
 </script>
+<style scoped>
+</style>
