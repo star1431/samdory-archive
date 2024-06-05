@@ -35,5 +35,5 @@ watch(() => router.meta, (newMeta) => {
 })
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 </style>

@@ -9,13 +9,64 @@
         align-items:center;
         width:100%;
         height: 4rem;
-        .toogle-button {
+        .toggle-button {
+            @include flex($a:center, $gap:0.6rem);
             width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            padding: 0 1.2rem;
+            &:after {
+                transition: transform 0.2s;
+                margin-left: auto;
+                margin-right: -0.2rem;
+                @include xeiconBefore($icon:'\e93f',$s: 18);
+            }
         }
     }
     .accordion-body {
-        max-height: 0;
         transition: max-height 0.2s;
         > .inner {}
+    }
+    &.is-active {
+        .toggle-button::after {
+            transform: rotate(90deg);
+        }
+        
+    }
+    &.menu {
+        &.is-active {
+            .accordion-header .toggle-button {
+                background-color: var(--primary-700) !important;
+                color: #fff !important;
+                &::after,
+                &::before {
+                    color: #fff !important;
+                }
+            }
+        }
+        &:not(.is-active) {
+            .accordion-header .toggle-button:hover {
+                background-color: #F5FAFC;
+                color: var(--primary-700);
+                &::after,
+                &::before {
+                    color: var(--primary-700);
+                }
+            }
+        }
+        .accordion-header {
+            height: 4.8rem;
+            .toggle-button {
+                transition: all 0.2s;
+                @include font-14;
+                .title {
+                    font-weight: 600;
+                    @include ellipsis;
+                }
+            }
+        }
+        .accordion-body > .inner {
+            padding-top: 0.8rem;
+        }
     }
 }

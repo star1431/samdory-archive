@@ -81,7 +81,12 @@ select:-webkit-autofill:focus,
 select:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 1000px white inset !important;
 }
-
+input[type="checkbox"],
+input[type="radio"] {
+    border: none;
+    background-color: transparent;
+    appearance: none;
+}
 // :root {
 //     --code-line-height: 1.4;
 //     --code-font-size: 90%;

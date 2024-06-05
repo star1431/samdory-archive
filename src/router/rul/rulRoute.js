@@ -39,7 +39,7 @@ let routes = [
                 path: 'naming',
                 name: 'RuleName',
                 meta: {
-                    title: '코드 규칙',
+                    title: '네임 규칙',
                     layout: 'LayoutDefault',
                     side: true,
                     requiresAuth: true,

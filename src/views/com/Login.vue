@@ -9,7 +9,7 @@
         <div class="login-area">
             <div class="inner">
                 <div class="text-box">
-                    <h1 class="ui-logo" v-if="true">
+                    <h1 class="ui-logo beta-label">
                         <img class="logo" src="@/assets/images/common/img_logo_samdory_black.png" alt="SD">
                         <span>Archive</span>
                     </h1>
@@ -123,5 +123,5 @@ onMounted(() => {
 })
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 </style>

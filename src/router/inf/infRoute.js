@@ -4,7 +4,7 @@ let routes = [
         redirect: '/company/info',
         meta: {
             title: '사내정보',
-            roles: ['employee']
+            roles: ['admin', 'employee']
         },
         children: [
             {
@@ -15,7 +15,7 @@ let routes = [
                     layout: 'LayoutDefault',
                     side: true,
                     requiresAuth: true,
-                    roles: ['employee']
+                    roles: ['admin', 'employee']
                 },
                 components: Object.assign({
                     content: () => import(/* webpackChunkName: "inf" */ '@/views/inf/CompanyInfo.vue'),
@@ -29,7 +29,7 @@ let routes = [
                     layout: 'LayoutDefault',
                     side: true,
                     requiresAuth: true,
-                    roles: ['employee']
+                    roles: ['admin', 'employee']
                 },
                 components: Object.assign({
                     content: () => import(/* webpackChunkName: "inf" */ '@/views/inf/CompanyFile.vue'),

@@ -3,7 +3,7 @@ let routes = [
         path: '/',
         name: 'Home',
         meta: {
-            title: '홈',
+            title: '홈 화면',
             layout: 'LayoutDefault',
             side: false,
             requiresAuth: true

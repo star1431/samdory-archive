@@ -43,6 +43,54 @@
             }
         }
     }
+    &.lnb-close {
+        --navPadding : 1.2rem;
+        --navWidth : 7.2rem;
+        .header {
+            .ui-logo {
+                width: 6rem;
+                transform: translateX(-0.7rem);
+                &::after, span {
+                    opacity: 0;
+                }
+            }
+        }
+        .side-nav {
+            .nick-name,
+            .user-id {
+                opacity: 0;
+            }
+            .text-box {
+                width: 0;
+            }
+            .slot-bottom {
+                justify-content: center;
+            }
+            .logout {
+                .text {
+                    transition: opacity 0.2s;
+                    opacity: 0;
+                    @include ally-hidden;
+                }
+            }
+            .accordion-header .toggle-button::before,
+            .menu-list-box a::before {
+                transform: translateX(0.2rem);
+            }
+            .menu-list-box .list-2depth a::before {
+                transform: translateX(0);
+            }
+            .accordion-header .toggle-button .title,
+            .menu-list-box a .text {
+                @include ally-hidden;
+            }
+            .accordion-header .toggle-button:after {
+                position: absolute;
+                opacity: 0;
+            }
+
+        }
+    }
 }
 .wrap {
     width: 100%;
@@ -53,6 +101,7 @@
     > .header + [data-overlayscrollbars] {
         height: calc(100% - 6rem);
     }
+
     .header {
         @include pos($pos: sticky, $tp: 0, $lt: 0);
         @include container;
@@ -68,84 +117,169 @@
             color: #fff;
         }
     }
+
     .main {
         display: flex;
         min-height: 100%;
         background-color: #fff;
+        transform: translateZ(0);
         .container {
             width: 100%;
             min-height: 100%;
         }
     }
+    
+    .footer {
+        display: flex;
+    }
+
     .side-nav {
-        width: 25.6rem;
+        @include pos($pos: fixed, $tp: 0, $lt: 0, $bt: 0);
+        width:var(--navWidth);
         background-color: #fff;
         box-shadow : 1px 0 20px rgba(0, 0, 0, 0.078) !important;
-        flex-shrink: 0;
+        &,* {
+            transition: all 0.2s;
+        }
+        > [data-overlayscrollbars] {
+            height: 100%;
+        }
+        & + .container {
+            transition: margin-left 0.2s;
+            margin-left:var(--navWidth);
+        }
         .user-info-box {
             @include flex($dir: column);
             width: 100%;
             height: 15rem;
-            background: url('@/assets/images/common/img_user_background_4.png') center/contain no-repeat;
+            background: url('@/assets/images/common/img_user_background_4.png') no-repeat;
+            background-size: 25.6rem 15rem;
             .user-profile {
                 @include flex($a: center, $gap: 0.8rem);
                 height: 100%;
-                padding: 0 $containerPadding;
+                padding: 0 var(--navPadding);
                 .img-box {
                     @include flex($a: center, $j: center);
-                    width: 5rem;
-                    height: 5rem;
+                    width: 4.8rem;
+                    height: 4.8rem;
                     background-color: #fff;
                     border-radius: 50%;
                     border: 2px solid #ddd;
                     overflow: hidden;
+                    flex-shrink: 0;
                     .img{
                         display: block;
                         width: 100%;
                         height: auto;
                     }
                 }
+                .text-box {
+                    width: 100%;
+                }
                 .nick-name {
                     @include font-18($color: #fff);
-                    span {font-weight: 600;}
+                    @include ellipsis;
+                    span {
+                        font-weight: 600;
+                    }
                 }
                 .user-id {
                     @include font-13($color: var(--gray-300));
-                    span {font-weight: 600;}
+                    @include ellipsis;
+                    span {
+                        font-weight: 600;
+                    }
                 }
             }
             .slot-bottom {
                 @include flex($a: center, $j: flex-end);
                 margin-top: auto;
-                padding: 0 $containerPadding;
+                padding: 0 var(--navPadding);
                 height: 4rem;
                 background-color: rgba(0, 0, 0, 0.6);
                 flex-shrink: 0;
                 .logout {
-                    
+                    @include ellipsis;
                 }
             }
         }
         .menu-list-box {
-            padding: 2.4rem $containerPadding;
+            padding: 2.4rem var(--navPadding);
+            .list-info {
+                @include font-16;
+                font-weight: 600;
+                margin-bottom: 1.4rem;
+                @include ellipsis;
+                transform: translateX(0.3rem);
+            }
             ul {
-                @include flex($dir: column, $gap: 0.4rem);
-                a {
-                    @include flex($a: center);
-                    width:100%;
-                    height: 4rem;
+                @include flex($dir: column, $gap: 0.8rem);
+            }
+            > ul {
+                > li {
+                    > a {
+                        transition: 0.2s all;
+                        padding:0 1.2rem;
+                        &.router-link-active {
+                            background-color: var(--primary-700) !important;
+                            color: #fff;
+                            &::before {
+                                color: #fff;
+                            }
+                        }
+                    }
                 }
+                a {
+                    @include flex($a: center, $gap: 0.6rem);
+                    padding:0 1.6rem;
+                    width:100%;
+                    height: 4.8rem;
+                    border-radius: 8px;
+                    @include font-14;
+                    font-weight: 600;
+                    @include ellipsis;
+                    &.router-link-active {
+                        background-color: #eff4ff;
+                        color: var(--primary-700);
+                    }
+                    &:not(.router-link-active):hover {
+                        background-color: #eff4ff;
+                        color: var(--primary-700);
+                        &::before {
+                            color: var(--primary-700);
+                        }
+                    }
+                }
+                .list-2depth a {
+                    &::before{
+                        @include xeiconBefore($icon:'\ea5d',$s:16,$fw:100);
+                    }
+                    &.router-link-active {
+                        &::before {
+                            color: var(--primary-700);
+                        }
+                    }
+                }
+                .Home:before {@include xeiconBefore($icon:'\eac0',$s:20,$fw:100); margin-right: 0.2rem;}
+                .company .toggle-button::before {@include xeiconBefore($icon:'\e9d8',$s:20,$fw:100);}
+                .training .toggle-button::before {@include xeiconBefore($icon:'\ea35',$s:20,$fw:100);}
+                .rules .toggle-button::before {@include xeiconBefore($icon:'\ea88',$s:20,$fw:100);}
+                .Resources::before {@include xeiconBefore($icon:'\ea93',$s:20,$fw:100);}
             }
         }
+
+        .not-acc {
+            pointer-events: none;
+            color: red !important;
+        }
     }
-    .footer {
-        display: flex;
-    }
-    
 
     &[ui-layout="layoutDefault"] {
         .main {
             background-color: #eef5f9;
+            .container {
+                padding: $containerPadding;
+            }
         }
     }
     &[ui-layout="layoutLogin"] {
@@ -154,19 +288,24 @@
 }
 
 .ui-logo {
+    &,* {
+        transition: all 0.2s;
+    }
     @include flex($a: center);
+    overflow: hidden;
     .logo { 
         width: 5.6rem;
     }
     span { 
-        @include font($s:32,$lh:44,$color:#fff); 
+        @include font($s:32,$lh:44,$color:#fff);
+        @include ellipsis; 
     }
     &.logo-link {
         width: calc(25.6rem - 2rem);
         a{
             @include flex($a: center);
             .logo { 
-                width: 3.6rem;
+                width: 4rem;
             }
             span {
                 @include font($s:24, $lh: 34);
@@ -177,11 +316,23 @@
         a::after {
             content: 'Beta';
             display: block;
-            @include font($s:12, $lh: 14, $color: #fff);
-            margin: -1rem 0 0 0.4rem;
-            padding: 0.2rem 0.6rem;
+            @include font($s:11, $lh: 13, $color: #fff);
+            margin: -1.2rem 0 0 0.4rem;
+            padding: 0.1rem 0.5rem;
             border-radius: 4px;
             background-color: var(--error);
+            @include ellipsis; 
+        }
+        &:not(.logo-link) {
+            &::after {
+                content: 'Beta';
+                display: block;
+                @include font($s:13, $lh: 16, $color: #fff);
+                margin: -1.2rem 0 0 0.4rem;
+                padding: 0.2rem 0.6rem;
+                border-radius: 4px;
+                background-color: var(--error);
+            }
         }
     }
 }

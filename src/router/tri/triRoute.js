@@ -4,7 +4,7 @@ let routes = [
 		redirect: '/training/project',
 		meta: {
             title: '트레이닝',
-            roles: ['employee']
+            roles: ['admin', 'employee']
 		},
 		children: [
             {
@@ -15,7 +15,7 @@ let routes = [
                     layout: 'LayoutDefault',
                     side: true,
                     requiresAuth: true,
-                    roles: ['employee']
+                    roles: ['admin', 'employee']
                 },
                 components: Object.assign({
                     content: () => import(/* webpackChunkName: "tri" */ '@/views/tri/TrainingProject.vue'),
@@ -29,7 +29,7 @@ let routes = [
                     layout: 'LayoutDefault',
                     side: true,
                     requiresAuth: true,
-                    roles: ['employee']
+                    roles: ['admin', 'employee']
                 },
                 components: Object.assign({
                     content: () => import(/* webpackChunkName: "tri" */ '@/views/tri/TrainingCode.vue'),
@@ -43,7 +43,7 @@ let routes = [
                     layout: 'LayoutDefault',
                     side: true,
                     requiresAuth: true,
-                    roles: ['employee']
+                    roles: ['admin', 'employee']
                 },
                 components: Object.assign({
                     content: () => import(/* webpackChunkName: "tri" */ '@/views/tri/TrainingDesign.vue'),

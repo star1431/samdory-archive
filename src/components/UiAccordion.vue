@@ -5,11 +5,13 @@
                 <span class="title">{{ title }}</span>
             </button>
         </div>
-        <div class="accordion-body" ref="accordionBody">
-            <div class="inner">
-                <slot name="inner"></slot>
+        <transition @before-enter="accBeforeEnt" @enter="accEnt" @leave="accLeave">
+            <div class="accordion-body" ref="accordionBody" v-show="isActive">
+                <div class="inner">
+                    <slot name="inner"></slot>
+                </div>
             </div>
-        </div>
+        </transition>
     </div>
 </template>
 
@@ -27,12 +29,20 @@ const props = defineProps({
 })
 const toggleAccordion = () => {
     isActive.value = !isActive.value
-    const _bodyEl = accordionBody.value
-    if (isActive.value) {
-        _bodyEl.style.maxHeight = _bodyEl.scrollHeight + 'px'
-    } else {
-        _bodyEl.style.maxHeight = null
-    }
+}
+
+const accBeforeEnt = (el) => {
+    el.style.maxHeight = '0'
+}
+
+const accEnt = (el) => {
+    el.style.maxHeight = el.scrollHeight + 'px'
+    el.style.transition = 'max-height 0.2s'
+}
+
+const accLeave = (el) => {
+    el.style.maxHeight = '0'
+    el.style.transition = 'max-height 0.2s'
 }
 </script>
 

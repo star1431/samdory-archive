@@ -1,5 +1,4 @@
 @charset "UTF-8";
-/* 컬러만 root로 관리 */
 :root {
     // color - 메인
     --primary      : #0046FF;
@@ -24,6 +23,9 @@
     --gray-100 : #F3F6FB;
     // error
     --error    : #D61111;
+
+    --navWidth : 25.6rem;
+    --navPadding: 2rem;
 }
 
 // 화면좌우 여백

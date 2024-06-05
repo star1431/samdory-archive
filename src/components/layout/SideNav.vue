@@ -1,16 +1,15 @@
 <template>
     <nav class="side-nav">
-        <OverlayScrollbarsComponent 
-        :options="{scrollbars:{autoHide:'scroll'}}"
-                defer>
+        <OverlayScrollbarsComponent :options="{scrollbars:{autoHide:'scroll'}}" defer>
+            <!-- 유저정보 -->
             <div class="user-info-box">
                 <div class="user-profile">
                     <div class="img-box">
                         <img class="user-img" :src="setUserImg" alt="유저 사진"/>
                     </div>
                     <div class="text-box">
-                        <p class="nick-name"><span>{{ user?.nick ?? ''  }}</span> 님</p>
-                        <p class="user-id">ID : <span>{{ user?.name ?? '' }}</span></p>
+                        <p class="nick-name"><span>{{ user?.nick ?? '로그아웃 중'  }}</span> 님</p>
+                        <p class="user-id">ID : <span>{{ user?.name ?? '로그아웃 중' }}</span></p>
                     </div>
                 </div>
                 <div class="slot-bottom">
@@ -19,26 +18,37 @@
                     </button>
                 </div>
             </div>
+            <!--// 유저정보 -->
+
+            <!-- 메뉴 -->
             <div class="menu-list-box">
+                <p class="list-info">Menu</p>
                 <ul class="menu-lists">
-                    <li v-for="(item, i) in menuLists" :key="i">
-                        <template v-if="isAccordion(item)">
-                            <UiAccordion :title="item.meta.title" :class="['menu', item.path.substring(1)]">
+                    <template v-for="(item, i) in menuLists" :key="i">
+                        <li v-if="isAccordion(item)">
+                            <UiAccordion 
+                                :title="item.meta.title" 
+                                :class="['menu', item.path.substring(1), !checkAcc(item) ? 'not-acc' : '']">
                                 <template v-slot:inner>
-                                    <ul class="2depth-list">
+                                    <ul class="list-2depth">
                                         <li v-for="(subItem, j) in item.children" :key="j">
-                                            <router-link :to="`${item.path}/${subItem.path}`">{{ subItem.meta.title }}</router-link>
+                                            <router-link :to="`${item.path}/${subItem.path}`">
+                                                <span class="text">{{ subItem.meta.title }}</span>
+                                            </router-link>
                                         </li>
                                     </ul>
                                 </template>
                             </UiAccordion>
-                        </template>
-                        <template v-else-if="item.name !== 'Login'">
-                            <router-link :to="item.path" :class="item.name">{{ item.meta.title }}</router-link>
-                        </template>
-                    </li>
+                        </li>
+                        <li v-else-if="item.name !== 'Login'">
+                            <router-link :to="item.path" :class="[item.name, !checkAcc(item) ? 'not-acc' : '']">
+                                <span class="text">{{ item.meta.title }}</span>
+                            </router-link>
+                        </li>
+                    </template>
                 </ul>
             </div>
+            <!--// 메뉴 -->
         </OverlayScrollbarsComponent>
     </nav>
 </template>
@@ -49,27 +59,24 @@ import { routes } from '@/router'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 import UiAccordion from '@/components/UiAccordion.vue'
+import { OverlayScrollbarsComponent } from "overlayscrollbars-vue"
 
 const store = useStore()
 const router = useRouter()
 
-
-// 유저정보
+// 유저정보 이미지 src
 const user = computed(() => store.state.user)
 const setUserImg = computed(() => {
-    console.log('1111',user.value.role)
-    // const roleCheck = user.value && user.value.role
-    if(user.value) {
-        // console.log('222', Array.isArray(user.value.role))
-    }
-    if (user.value && user.value.role === 'employee' || user.value.role === 'admin') {
+    if (user?.value?.role === 'admin') {
+        return require('@/assets/images/common/img_user_profile_a.png')
+    } else if (user?.value?.role === 'employee') {
         return require('@/assets/images/common/img_user_profile_sd.png')
     } else {
         return require('@/assets/images/common/img_user_profile_p.png')
-    }
+    } 
 })
 
-// 로그아웃
+// 로그아웃 페이지전환
 const logout = () => {
     store.dispatch('logout')
     
@@ -86,9 +93,19 @@ const logout = () => {
 // 라우터 메뉴
 const menuLists = ref(routes.filter(route => route.meta.title))
 
-// 2뎁스 아코디언 v-if
+
+// 2뎁스 아코디언
 const isAccordion = (item) => {
     return item.children && item.children.length > 0
+}
+
+// 밤낮테마 토글스위치
+const checkAcc = (item) => {
+    const _acc = item.meta.roles || []
+    if (_acc.length === 0 || _acc.includes(user.value?.role)) {
+        return true
+    }
+    return false
 }
 
 onMounted(() => {
@@ -96,5 +113,5 @@ onMounted(() => {
 })
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 </style>
