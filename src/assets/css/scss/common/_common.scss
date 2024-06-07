@@ -50,7 +50,7 @@
                 @include themeColor(color, text-default);
             }
             &.theme-t {
-                @include themeColor(color, text-thick);
+                @include themeColor(color, text-thick-2);
             }
         }
     }

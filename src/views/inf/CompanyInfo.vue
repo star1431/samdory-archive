@@ -4,42 +4,36 @@
             <PageTopSlot :title="title" :pagePath="pageClass" />
 
             <div class="section-area row">
-                <div class="inner-col col-1"></div>
-
-                <div class="inner-col col-2-3"></div>
-                <div class="inner-col col-1-3"></div>
-
-                <div class="inner-col col-1-3"></div>
-                <div class="inner-col col-1-3"></div>
-                <div class="inner-col col-1-3"></div>
-
-                <div class="inner-col col-1-2"></div>
-                <div class="inner-col col-1-2"></div>
-
-                <div class="inner-col col-1-4"></div>
-                <div class="inner-col col-1-4"></div>
-                <div class="inner-col col-1-4"></div>
-                <div class="inner-col col-1-4"></div>
-
-                <div class="inner-col col-1-4"></div>
-                <div class="inner-col col-3-4"></div>
+                <div class="inner-col col-1">
+                    <div class="markdown-area">
+                        <div v-html="markdownHtml"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script setup>
-import { ref, reactive, computed, onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import PageTopSlot from '@/components/PageTopSlot.vue'
+import marked from '@/assets/js/markdownRenderer'
+import postMd from '@/posts/inf/안내사항.md' 
 
 const title = ref('안내사항')
 const pageClass = ref(['inf', 'CompanyInfo'])
 
-computed(() => {
-
-})
+// 마크다운을 HTML로 변환
+const markdownHtml = ref('')
 onMounted(() => {
-
+    markdownHtml.value = marked(postMd, {
+        breaks: true,
+        pedantic: false,
+        gfm: true,
+        mangle: false,
+        headerIds: false,
+    })
+    console.log(markdownHtml.value)
 })
 </script>
 

@@ -248,7 +248,7 @@
             padding: 2.4rem var(--navPadding);
             .list-info {
                 @include font-16;
-                @include themeColor(color, text-thick);
+                @include themeColor(color, text-thick-2);
                 font-weight: 600;
                 margin-bottom: 1.4rem;
                 @include ellipsis;

@@ -1,6 +1,7 @@
 # samdori-archive
 
 ## Project setup
+### node.js 18버전 이상 필수 ( node -v 로 버전확인)
 ```
 npm install
 ```

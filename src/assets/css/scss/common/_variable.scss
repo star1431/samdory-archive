@@ -50,7 +50,9 @@ $theme:(
         bg-login            : #E0ECF8,
         bg-login-2          : #fff,
         text-default        : #121315,
+        text-default-2      : #fff,
         text-thick          : #121315,
+        text-thick-2        : #121315,
         pri-800             : #005DF9,
         pri-700             : #2680FF,
         gray-800            : #242A34,
@@ -63,6 +65,9 @@ $theme:(
         bg-col              : #fff,
         shadow-col          : (rgba(145, 158, 171, 0.3) 0 0 2px, rgba(145, 158, 171, 0.1) 0 12px 24px -4px),
         border-col          : transparent,
+        md-fc-incode        : #0056b2,
+        md-bg-incode        : #f6f6f7,
+        md-fc-anc           : #2680FF,
     ),
     dark: (
         overlayScrollbar    : #dedede,
@@ -70,8 +75,10 @@ $theme:(
         bg-inner            : #14181e,
         bg-login            : #14181e,
         bg-login-2          : #171C23,
-        text-default        : #e3e3e3,
-        text-thick          : #fff,
+        text-default        : #a4acb8,
+        text-default-2      : #dde8f7,
+        text-thick          : #f0f0f0,
+        text-thick-2        : #dde8f7,
         pri-800             : #005DF9,
         pri-700             : #0074ba,
         gray-800            : #fff,
@@ -84,7 +91,9 @@ $theme:(
         bg-col              : transparent,
         shadow-col          : (rgba(145, 158, 171, 0.302) 0 0 2px,rgba(145, 158, 171, 0.02) 0 12px 24px -4px),
         border-col          : #333F55,
+        md-fc-incode        : #8ab4f8,
+        md-bg-incode        : #323238,
+        md-fc-anc           : #0074ba,
     )
 );
-
 

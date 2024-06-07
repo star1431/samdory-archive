@@ -213,14 +213,14 @@ input[type=radio] {
   color: #121315;
 }
 #app.dark-theme .fs-xs.theme {
-  color: #e3e3e3;
+  color: #a4acb8;
 }
 
 .fs-xs.theme-t {
   color: #121315;
 }
 #app.dark-theme .fs-xs.theme-t {
-  color: #fff;
+  color: #dde8f7;
 }
 
 .fs-s {
@@ -232,14 +232,14 @@ input[type=radio] {
   color: #121315;
 }
 #app.dark-theme .fs-s.theme {
-  color: #e3e3e3;
+  color: #a4acb8;
 }
 
 .fs-s.theme-t {
   color: #121315;
 }
 #app.dark-theme .fs-s.theme-t {
-  color: #fff;
+  color: #dde8f7;
 }
 
 .fs-m {
@@ -251,14 +251,14 @@ input[type=radio] {
   color: #121315;
 }
 #app.dark-theme .fs-m.theme {
-  color: #e3e3e3;
+  color: #a4acb8;
 }
 
 .fs-m.theme-t {
   color: #121315;
 }
 #app.dark-theme .fs-m.theme-t {
-  color: #fff;
+  color: #dde8f7;
 }
 
 .fs-l {
@@ -270,14 +270,14 @@ input[type=radio] {
   color: #121315;
 }
 #app.dark-theme .fs-l.theme {
-  color: #e3e3e3;
+  color: #a4acb8;
 }
 
 .fs-l.theme-t {
   color: #121315;
 }
 #app.dark-theme .fs-l.theme-t {
-  color: #fff;
+  color: #dde8f7;
 }
 
 .fs-xl {
@@ -289,14 +289,14 @@ input[type=radio] {
   color: #121315;
 }
 #app.dark-theme .fs-xl.theme {
-  color: #e3e3e3;
+  color: #a4acb8;
 }
 
 .fs-xl.theme-t {
   color: #121315;
 }
 #app.dark-theme .fs-xl.theme-t {
-  color: #fff;
+  color: #dde8f7;
 }
 
 .fs-xxl {
@@ -308,14 +308,14 @@ input[type=radio] {
   color: #121315;
 }
 #app.dark-theme .fs-xxl.theme {
-  color: #e3e3e3;
+  color: #a4acb8;
 }
 
 .fs-xxl.theme-t {
   color: #121315;
 }
 #app.dark-theme .fs-xxl.theme-t {
-  color: #fff;
+  color: #dde8f7;
 }
 
 .fs-hxl {
@@ -327,14 +327,14 @@ input[type=radio] {
   color: #121315;
 }
 #app.dark-theme .fs-hxl.theme {
-  color: #e3e3e3;
+  color: #a4acb8;
 }
 
 .fs-hxl.theme-t {
   color: #121315;
 }
 #app.dark-theme .fs-hxl.theme-t {
-  color: #fff;
+  color: #dde8f7;
 }
 
 .error-text {
@@ -645,7 +645,7 @@ input[type=radio] {
   transform: translateX(0.3rem);
 }
 #app.dark-theme .wrap .side-nav .menu-list-box .list-info {
-  color: #fff;
+  color: #dde8f7;
 }
 
 .wrap .side-nav .menu-list-box ul {
@@ -1065,7 +1065,7 @@ input[type=radio] {
   color: #121315 !important;
 }
 #app.dark-theme .ui-checkbox label input[type=checkbox]:checked ~ .check-inner {
-  color: #fff !important;
+  color: #f0f0f0 !important;
 }
 
 .ui-checkbox label input[type=checkbox]:checked ~ .check-inner::before {
@@ -1309,7 +1309,7 @@ input[type=radio] {
   color: #121315;
 }
 #app.dark-theme .ui-field .input-item .btn-value-clear > .xi-close-circle {
-  color: #fff;
+  color: #dde8f7;
 }
 
 .ui-field .input-item .btn-value-clear > .xi-close-circle, .ui-field .input-item .btn-value-clear > .xi-close-circle::before {
@@ -1464,7 +1464,7 @@ input[type=radio] {
   margin-bottom: 0.8rem;
 }
 #app.dark-theme .form-default .form-field-item > label {
-  color: #e3e3e3;
+  color: #a4acb8;
 }
 
 .form-default .field-bottom-slot {
@@ -1500,11 +1500,248 @@ input[type=radio] {
   color: #121315;
 }
 #app.dark-theme .page-top-slot p::before {
-  color: #e3e3e3;
+  color: #a4acb8;
 }
 
 .page-top-slot ~ .section-area {
   margin-top: 2rem;
+}
+
+.markdown-area {
+  font-size: 1.6rem;
+  color: #121315;
+}
+#app.dark-theme .markdown-area {
+  color: #a4acb8;
+}
+
+.markdown-area h2, .markdown-area h3, .markdown-area h4, .markdown-area h5, .markdown-area h6 {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  color: #121315;
+}
+#app.dark-theme .markdown-area h2, #app.dark-theme .markdown-area h3, #app.dark-theme .markdown-area h4, #app.dark-theme .markdown-area h5, #app.dark-theme .markdown-area h6 {
+  color: #dde8f7;
+}
+
+.markdown-area h2 {
+  font-size: 2.2rem;
+}
+.markdown-area h3 {
+  font-size: 2rem;
+}
+.markdown-area h4 {
+  font-size: 1.8rem;
+}
+.markdown-area h5 {
+  font-size: 1.6rem;
+}
+.markdown-area h6 {
+  font-size: 1.4rem;
+}
+.markdown-area p {
+  margin: 1.5rem 0;
+}
+.markdown-area h2 {
+  margin: 0 0 1.8rem;
+  padding-bottom: 1.8rem;
+  border-bottom: 1px solid #d8dee4;
+}
+.markdown-area h2 ~ h3, .markdown-area h2 h4, .markdown-area h2 h5, .markdown-area h2 h6 {
+  margin-top: 1.4rem;
+}
+.markdown-area h2 ~ h2 {
+  margin-top: 2.4rem;
+}
+.markdown-area hr {
+  box-sizing: content-box;
+  overflow: hidden;
+  background: 0 0;
+  border-bottom: 1px solid #d8dee4;
+  height: 0.4rem;
+  padding: 0;
+  margin: 2.4rem 0;
+  background-color: #d0d7de;
+  border: 0;
+}
+.markdown-area a {
+  color: #2680FF;
+  text-decoration: underline;
+}
+#app.dark-theme .markdown-area a {
+  color: #0074ba;
+}
+
+.markdown-area blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: #e9ecef;
+  border-left: 5px solid #007bff;
+  color: #555;
+}
+.markdown-area blockquote p {
+  margin: unset;
+}
+.markdown-area blockquote p ~ p {
+  margin-top: 1.5rem;
+}
+.markdown-area ul, .markdown-area ol {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+}
+.markdown-area ul {
+  list-style-type: disc;
+}
+.markdown-area ul ul {
+  list-style-type: circle;
+}
+.markdown-area ul ul ul {
+  list-style-type: square;
+}
+.markdown-area ol {
+  list-style-type: decimal;
+}
+.markdown-area li {
+  display: list-item;
+}
+.markdown-area ul > li, .markdown-area ol > li {
+  margin-top: 0.5rem;
+}
+.markdown-area li + li, .markdown-area li > ul {
+  margin-top: 0.8rem;
+}
+.markdown-area > ul {
+  padding-left: 1.4em;
+}
+.markdown-area tt {
+  padding: 0.4rem 0.4rem;
+}
+.markdown-area table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+.markdown-area table th, .markdown-area table td {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+.markdown-area table th {
+  background-color: #f1f1f1;
+}
+.markdown-area pre[class*=language-],
+.markdown-area code[class*=language-] {
+  background-color: #161d2c;
+  padding: 1.2rem 1.2rem 2rem;
+  border-radius: 0 0 8px 8px;
+  font-family: Hack, AppleSDGothicNeo, sans-serif;
+  font-size: 1.4rem;
+  color: #fff;
+  text-align: left;
+  overflow-x: auto;
+}
+#app.dark-theme .markdown-area pre[class*=language-],
+#app.dark-theme .markdown-area code[class*=language-] {
+  color: #dde8f7;
+}
+
+.markdown-area pre[class*=language-]::-webkit-scrollbar,
+.markdown-area code[class*=language-]::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.markdown-area pre[class*=language-]::-webkit-scrollbar-thumb,
+.markdown-area code[class*=language-]::-webkit-scrollbar-thumb {
+  background: rgba(250, 248, 248, 0.4);
+  border-radius: 2px;
+}
+.markdown-area pre[class*=language-]::-webkit-scrollbar-track,
+.markdown-area code[class*=language-]::-webkit-scrollbar-track {
+  background: none;
+}
+.markdown-area code:not([class*=language-]) {
+  display: inline;
+  padding: 0.3rem 0.5rem;
+  margin: 0 0.4rem;
+  border-radius: 4px;
+  font-size: 1.4rem;
+  color: #0056b2;
+  background-color: #f6f6f7;
+}
+#app.dark-theme .markdown-area code:not([class*=language-]) {
+  color: #8ab4f8;
+}
+
+#app.dark-theme .markdown-area code:not([class*=language-]) {
+  background-color: #323238;
+}
+
+.markdown-area .codeblock {
+  position: relative;
+  margin: 1rem 0;
+}
+.markdown-area .codeblock .top {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.8rem 1rem;
+  background-color: #2b3445;
+  border-radius: 8px 8px 0 0;
+}
+.markdown-area .codeblock .top p {
+  margin: 0 auto 0 0;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  color: var(--gray-900);
+  color: #fff;
+  font-weight: 600;
+}
+#app.dark-theme .markdown-area .codeblock .top p {
+  color: #dde8f7;
+}
+
+.markdown-area .codeblock .top div {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+}
+.markdown-area .codeblock .top div:nth-child(2) {
+  background-color: #fe5f57;
+}
+.markdown-area .codeblock .top div:nth-child(3) {
+  background-color: #ffbd2e;
+}
+.markdown-area .codeblock .top div:nth-child(4) {
+  background-color: #29c941;
+}
+.markdown-area .button-copy {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: #1e2739;
+  cursor: pointer;
+  border: 1px solid gray;
+  border-radius: 10px;
+  opacity: 0;
+  transition: 0.5s;
+}
+.markdown-area .button-copy:hover {
+  transition: 0.5s;
+}
+.markdown-area .hljs-title.class_ {
+  color: #4FC1FF;
+}
+.markdown-area .hljs-title.function_ {
+  color: #DCD079;
+}
+.markdown-area .hljs-property,
+.markdown-area .hljs-params {
+  color: #9CD0C6;
 }
 
 .com.Login {
@@ -1567,5 +1804,5 @@ input[type=radio] {
   color: #121315;
 }
 #app.dark-theme .com.Login .login-area .inner .ui-logo span {
-  color: #fff;
+  color: #f0f0f0;
 }

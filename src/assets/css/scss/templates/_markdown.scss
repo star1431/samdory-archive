@@ -1,0 +1,204 @@
+@charset "UTF-8";
+
+.markdown-area {
+    font-size: 1.6rem;
+    @include themeColor(color,text-default);
+
+    h2, h3, h4, h5, h6 {
+        font-weight: bold;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+        @include themeColor(color,text-thick-2);
+    }
+
+    // h1 { font-size: 2.5rem; }
+    h2 { font-size: 2.2rem; }
+    h3 { font-size: 2rem; }
+    h4 { font-size: 1.8rem; }
+    h5 { font-size: 1.6rem; }
+    h6 { font-size: 1.4rem; }
+
+    p {
+        margin: 1.5rem 0;
+    }
+    h2 {
+        margin: 0 0 1.8rem;
+        padding-bottom: 1.8rem;
+        border-bottom: 1px solid #d8dee4;
+        ~ h3, h4, h5 , h6 {
+            margin-top: 1.4rem;
+        }
+        ~ h2 {
+            margin-top: 2.4rem;
+        }
+    }
+    hr {
+        box-sizing: content-box;
+        overflow: hidden;
+        background: 0 0;
+        border-bottom: 1px solid #d8dee4;
+        height: 0.4rem;
+        padding: 0;
+        margin: 2.4rem 0;
+        background-color: #d0d7de;
+        border: 0;
+    }
+
+    a {
+        @include themeColor(color, md-fc-anc);
+        text-decoration: underline;
+    }
+
+    blockquote {
+        margin: 1.5rem 0;
+        padding: 1rem;
+        background-color: #e9ecef;
+        border-left: 5px solid #007bff;
+        color: #555;
+        p {
+            margin: unset;
+            & ~ p {
+                margin-top: 1.5rem;
+            }
+        }
+    }
+
+    ul, ol {
+        margin: 1.5rem 0;
+        padding-left: 2rem;
+    }
+    ul {
+        list-style-type: disc;
+    }
+    ul ul {
+        list-style-type: circle;
+    }
+    ul ul ul {
+        list-style-type: square;
+    }
+    
+    ol {
+        list-style-type: decimal;
+    }
+
+    li {
+        display: list-item;
+    }
+
+    ul > li, ol > li {
+        margin-top: 0.5rem;
+    }
+    
+    li + li, li > ul{
+        margin-top: 0.8rem;
+    }
+    & > ul{
+        padding-left: 1.4em;
+    }
+
+    tt{
+        padding: 0.4rem 0.4rem;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+        th, td {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f1f1f1;
+        }
+    }
+
+    // 코드블럭 - start 
+    pre[class*="language-"],
+    code[class*="language-"] {
+        background-color: #161d2c;
+        padding: 1.2rem 1.2rem 2rem;
+        border-radius: 0 0 8px 8px;
+        font-family: Hack, AppleSDGothicNeo, sans-serif;
+        font-size: 1.4rem;
+        @include themeColor(color,text-default-2);
+        text-align: left;
+        overflow-x: auto;
+        &::-webkit-scrollbar{width:8px;height:8px;}
+        &::-webkit-scrollbar-thumb{background: rgba(250, 248, 248, 0.4);border-radius: 2px;}
+        &::-webkit-scrollbar-track{background:none;}
+    }
+    a {
+    }
+    code:not([class*="language-"]) {
+        display: inline;
+        padding: 0.3rem 0.5rem;
+        margin: 0 0.4rem;
+        border-radius: 4px;
+        font-size: 1.4rem;
+        @include themeColor(color, md-fc-incode);
+        @include themeColor(background-color, md-bg-incode);
+    }
+
+    .codeblock {
+        position: relative;
+        margin: 1rem 0;
+        .top {
+            position: relative;
+            width: 100%;
+            @include flex($a: center, $gap: 0.4rem);
+            padding: 0.8rem 1rem;
+            background-color: #2b3445;
+            border-radius: 8px 8px 0 0;
+            p {
+                margin: 0 auto 0 0;
+                @include font-14();
+                @include themeColor(color,text-default-2);
+                font-weight: 600;
+                &::before {
+
+                }
+            }
+            div {
+                width: 1.2rem;
+                height: 1.2rem;
+                border-radius: 50%;
+                &:nth-child(2) {
+                    background-color: #fe5f57;
+                }
+                &:nth-child(3) {
+                    background-color: #ffbd2e;
+                }
+                &:nth-child(4) {
+                    background-color: #29c941;
+                }
+            }
+        }
+    }
+
+    .button-copy {
+        position: absolute;
+        top: 50px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background-color: #1e2739;
+        cursor: pointer;
+        border: 1px solid gray;
+        border-radius: 10px;
+        opacity: 0;
+        transition: 0.5s;
+        &:hover {
+            transition: 0.5s;
+        }
+    }
+    // 코드블럭 - end
+
+
+    // vs2015 테마에서 추가 hljs 커스텀 스타일
+    .hljs-title.class_{color:#4FC1FF;}
+    .hljs-title.function_{color:#DCD079;}
+    .hljs-property,
+    .hljs-params{color:#9CD0C6;}
+}

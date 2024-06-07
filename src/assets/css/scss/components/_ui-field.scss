@@ -45,7 +45,7 @@
                 align-items: center;
                 font-size: 2rem;
                 line-height: 1;
-                @include themeColor(color, text-thick);
+                @include themeColor(color, text-thick-2);
                 &, &::before {
                     width: 2rem;
                     height: 2rem;
