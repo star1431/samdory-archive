@@ -1,13 +1,38 @@
 <template>
     <div :class="['container', pageClass]">
-        <h1>TrainingCode</h1>
-        <p>코드에디터 교육 페이지</p>
+        <div class="container-content">
+            <PageTopSlot :title="title" :pagePath="pageClass" />
+            
+            <div class="section-area row">
+                <div class="inner-col col-1"></div>
+    
+                <div class="inner-col col-2-3"></div>
+                <div class="inner-col col-1-3"></div>
+    
+                <div class="inner-col col-1-3"></div>
+                <div class="inner-col col-1-3"></div>
+                <div class="inner-col col-1-3"></div>
+    
+                <div class="inner-col col-1-2"></div>
+                <div class="inner-col col-1-2"></div>
+    
+                <div class="inner-col col-1-4"></div>
+                <div class="inner-col col-1-4"></div>
+                <div class="inner-col col-1-4"></div>
+                <div class="inner-col col-1-4"></div>
+    
+                <div class="inner-col col-1-4"></div>
+                <div class="inner-col col-3-4"></div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script setup>
 import { ref, reactive, computed, onMounted } from 'vue'
+import PageTopSlot from '@/components/PageTopSlot.vue'
 
+const title = ref('코드 에디터')
 const pageClass = ref(['tri', 'TrainingCode'])
 
 computed(() => {

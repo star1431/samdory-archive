@@ -1,0 +1,200 @@
+[
+    {
+        "id": "get22",
+        "name": "우리카드 유니버셜뱅킹 대응개발",
+        "dev": ["mobile"],
+        "year": "2024",
+        "stack": ["gulp"],
+        "enter": ["금융"],
+        "project": ["구축"]
+    },
+    {
+        "id": "get21",
+        "name": "IBK기업은행 태블릿뱅킹 구축",
+        "dev": ["mobile"],
+        "year": "2024",
+        "stack": ["pureHTML"],
+        "enter": ["금융"],
+        "project": ["구축"]
+    },
+    {
+        "id": "get20",
+        "name": "여가부 청소년1388 또래상담 고도화",
+        "dev": ["pc", "mobile"],
+        "year": "2024",
+        "stack": ["vue3"],
+        "enter": ["기관"],
+        "project": ["고도화"]
+    },
+    {
+        "id": "get19",
+        "name": "NH농협 디지털금융 플랫폼 전환 사업",
+        "dev": ["mobile"],
+        "year": "2024",
+        "stack": ["pureHTML"],
+        "enter": ["금융"],
+        "project": ["구축"]
+    },
+    {
+        "id": "get18",
+        "name": "신한은행 New SOL-Biz 구축",
+        "dev": ["mobile"],
+        "year": "2023",
+        "stack": ["pureHTML"],
+        "enter": ["금융"],
+        "project": ["구축"]
+    },
+    {
+        "id": "get17",
+        "name": "여가부 청소년1388 통합포탈 구축",
+        "dev": ["pc","mobile"],
+        "year": "2023",
+        "stack": ["vue3"],
+        "enter": ["기관"],
+        "project": ["구축"]
+    },
+    {
+        "id": "get16",
+        "name": "우리은행 Web CMS 구축",
+        "dev": ["pc","mobile"],
+        "year": "2023",
+        "stack": ["pureHTML"],
+        "enter": ["금융"],
+        "project": ["구축"]
+    },
+    {
+        "id": "get15",
+        "name": "신한은행 기업뱅킹 부분 고도화",
+        "dev": ["pc"],
+        "year": "2023",
+        "stack": ["WebSquare"],
+        "enter": ["금융"],
+        "project": ["고도화"]
+    },
+    {
+        "id": "get14",
+        "name": "NH농협은행 글로벌뱅킹 구축",
+        "dev": ["pc","mobile"],
+        "year": "2023",
+        "stack": ["WebSquare"],
+        "enter": ["금융"],
+        "project": ["구축"]
+    },
+    {
+        "id": "get13",
+        "name": "신한은행 기업뱅킹 비대면 채널 개편",
+        "dev": ["pc","mobile"],
+        "year": "2022",
+        "stack": ["WebSquare"],
+        "enter": ["금융"],
+        "project": ["구축"]
+    },
+    {
+        "id": "get12",
+        "name": "한국평가데이터 CRETOP 구축",
+        "dev": ["pc","mobile"],
+        "year": "2022",
+        "stack": ["vue3"],
+        "enter": ["기관"],
+        "project": ["구축"]
+    },
+    {
+        "id": "get11",
+        "name": "KB Star CMS2.0 고도화",
+        "dev": ["pc","mobile"],
+        "year": "2022",
+        "stack": ["pureHTML"],
+        "enter": ["금융"],
+        "project": ["고도화"]
+    },
+    {
+        "id": "get10",
+        "name": "KB카드 디지털채널 운영",
+        "dev": ["pc","mobile"],
+        "year": "2021",
+        "stack": ["pureHTML"],
+        "enter": ["금융"],
+        "project": ["운영"]
+    },
+    {
+        "id": "get09",
+        "name": "KB캐피탈 차차차 마이데이터 구축",
+        "dev": ["pc"],
+        "year": "2021",
+        "stack": ["pureHTML"],
+        "enter": ["금융"],
+        "project": ["구축"]
+    },
+    {
+        "id": "get08",
+        "name": "현대 H몰 웹사이트 리뉴얼",
+        "dev": ["pc"],
+        "year": "2021",
+        "stack": ["pureHTML"],
+        "enter": ["브랜드기업"],
+        "project": ["구축"]
+    },
+    {
+        "id": "get07",
+        "name": "르노캐피탈 Front Office",
+        "dev": ["mobile"],
+        "year": "2020",
+        "stack": ["pureHTML"],
+        "enter": ["금융"],
+        "project": ["구축"]
+    },
+    {
+        "id": "get06",
+        "name": "KB캐피탈 차차차 마이데이터 구축",
+        "dev": ["mobile"],
+        "year": "2020",
+        "stack": ["pureHTML"],
+        "enter": ["금융"],
+        "project": ["구축"]
+    },
+    {
+        "id": "get05",
+        "name": "해피포인트 웹사이트 리뉴얼",
+        "dev": ["pc","mobile"],
+        "year": "2020",
+        "stack": ["pureHTML"],
+        "enter": ["브랜드기업"],
+        "project": ["구축"]
+    },
+    {
+        "id": "get04",
+        "name": "롯데스카이힐 리조트 웹사이트 리뉴얼",
+        "dev": ["pc"],
+        "year": "2020",
+        "stack": ["pureHTML"],
+        "enter": ["브랜드기업"],
+        "project": ["구축"]
+    },
+    {
+        "id": "get03",
+        "name": "한화아쿠아플라넷 웹사이트 리뉴얼",
+        "dev": ["pc"],
+        "year": "2019",
+        "stack": ["pureHTML"],
+        "enter": ["브랜드기업"],
+        "project": ["구축"]
+    },
+    {
+        "id": "get02",
+        "name": "NH Global 베트남뱅킹 구축",
+        "dev": ["pc","mobile"],
+        "year": "2019",
+        "stack": ["WebSquare"],
+        "enter": ["금융"],
+        "project": ["구축"]
+    },
+    {
+        "id": "get01",
+        "name": "SC제일은행 하이브리드앱 개발",
+        "dev": ["mobile"],
+        "year": "2019",
+        "stack": ["pureHTML"],
+        "enter": ["금융"],
+        "project": ["구축"]
+    }
+]

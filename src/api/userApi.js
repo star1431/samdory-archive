@@ -1,10 +1,10 @@
 // import axios from 'axios'
-import users from '@/mockup/users.json'
+import users from '@/mockup/usersData.json'
 
 // 사용자 데이터를 가져오는 함수
 export const fetchUsers = async () => {
     try {
-        // const response = await axios.get('@/mockup/users.json')
+        // const response = await axios.get('@/mockup/usersData.json')
         // return response.data
         return users
     } catch (error) {

@@ -4,32 +4,6 @@
     </div>
 </template>
 
-<script>
-export default {
-    name: 'HeaderComponent',
-    inject: [''],
-    components: {
-    },
-    props: {
-    },
-    computed: {
-        routes() {
-        },
-    },
-    setup() {
-    },
-    data(){
-        return{
-            pageClass: '페이지명'
-        }
-    },
-    mounted(){
-    },
-    methods: {
-    }
-}
-</script>
-<!--
 <script setup>
 import { ref, reactive, computed, onMounted, watch } from 'vue'
 
@@ -45,6 +19,6 @@ watch(() => {
 
 })
 </script>
--->
+
 <style scoped>
 </style>

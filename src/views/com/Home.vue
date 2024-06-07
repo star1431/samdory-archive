@@ -1,27 +1,59 @@
 <template>
     <div :class="['container', pageClass]">
-        <h1>Home</h1>
-        <p>홈 메인 페이지</p>
-        <!-- <img src="@/assets/images/common/img_login_visual.png" alt=""> -->
-        <button type="submit" @click="loginClick()">로그인</button>
+        <div class="container-content">
+            <PageTopSlot :title="title" :pagePath="pageClass" />
+
+            <div class="section-area row">
+                <div class="inner-col col-1"></div>
+
+                <div class="inner-col col-2-3"></div>
+                <div class="inner-col col-1-3"></div>
+
+                <div class="inner-col col-1-3"></div>
+                <div class="inner-col col-1-3"></div>
+                <div class="inner-col col-1-3"></div>
+
+                <div class="inner-col col-1-2"></div>
+                <div class="inner-col col-1-2"></div>
+
+                <div class="inner-col col-1-4"></div>
+                <div class="inner-col col-1-4"></div>
+                <div class="inner-col col-1-4"></div>
+                <div class="inner-col col-1-4"></div>
+
+                <div class="inner-col col-1-4"></div>
+                <div class="inner-col col-3-4"></div>
+            </div>
+            <div class="section-area row">
+                <div class="inner-col col-1"></div>
+
+                <div class="inner-col col-2-3"></div>
+                <div class="inner-col col-1-3"></div>
+
+                <div class="inner-col col-1-3"></div>
+                <div class="inner-col col-1-3"></div>
+                <div class="inner-col col-1-3"></div>
+
+                <div class="inner-col col-1-2"></div>
+                <div class="inner-col col-1-2"></div>
+
+                <div class="inner-col col-1-4"></div>
+                <div class="inner-col col-1-4"></div>
+                <div class="inner-col col-1-4"></div>
+                <div class="inner-col col-1-4"></div>
+
+                <div class="inner-col col-1-4"></div>
+                <div class="inner-col col-3-4"></div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script setup>
 import { ref, reactive, computed, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
-import { useStore } from 'vuex'
-
+import PageTopSlot from '@/components/PageTopSlot.vue'
+const title = ref('홈 화면')
 const pageClass = ref(['com', 'Home'])
-
-const username = ref('')
-const password = ref('')
-const error = ref(null)
-
-const store = useStore()
-const router = useRouter()
-
-const loginClick = () => { router.push({ name: 'Login' }) }
 
 computed(() => {
 

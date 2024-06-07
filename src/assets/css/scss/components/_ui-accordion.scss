@@ -33,10 +33,15 @@
         }
         
     }
+    button,a {
+        &:focus-visible {
+            outline-offset: -2px;
+        }
+    }
     &.menu {
         &.is-active {
             .accordion-header .toggle-button {
-                background-color: var(--primary-700) !important;
+                @include themeColor(background-color, pri-700, !important);
                 color: #fff !important;
                 &::after,
                 &::before {
@@ -46,11 +51,11 @@
         }
         &:not(.is-active) {
             .accordion-header .toggle-button:hover {
-                background-color: #F5FAFC;
-                color: var(--primary-700);
+                @include themeColor(background-color, menu-btn-hover);
+                @include themeColor(color, pri-700);
                 &::after,
                 &::before {
-                    color: var(--primary-700);
+                    @include themeColor(color, pri-700);
                 }
             }
         }
@@ -59,6 +64,9 @@
             .toggle-button {
                 transition: all 0.2s;
                 @include font-14;
+                &, &:before, &:after {
+                    @include themeColor(color, menu-btn);
+                }
                 .title {
                     font-weight: 600;
                     @include ellipsis;

@@ -7,7 +7,8 @@
             @include flex($a: center, $j: center, $wrap: wrap);
             width: calc(100%*2/3);
             padding: $containerPadding;
-            background-color: #E0ECF8;
+            // background-color: #E0ECF8;
+            @include themeColor(background-color, bg-login);
             img {
                 max-width: 360px;
             }
@@ -18,6 +19,7 @@
             width: calc(100%*1/3);
             padding: $containerPadding;
             box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.08);
+            @include themeColor(background-color, bg-login-2);
             .inner {
                 @include flex($dir:column, $j: center);
                 width: 100%;
@@ -33,7 +35,8 @@
                         margin-left: -32px;
                     }
                     span {
-                        @include font($s:42,$lh:56,$color:var(--gray-900)); 
+                        @include font($s:42,$lh:56); 
+                        @include themeColor(color, text-thick);
                     }
                 }
             }

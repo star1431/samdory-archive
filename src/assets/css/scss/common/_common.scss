@@ -1,11 +1,11 @@
 @charset "UTF-8";
 
-/** 접근성 숨김텍스트 */
+// [common class] 히든텍스트  ================================================
 .ally-hidden {
     @include ally-hidden;
 }
 
-/* flex || @mixin flex($dir, $a, $j, $wrap, $gap) */
+// [common class] flex  ================================================
 .flex-row {
     @include flex($a: center);
     &-8{@include flex($a: center,$gap:0.8rem);}
@@ -23,27 +23,43 @@
     @include flex($dir: row, $a: flex-end, $j: flex-end);
 }
 
-.fs-xs {
-    @include font-12;
-}
-.fs-s {
-    @include font-14;
-}
-.fs-m {
-    @include font-16;
-}
-.fs-l {
-    @include font-18;
-}
-.fs-xl {
-    @include font-20;
-}
-.fs-xxl {
-    @include font-24;
+// [common class] fs-값  ================================================
+.fs {
+    // fs-xs , fs-s ...
+    // fs-xl theme, fs-xl theme-t
+    $fsInnerVar: (
+        'xs': 12,
+        's': 14,
+        'm': 16,
+        'l': 18,
+        'xl': 20,
+        'xxl': 24,
+        'hxl': 28,
+    );
+    @each $size, $font in $fsInnerVar {
+        &-#{$size} {
+            @if $font == 12 {@include font-12;}
+            @else if $font == 14 {@include font-14;}
+            @else if $font == 16 {@include font-16;}
+            @else if $font == 18 {@include font-18;}
+            @else if $font == 20 {@include font-20;}
+            @else if $font == 22 {@include font-22;}
+            @else if $font == 24 {@include font-24;}
+            @else if $font == 28 {@include font-28;}
+            &.theme {
+                @include themeColor(color, text-default);
+            }
+            &.theme-t {
+                @include themeColor(color, text-thick);
+            }
+        }
+    }
 }
 
+// [common class] 에러텍스트  ================================================
 .error-text {
     display: block;
     margin-top: 0.8rem;
-    @include font-14($color: var(--error));
+    @include font-14;
+    @include themeColor(color, error);
 }

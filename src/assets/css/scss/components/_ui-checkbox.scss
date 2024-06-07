@@ -7,27 +7,31 @@
         position: relative;
         display: inline-flex;
         align-items: center;
-        width: 100%;
-        height: 100%;
+        // width: 100%;
+        // height: 100%;
         cursor: pointer;
         input[type="checkbox"] {
             @include pos($pos: absolute, $tp: 0, $lt: 0, $index: 1);
             width: 100%;
             height: 100%;
             &:checked ~ .check-inner {
-                    color: var(--gray-800);
+                    @include themeColor(color, text-thick, !important);
                 &::before {
-                    @include xeiconBefore($icon: '\e92b', $color: var(--primary-800));
+                    @include xeiconBefore($icon: '\e92b');
+                    @include themeColor(color, pri-800);
+
                 }
             }
         }
         .check-inner {
             @include flex($gap: 0.4rem);
-            @include font-16($color: var(--gray-600));
+            @include font-16();
+            @include themeColor(color, check-default);
             transition: all 0.2s;
             z-index: 1;
             &::before {
-                @include xeiconBefore($icon: '\e92c', $s: 24, $color: var(--gray-600));
+                @include xeiconBefore($icon: '\e92c', $s: 24);
+                @include themeColor(color, check-default);
                 display: block;
                 @include pos($pos: relative, $tp: 0, $lt: 0);
                 margin-top: -0.1rem;
@@ -38,10 +42,14 @@
     }
 }
 
-.ui-switch {
+
+.ui-screen-toogle {
+    display: inline-flex;
     label {
+        display: block;
         position: relative;
-        display: inline-flex;
+        width: 4.6rem; 
+        height: 2.4rem;
     }
     input[type="checkbox"] {
         @include pos($pos: absolute, $tp:0, $bt: 0, $lt: 0, $rt: 0);
@@ -49,18 +57,18 @@
         height: 100%;
         z-index: 1;
         cursor: pointer;
-        &:checked + .swich-icon {
+        &:checked + .screen-icon {
             background-color: var(--primary-800);
             &::before {
-                transform:translateX(23px) translateY(-50%);
+                transform:translateX(calc((4.6rem - 2.2rem) - 0.3rem)) translateY(-50%);
             }
         }
     }
-    .swich-icon {
-        display: block; 
+    .screen-icon {
         position: relative; 
-        width: 4.6rem; 
-        height: 2.4rem; 
+        display: block; 
+        width: 100%;
+        height: 100%;
         border-radius: 25px; 
         background-color: var(--gray-400); 
         transition:all 0.2s;
@@ -71,12 +79,100 @@
             height: 2.2rem; 
             border-radius:50%; 
             background-color:#fff; 
-            transform:translateX(1px) translateY(-50%); 
+            transform:translateX(0.3rem) translateY(-50%); 
+            transition:all 0.2s;
+        }
+    }
+}
+
+.ui-switch {
+    display: inline-flex;
+    label {
+        display: block;
+        position: relative;
+        width: 4.6rem; 
+        height: 2.4rem;
+    }
+    input[type="checkbox"] {
+        @include pos($pos: absolute, $tp:0, $bt: 0, $lt: 0, $rt: 0);
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        cursor: pointer;
+        &:checked + .swich-icon {
+            background-color: var(--primary-800);
+            &::before {
+                transform:translateX(calc((4.6rem - 2.2rem) - 0.3rem)) translateY(-50%);
+            }
+        }
+    }
+    .swich-icon {
+        position: relative; 
+        display: block; 
+        width: 100%;
+        height: 100%;
+        border-radius: 25px; 
+        background-color: var(--gray-400); 
+        transition:all 0.2s;
+        &::before {
+            content: ''; 
+            @include pos($pos: absolute, $tp:50%);
+            width: 2.2rem; 
+            height: 2.2rem; 
+            border-radius:50%; 
+            background-color:#fff; 
+            transform:translateX(0.3rem) translateY(-50%); 
             transition:all 0.2s;
         }
     }
 
     &.theme {
-
+        label {
+            width: 6rem; 
+            height: 2.8rem; 
+        }
+        input[type="checkbox"] {
+            &:checked + .swich-icon {
+                background-color: #222;
+                &::before {
+                    transform:translateX(calc((6rem - 2rem) - 0.4rem)) translateY(calc(-50%));
+                }
+                &::after {
+                    content: '\eb10';
+                    right: unset;
+                    left: 0.6rem;
+                    transform:translateY(-50%) rotate(25deg);
+                }
+            }
+        }
+        .swich-icon {
+            background-color: #f17400;
+            &::before {
+                width: 2rem; 
+                height: 2rem; 
+                transform:translateX(0.4rem) translateY(calc(-50% - 0.1rem));
+            }
+            &::after {
+                display: inline-block;
+                @include pos($pos: absolute, $tp:50%);
+                right: 0.6rem;
+                left: unset;
+                content: '\eba3';
+                width: unset;
+                height: unset;
+                color: #fff;
+                font-size: 2rem;
+                speak: none;
+                font-family: 'xeicon' !important;
+                font-style: normal;
+                font-weight: normal;
+                font-variant: normal;
+                text-transform: none;
+                line-height: 1;
+                -webkit-font-smoothing: antialiased;
+                transform:translateY(-50%) rotate(0deg);
+                transition:all 0.2s; 
+            }
+        }
     }
 }

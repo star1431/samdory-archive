@@ -2,15 +2,13 @@
     
     <div class="wrap" ui-layout="layoutDefault">
         <Header/>
-        <OverlayScrollbarsComponent 
-            :options="{scrollbars:{autoHide:'scroll'}}"
-            defer>
             <main class="main">
                 <SideNav />
-                <router-view name="content" />
+                <OverlayScrollbarsComponent :options="{scrollbars:{autoHide:'scroll'}}" defer>
+                    <router-view name="content" />
+                    <Footer v-if="false"/>
+                </OverlayScrollbarsComponent>
             </main>
-            <Footer/>
-        </OverlayScrollbarsComponent>
     </div>
 </template>
 
@@ -23,12 +21,10 @@ import SideNav from '@/components/layout/SideNav.vue'
 import { OverlayScrollbarsComponent } from "overlayscrollbars-vue"
 const router = useRoute()
 
-
 computed(() => {
 
 })
 onMounted(() => {
-    // console.log('LayoutDefault 마운트')
 })
 watch(() => router.meta, (newMeta) => {
     // console.log('메타확인:', newMeta)

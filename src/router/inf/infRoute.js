@@ -35,6 +35,20 @@ let routes = [
                     content: () => import(/* webpackChunkName: "inf" */ '@/views/inf/CompanyFile.vue'),
                 }),
             },
+            {
+                path: 'project',
+                name: 'CompanyProject',
+                meta: {
+                    title: '프로젝트 통계',
+                    layout: 'LayoutDefault',
+                    side: true,
+                    requiresAuth: true,
+                    roles: ['admin', 'employee']
+                },
+                components: Object.assign({
+                    content: () => import(/* webpackChunkName: "inf" */ '@/views/inf/CompanyProject.vue'),
+                }),
+            },
         ]
     },
 ]

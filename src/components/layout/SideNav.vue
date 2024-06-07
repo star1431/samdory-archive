@@ -81,8 +81,7 @@ const logout = () => {
     store.dispatch('logout')
     
     if(document.querySelector('#app').classList.contains('login-animation')) {
-        document.querySelector('#app').classList.remove('login-animation')
-        document.querySelector('#app').classList.add('logout-animation')
+        document.querySelector('#app').classList.replace('login-animation', 'logout-animation')
     } else {
         document.querySelector('#app').classList.add('logout-animation')
     }
@@ -99,7 +98,7 @@ const isAccordion = (item) => {
     return item.children && item.children.length > 0
 }
 
-// 밤낮테마 토글스위치
+// 권한 체크 클래스
 const checkAcc = (item) => {
     const _acc = item.meta.roles || []
     if (_acc.length === 0 || _acc.includes(user.value?.role)) {

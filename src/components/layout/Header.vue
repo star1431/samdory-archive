@@ -18,11 +18,18 @@
                     </button>
                 </div>
                 <div class="slot-right">
-                    <div class="ui-switch">
+                    <div class="ui-screen-toogle" v-if="false">
+                        <label class="screen-control">
+                            <input type="checkbox" v-model="screenCheck">
+                            <i class="screen-icon"></i>
+                            <span class="ally-hidden">{{ screenCheck ? '확대' : '축소' }}</span>
+                        </label>
+                    </div>
+                    <div class="ui-switch theme">
                         <label class="switch-inner">
                             <input type="checkbox" v-model="switchCheck">
                             <i class="swich-icon"></i>
-                            <span class="ally-hidden">테마변경 스위치</span>
+                            <span class="ally-hidden">[테마변경] 현재 {{ switchCheck ? '어두운 테마' : '밝은 테마' }} 입니다.</span>
                         </label>
                     </div>
                 </div>
@@ -33,7 +40,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, onMounted } from 'vue'
+import { ref, reactive, watch, onMounted } from 'vue'
 
 // 메뉴버튼 클릭
 const menuClick = () => {
@@ -44,15 +51,42 @@ const menuClick = () => {
         _app.classList.add('lnb-close')
     }
 }
+// 확대축소 토글
+const screenCheck = ref(false)
+
 
 // 밤낮 스위치
 const switchCheck = ref(false)
-
-computed(() => {
-
+watch(switchCheck, (newValue) => {
+    const _app = document.querySelector('#app')
+    if (newValue) {
+        _app.classList.add('dark-theme')
+        localStorage.setItem('theme', 'dark')
+        sessionStorage.setItem('themeSet', 'true')
+    } else {
+        _app.classList.remove('dark-theme')
+        localStorage.setItem('theme', 'light')
+        sessionStorage.setItem('themeSet', 'true')
+    }
 })
 onMounted(() => {
-
+    const _app = document.querySelector('#app')
+    const _savedTheme = localStorage.getItem('theme')
+    const _themeSet = sessionStorage.getItem('themeSet')
+    if (_themeSet) {
+        if (_savedTheme === 'dark') {
+            switchCheck.value = true
+            _app.classList.add('dark-theme')
+        } else {
+            switchCheck.value = false
+            _app.classList.remove('dark-theme')
+        }
+    } else {
+        // 세션 스토리지에 'themeSet'이 없으면 기본값을 설정
+        localStorage.removeItem('theme')
+        switchCheck.value = false
+        _app.classList.remove('dark-theme')
+    }
 })
 </script>
 

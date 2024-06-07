@@ -66,6 +66,9 @@ ul, ol, dl {
 em {
     font-style: inherit;
 }
+a, button:focus-visible {
+    outline-offset: -1px;
+}
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -79,7 +82,7 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus,
 select:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 1000px white inset !important;
+    -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
 }
 input[type="checkbox"],
 input[type="radio"] {

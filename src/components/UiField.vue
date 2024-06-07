@@ -16,10 +16,15 @@
                 @focus="inputFocus" 
                 @blur="inputBlur"
                 @input="inputEv"/>
-            <button class="btn-value-clear" type="button" v-if="clearShow" @click="clearInput">
-                <i class="xi-close-circle xi-x"></i>
-                <span class="ally-hidden">입력값 지우기</span>
-            </button>
+            <transition
+                @before-enter="btnBefEnt"
+                @enter="btnEnt"
+                @leave="btnLeave">
+                <button class="btn-value-clear" type="button" v-show="clearShow" @click="clearInput" @focus="btnFocus" @blur="btnBlur">
+                    <i class="xi-close-circle xi-x"></i>
+                    <span class="ally-hidden">입력값 지우기</span>
+                </button>
+            </transition>
         </div>
         <p class="error-text" v-if="props.error && props.error !== 'show'">{{ props.error }}</p>
     </div>
@@ -66,6 +71,7 @@ const emits = defineEmits(['update:modelValue'])
 const inputValue = ref(props.modelValue)
 const clearShow = ref(false)
 const focusState = ref('')
+const clearFocused = ref(false)
 
 // 클리어 버튼
 const clearInput = (e) => {
@@ -84,23 +90,61 @@ watch(() => props.modelValue, (newValue) => {
     inputValue.value = newValue
 })
 
+// [input] 이벤트
 const inputFocus = () => {
-    if(props.disabled && props.readonly) return
+    if (props.disabled || props.readonly) return
     focusState.value = 'is-focus'
-    if(inputValue.value !== '') clearShow.value = true
+    if (inputValue.value !== '') {
+        setTimeout(() => {
+            clearShow.value = true
+        }, 50) // 버튼 인터렉션 이슈 추가
+    }
 }
 const inputBlur = (e) => {
-    if (e.relatedTarget && e.relatedTarget.classList.contains('btn-value-clear')) {
-        setTimeout(() => {
+    setTimeout(() => {
+        if (!clearFocused.value) {
             clearShow.value = false
-        }, 150)
-    } else {
-        clearShow.value = false
-    }
+        }
+    }, 150) // 버튼 탭포커스 이슈 추가
     focusState.value = ''
 }
 const inputEv = () => {
-    if(inputValue.value !== '') clearShow.value = true
+    if (inputValue.value !== '') clearShow.value = true
+}
+
+// [clearBtn] 포커스 이벤트
+const btnFocus = () => {
+    clearFocused.value = true
+}
+
+const btnBlur = () => {
+    clearFocused.value = false
+    setTimeout(() => {
+        if (!document.activeElement.classList.contains('btn-value-clear')) {
+            clearShow.value = false
+        }
+    }, 150)
+}
+
+// [clearBtn] 트랜지션훅
+const btnBefEnt = (el) => {
+    el.style.transform = 'scale(0)'
+    el.style.opacity = 0
+}
+const btnEnt = (el, done) => {
+    el.offsetHeight // 트리거 리플로우
+    el.style.transition = 'transform 0.2s, opacity 0.2s'
+    el.style.transform = 'scale(1)'
+    el.style.opacity = 1
+    done()
+}
+const btnLeave = (el, done) => {
+    el.style.transition = 'transform 0.2s, opacity 0.2s'
+    el.style.transform = 'scale(0)'
+    el.style.opacity = 0
+    setTimeout(() => {
+        done()
+    }, 200) // 이렇게까지 해야되나..
 }
 </script>
 

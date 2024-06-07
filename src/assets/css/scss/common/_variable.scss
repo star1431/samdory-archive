@@ -23,18 +23,68 @@
     --gray-100 : #F3F6FB;
     // error
     --error    : #D61111;
-
-    --navWidth : 25.6rem;
-    --navPadding: 2rem;
+    // 오토필
+    --autofill : #fff;
+    // etc
+    --navWidth      : 25.6rem;
+    --navPadding    : 2rem;
 }
 
 // 화면좌우 여백
 $containerPadding: 2rem;
 
 // 해상도
-$mobile: 359px;
+$mobile: 360px;
 $tablet: 768px;
-$desktop: 1200px;
+$desktop: 1199px;
 
-// 텍스트 - 컬러
+// 폰트 기본컬러
 $font-color-default: var(--gray-900);
+
+// 테마지정 color
+$theme:(
+    light: (
+        overlayScrollbar    : #aaa,
+        bg-defult           : #ffffff,
+        bg-inner            : #eef5f9,
+        bg-login            : #E0ECF8,
+        bg-login-2          : #fff,
+        text-default        : #121315,
+        text-thick          : #121315,
+        pri-800             : #005DF9,
+        pri-700             : #2680FF,
+        gray-800            : #242A34,
+        secondary           : #E7EDF6,
+        menu-btn            : #121315,
+        menu-btn-hover      : #eff4ff,
+        nav-border          : transparent,
+        check-default       : #576072,
+        error               : #D61111,
+        bg-col              : #fff,
+        shadow-col          : (rgba(145, 158, 171, 0.3) 0 0 2px, rgba(145, 158, 171, 0.1) 0 12px 24px -4px),
+        border-col          : transparent,
+    ),
+    dark: (
+        overlayScrollbar    : #dedede,
+        bg-defult           : #171C23,
+        bg-inner            : #14181e,
+        bg-login            : #14181e,
+        bg-login-2          : #171C23,
+        text-default        : #e3e3e3,
+        text-thick          : #fff,
+        pri-800             : #005DF9,
+        pri-700             : #0074ba,
+        gray-800            : #fff,
+        secondary           : #E7EDF6,
+        menu-btn            : #7c8fac,
+        menu-btn-hover      : #0074ba1a,
+        nav-border          : #333F55,
+        check-default       : #7c8fac,
+        error               : #ff5a5a,
+        bg-col              : transparent,
+        shadow-col          : (rgba(145, 158, 171, 0.302) 0 0 2px,rgba(145, 158, 171, 0.02) 0 12px 24px -4px),
+        border-col          : #333F55,
+    )
+);
+
+

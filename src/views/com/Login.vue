@@ -10,7 +10,7 @@
             <div class="inner">
                 <div class="text-box">
                     <h1 class="ui-logo beta-label">
-                        <img class="logo" src="@/assets/images/common/img_logo_samdory_black.png" alt="SD">
+                        <img class="logo" :src="chageImg" alt="SD">
                         <span>Archive</span>
                     </h1>
                 </div>
@@ -73,6 +73,7 @@ const glError = ref(null)
 const idError = ref(null)
 const pwError = ref(null)
 const saveId = ref(false)
+const srcChange = ref(false)
 
 const store = useStore()
 const router = useRouter()
@@ -96,8 +97,7 @@ const login = async () => {
             localStorage.removeItem('savedId')
         }
         if(document.querySelector('#app').classList.contains('logout-animation')) {
-            document.querySelector('#app').classList.remove('logout-animation')
-            document.querySelector('#app').classList.add('login-animation')
+            document.querySelector('#app').classList.replace('logout-animation', 'login-animation')
         } else {
             document.querySelector('#app').classList.add('login-animation')
         }
@@ -109,6 +109,14 @@ const login = async () => {
     }
 }
 
+const chageImg = computed(() => {
+    if (!srcChange.value) {
+        return require('@/assets/images/common/img_logo_samdory_black.png')
+    } else {
+        return require('@/assets/images/common/img_logo_samdory_white.png')
+    } 
+})
+
 computed(() => {
 
 })
@@ -119,6 +127,24 @@ onMounted(() => {
     if (savedId) {
         userName.value = savedId
         saveId.value = true
+    }
+    // 테마 설정 가져오기
+    const _app = document.querySelector('#app')
+    const _savedTheme = localStorage.getItem('theme')
+    const _themeSet = sessionStorage.getItem('themeSet')
+    if (_themeSet) {
+        if (_savedTheme === 'dark') {
+            srcChange.value = true
+            _app.classList.add('dark-theme')
+        } else {
+            srcChange.value = false
+            _app.classList.remove('dark-theme')
+        }
+    } else {
+        // 세션 스토리지에 'themeSet'이 없으면 기본값을 설정
+        localStorage.removeItem('theme')
+        srcChange.value = false
+        _app.classList.remove('dark-theme')
     }
 })
 </script>

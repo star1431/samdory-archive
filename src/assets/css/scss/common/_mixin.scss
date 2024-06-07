@@ -1,7 +1,32 @@
 @charset "UTF-8";
+// 테마 ================================================
+// _variable.scss에서 $theme 받아 적용
+@function get-color($key, $type: 'light') {
+    @each $name, $color in map-get($theme, $type) {
+        @if($key == $name) {
+            @return $color;
+        }
+    }
+}
+// $property  : css의 속성 (color,background-color ...)
+// 실제사용    : @include themeColor(color, text-default);
+@mixin themeColor($property, $color, $imp: null) {
+    @if($imp != null) {
+        #{$property}: get-color($color) !important;
+    } @else {
+        #{$property}: get-color($color);
+    }
+    @at-root #app.dark-theme & { // 최상위 #app 할당
+        @if($imp != null) {
+            #{$property}: get-color($color, dark) !important;
+        } @else {
+            #{$property}: get-color($color, dark);
+        }
+    }
+}
 
 // 해상도 ================================================
-// $mobile: 359px; $tablet: 768px; $desktop: 1200px;
+// $mobile: 360px; $tablet: 768px; $desktop: 1200px;
 @mixin mobile {
     @media (min-width: 280px) and (max-width: $mobile) {@content;}
 }
@@ -95,7 +120,6 @@
 @mixin font-14($color: null) { @include font($s: 14, $lh: 20); @if($color != null) {color:$color} @else {color: $font-color-default} }
 @mixin font-16($color: null) { @include font($s: 16, $lh: 24); @if($color != null) {color:$color} @else {color: $font-color-default} }
 @mixin font-18($color: null) { @include font($s: 18, $lh: 26); @if($color != null) {color:$color} @else {color: $font-color-default} }
-@mixin font-20($color: null) { @include font($s: 20, $lh: 28); @if($color != null) {color:$color} @else {color: $font-color-default} }
 @mixin font-20($color: null) { @include font($s: 20, $lh: 28); @if($color != null) {color:$color} @else {color: $font-color-default} }
 @mixin font-22($color: null) { @include font($s: 22, $lh: 32); @if($color != null) {color:$color} @else {color: $font-color-default} }
 @mixin font-24($color: null) { @include font($s: 24, $lh: 34); @if($color != null) {color:$color} @else {color: $font-color-default} }
