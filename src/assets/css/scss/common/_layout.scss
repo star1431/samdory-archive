@@ -327,6 +327,7 @@
             transition: background-color 0.2s;
             .container {
                 padding: $containerPadding;
+                padding-bottom: 4rem;
             }
         }
     }
@@ -402,11 +403,16 @@
         max-width: 100%;
         min-height: 10rem;
         border-radius: 6px;
-        border: 1px solid;
+        #app.dark-theme & {
+            border: 1px solid;
+        }
+        @include themeColor(border-color, border-col);
         &:not([class*='type-bg']) {
             @include themeColor(background-color, bg-col);
             @include themeColor(box-shadow, shadow-col);
-            @include themeColor(border-color, border-col);
+        }
+        &.posts {
+            padding: 0;
         }
         &.col {
             &-1 {flex: 0 0 100%;}

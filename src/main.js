@@ -4,7 +4,7 @@ import router from '@/router/index.js'
 // css,js
 import '@/assets/css/lib/xeicon.css'
 import '@/assets/css/app.css'
-// import CommonJs from '@/assets/js/common.js'
+// import CommonJs from '@/assets/js/common.js' // del (UI부분은 컴포넌트별로 setup 내 작업)
 import store from '@/store/store'
 // lib
 import 'overlayscrollbars/overlayscrollbars.css'

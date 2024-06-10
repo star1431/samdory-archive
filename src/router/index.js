@@ -17,9 +17,15 @@ routes = routes.concat(com, inf, tri, rul, res)
 const router = createRouter({
     history: createWebHashHistory('/samdory-archive/'),
     mode: 'hash',
-	scrollBehavior() {
-		return { top: 0 }
-	},
+    scrollBehavior(to, from, savedPosition) {
+        if (to.hash) {
+            return {
+                el: to.hash,
+                behavior: 'smooth',
+            }
+        }
+        return { top: 0 }
+    },
 	routes,
 })
 

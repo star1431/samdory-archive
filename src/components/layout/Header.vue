@@ -44,11 +44,11 @@ import { ref, reactive, watch, onMounted } from 'vue'
 
 // 메뉴버튼 클릭
 const menuClick = () => {
-    const _app = document.querySelector('#app')
-    if(_app.classList.contains('lnb-close')) {
-        _app.classList.remove('lnb-close')
+    const appEl = document.querySelector('#app')
+    if(appEl.classList.contains('lnb-close')) {
+        appEl.classList.remove('lnb-close')
     } else {
-        _app.classList.add('lnb-close')
+        appEl.classList.add('lnb-close')
     }
 }
 // 확대축소 토글
@@ -58,34 +58,34 @@ const screenCheck = ref(false)
 // 밤낮 스위치
 const switchCheck = ref(false)
 watch(switchCheck, (newValue) => {
-    const _app = document.querySelector('#app')
+    const appEl = document.querySelector('#app')
     if (newValue) {
-        _app.classList.add('dark-theme')
+        appEl.classList.add('dark-theme')
         localStorage.setItem('theme', 'dark')
         sessionStorage.setItem('themeSet', 'true')
     } else {
-        _app.classList.remove('dark-theme')
+        appEl.classList.remove('dark-theme')
         localStorage.setItem('theme', 'light')
         sessionStorage.setItem('themeSet', 'true')
     }
 })
 onMounted(() => {
-    const _app = document.querySelector('#app')
-    const _savedTheme = localStorage.getItem('theme')
-    const _themeSet = sessionStorage.getItem('themeSet')
-    if (_themeSet) {
-        if (_savedTheme === 'dark') {
+    const appEl = document.querySelector('#app')
+    const savedTheme = localStorage.getItem('theme')
+    const themeSet = sessionStorage.getItem('themeSet')
+    if (themeSet) {
+        if (savedTheme === 'dark') {
             switchCheck.value = true
-            _app.classList.add('dark-theme')
+            appEl.classList.add('dark-theme')
         } else {
             switchCheck.value = false
-            _app.classList.remove('dark-theme')
+            appEl.classList.remove('dark-theme')
         }
     } else {
         // 세션 스토리지에 'themeSet'이 없으면 기본값을 설정
         localStorage.removeItem('theme')
         switchCheck.value = false
-        _app.classList.remove('dark-theme')
+        appEl.classList.remove('dark-theme')
     }
 })
 </script>

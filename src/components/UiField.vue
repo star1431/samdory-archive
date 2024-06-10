@@ -126,7 +126,7 @@ const btnBlur = () => {
     }, 150)
 }
 
-// [clearBtn] 트랜지션훅
+// [clearBtn] 트랜지션 hock
 const btnBefEnt = (el) => {
     el.style.transform = 'scale(0)'
     el.style.opacity = 0

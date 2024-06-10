@@ -28,7 +28,8 @@
                         <li v-if="isAccordion(item)">
                             <UiAccordion 
                                 :title="item.meta.title" 
-                                :class="['menu', item.path.substring(1), !checkAcc(item) ? 'not-acc' : '']">
+                                :class="['menu', item.path.substring(1), !checkAcc(item) ? 'not-acc' : '']"
+                                :beforeActive="reflashAct(item)">
                                 <template v-slot:inner>
                                     <ul class="list-2depth">
                                         <li v-for="(subItem, j) in item.children" :key="j">
@@ -56,27 +57,28 @@
 <script setup>
 import { ref, reactive, computed, onMounted } from 'vue'
 import { routes } from '@/router'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { useStore } from 'vuex'
 import UiAccordion from '@/components/UiAccordion.vue'
-import { OverlayScrollbarsComponent } from "overlayscrollbars-vue"
+import { OverlayScrollbarsComponent } from "overlayscrollbars-vue" // 퍼펙트스크롤 급 역겨움
 
 const store = useStore()
 const router = useRouter()
+const route = useRoute()
 
 // 유저정보 이미지 src
 const user = computed(() => store.state.user)
 const setUserImg = computed(() => {
-    if (user?.value?.role === 'admin') {
+    if (user?.value?.role === 'admin') { // 어드민
         return require('@/assets/images/common/img_user_profile_a.png')
-    } else if (user?.value?.role === 'employee') {
+    } else if (user?.value?.role === 'employee') { // 직원
         return require('@/assets/images/common/img_user_profile_sd.png')
-    } else {
+    } else { // 그외
         return require('@/assets/images/common/img_user_profile_p.png')
     } 
 })
 
-// 로그아웃 페이지전환
+// 로그아웃 페이지 전환
 const logout = () => {
     store.dispatch('logout')
     
@@ -89,7 +91,7 @@ const logout = () => {
     router.push({ name: 'Login' })
 }
 
-// 라우터 메뉴
+// 라우터 메뉴 title기준 배열
 const menuLists = ref(routes.filter(route => route.meta.title))
 
 
@@ -98,11 +100,19 @@ const isAccordion = (item) => {
     return item.children && item.children.length > 0
 }
 
-// 권한 체크 클래스
+// 권한 여부 클래스 제어 (일단 클래스만 넣음)
 const checkAcc = (item) => {
     const _acc = item.meta.roles || []
     if (_acc.length === 0 || _acc.includes(user.value?.role)) {
         return true
+    }
+    return false
+}
+
+// 현재 경로에 해당하는 아코디언을 활성화
+const reflashAct = (item) => {
+    if (isAccordion(item)) {
+        return item.children.some(subItem => route.path.includes(`${item.path}/${subItem.path}`))
     }
     return false
 }

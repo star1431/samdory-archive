@@ -4,10 +4,11 @@
             <PageTopSlot :title="title" :pagePath="pageClass" />
 
             <div class="section-area row">
-                <div class="inner-col col-1">
-                    <div class="markdown-area">
-                        <div v-html="markdownHtml"></div>
+                <div class="inner-col col-1 posts">
+                    <div class="lottie-banner">
+                        <LottieLoader :lottieData="lottieJson"/>
                     </div>
+                    <PageMarkDown :loader="postMd" :scrollbarRef="scrollbarRef" />
                 </div>
             </div>
         </div>
@@ -15,26 +16,17 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, reactive } from 'vue'
 import PageTopSlot from '@/components/PageTopSlot.vue'
-import marked from '@/assets/js/markdownRenderer'
+import PageMarkDown from '@/components/PageMarkDown.vue'
+import LottieLoader from '@/components/LottieLoader.vue'
+import lottieJson from '@/assets/js/lottie/lottieinf.json'
 import postMd from '@/posts/inf/안내사항.md' 
 
 const title = ref('안내사항')
 const pageClass = ref(['inf', 'CompanyInfo'])
+const scrollbarRef = ref(null)
 
-// 마크다운을 HTML로 변환
-const markdownHtml = ref('')
-onMounted(() => {
-    markdownHtml.value = marked(postMd, {
-        breaks: true,
-        pedantic: false,
-        gfm: true,
-        mangle: false,
-        headerIds: false,
-    })
-    console.log(markdownHtml.value)
-})
 </script>
 
 <style scoped>

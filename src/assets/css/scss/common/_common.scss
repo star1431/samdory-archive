@@ -63,3 +63,17 @@
     @include font-14;
     @include themeColor(color, error);
 }
+
+
+
+// [common class] 태그  ================================================
+.tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 1rem;
+    min-height: 2.4rem;
+    border-radius: 25px;
+    @include font-14;
+    @include themeColor(background-color, bg-tag);
+    @include themeColor(color, fc-tag);
+}
