@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+// chart ================================================
+.chart {
+    &.col-1 {
+        .chart-area .chart-body {
+            max-height: 32rem;
+            aspect-ratio: 3 / 1;
+        }
+    }
+    &.col-1-2 {
+        .chart-area .chart-body {
+            max-height: 22rem;
+            aspect-ratio: 2 / 1;
+        }
+    }
+}
+.chart-area {
+    &.bar {
+        .chart-body {
+            margin-top: -3rem;
+        }
+        .apx-legend-position-top {
+            justify-content: flex-end !important;
+        }
+    }
+    .chart-header {
+        .title {
+            @include font-18;
+            font-weight: 600;
+            @include themeColor(color, text-thick);
+        }
+        .sub-text {
+            @include font-16;
+            @include themeColor(color, text-default);
+        }
+    }
+    .chart-body {
+        position: relative;
+        width: 100%;
+        height: auto;
+        .vue-apexcharts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+        .apexcharts-legend {
+            gap: 0.6rem;
+        }
+        .apexcharts-legend-text {
+            @include themeColor(color,text-default, !important);
+        }
+        .apexcharts-text{
+            &.apexcharts-xaxis-label,
+            &.apexcharts-yaxis-label {
+                @include themeColor(fill,text-default, !important);
+            }
+        }
+        .apexcharts-grid-borders > .apexcharts-gridline:first-child,
+        .apexcharts-gridlines-horizontal {
+            opacity: 0;
+        }
+    }
+}

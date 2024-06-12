@@ -168,7 +168,22 @@
     }
     
     .footer {
-        display: flex;
+        margin-top: auto;
+        width: 100%;
+        border-top: 1px solid;
+        @include themeColor(border-color, nav-border);
+        @include themeColor(background-color,bg-defult);
+        box-shadow : 1px 0 20px rgba(0, 0, 0, 0.078);
+        .footer-inner {
+            @include flex($a: center, $j: center);
+            padding: 0 $containerPadding;
+            width: 100%;
+            height: 4.8rem;
+            .text { 
+                @include font-14;
+                @include themeColor(color, text-thick-2);
+            }
+        }
     }
 
     .side-nav {
@@ -177,7 +192,8 @@
         border-right: 1px solid transparent;
         @include themeColor(border-color, nav-border);
         @include themeColor(background-color, bg-defult);
-        box-shadow : 1px 0 20px rgba(0, 0, 0, 0.078) !important;
+        box-shadow : 1px 0 20px rgba(0, 0, 0, 0.078);
+        z-index: 10;
         & {
             transition: all 0.2s;
         }
@@ -325,9 +341,14 @@
         .main {
             @include themeColor(background-color, bg-inner);
             transition: background-color 0.2s;
+            [data-overlayscrollbars-contents] {
+                @include flex($dir: column);
+            }
             .container {
                 padding: $containerPadding;
-                padding-bottom: 4rem;
+                padding-bottom: 4.8rem;
+                flex-shrink: 0;
+                min-height: unset;
             }
         }
     }
@@ -403,8 +424,8 @@
         max-width: 100%;
         min-height: 10rem;
         border-radius: 6px;
+        border: 1px solid;
         #app.dark-theme & {
-            border: 1px solid;
         }
         @include themeColor(border-color, border-col);
         &:not([class*='type-bg']) {

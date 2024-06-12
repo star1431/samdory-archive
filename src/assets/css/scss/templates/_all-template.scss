@@ -1,33 +1,6 @@
 @charset "UTF-8";
-// 폼필드 영역 (로그인페이지만 사용중)
-.form-default {
-    .form-field {
-        @include flex($dir:column, $wrap:wrap, $gap: 1.6rem);
-        &-item {
-            > label {
-                display: flex;
-                @include font-16;
-                @include themeColor(color, text-default);
-                font-weight: 600;
-                margin-bottom: 0.8rem;
-            }
-        }
-    }
-    .field-bottom-slot {
-        @include flex($dir: column, $gap: 1.2rem);
-        margin-top: 1.2rem;
-        .error-text {
-            margin-top: -0.4rem;
-        }
-    }
-    .field-footer {
-        margin-top: 2.4rem;
-        .error-text {
-            margin-top: 0;
-        }
-    }
-}
-// 페이지 상단 타이틀
+
+// 페이지 상단 타이틀 ================================================
 .page-top-slot {
     p {
         @include flex($a: center, $gap: 0.4rem);

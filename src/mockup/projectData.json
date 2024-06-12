@@ -5,7 +5,7 @@
         "dev": ["mobile"],
         "year": "2024",
         "stack": ["gulp"],
-        "enter": ["금융"],
+        "enter": ["금융기업"],
         "project": ["구축"]
     },
     {
@@ -14,7 +14,7 @@
         "dev": ["mobile"],
         "year": "2024",
         "stack": ["pureHTML"],
-        "enter": ["금융"],
+        "enter": ["금융기업"],
         "project": ["구축"]
     },
     {
@@ -23,7 +23,7 @@
         "dev": ["pc", "mobile"],
         "year": "2024",
         "stack": ["vue3"],
-        "enter": ["기관"],
+        "enter": ["공공기관"],
         "project": ["고도화"]
     },
     {
@@ -32,7 +32,7 @@
         "dev": ["mobile"],
         "year": "2024",
         "stack": ["pureHTML"],
-        "enter": ["금융"],
+        "enter": ["금융기업"],
         "project": ["구축"]
     },
     {
@@ -41,7 +41,7 @@
         "dev": ["mobile"],
         "year": "2023",
         "stack": ["pureHTML"],
-        "enter": ["금융"],
+        "enter": ["금융기업"],
         "project": ["구축"]
     },
     {
@@ -50,7 +50,7 @@
         "dev": ["pc","mobile"],
         "year": "2023",
         "stack": ["vue3"],
-        "enter": ["기관"],
+        "enter": ["공공기관"],
         "project": ["구축"]
     },
     {
@@ -59,7 +59,7 @@
         "dev": ["pc","mobile"],
         "year": "2023",
         "stack": ["pureHTML"],
-        "enter": ["금융"],
+        "enter": ["금융기업"],
         "project": ["구축"]
     },
     {
@@ -68,7 +68,7 @@
         "dev": ["pc"],
         "year": "2023",
         "stack": ["WebSquare"],
-        "enter": ["금융"],
+        "enter": ["금융기업"],
         "project": ["고도화"]
     },
     {
@@ -77,7 +77,7 @@
         "dev": ["pc","mobile"],
         "year": "2023",
         "stack": ["WebSquare"],
-        "enter": ["금융"],
+        "enter": ["금융기업"],
         "project": ["구축"]
     },
     {
@@ -86,7 +86,7 @@
         "dev": ["pc","mobile"],
         "year": "2022",
         "stack": ["WebSquare"],
-        "enter": ["금융"],
+        "enter": ["금융기업"],
         "project": ["구축"]
     },
     {
@@ -95,7 +95,7 @@
         "dev": ["pc","mobile"],
         "year": "2022",
         "stack": ["vue3"],
-        "enter": ["기관"],
+        "enter": ["공공기관"],
         "project": ["구축"]
     },
     {
@@ -104,7 +104,7 @@
         "dev": ["pc","mobile"],
         "year": "2022",
         "stack": ["pureHTML"],
-        "enter": ["금융"],
+        "enter": ["금융기업"],
         "project": ["고도화"]
     },
     {
@@ -113,7 +113,7 @@
         "dev": ["pc","mobile"],
         "year": "2021",
         "stack": ["pureHTML"],
-        "enter": ["금융"],
+        "enter": ["금융기업"],
         "project": ["운영"]
     },
     {
@@ -122,7 +122,7 @@
         "dev": ["pc"],
         "year": "2021",
         "stack": ["pureHTML"],
-        "enter": ["금융"],
+        "enter": ["금융기업"],
         "project": ["구축"]
     },
     {
@@ -140,7 +140,7 @@
         "dev": ["mobile"],
         "year": "2020",
         "stack": ["pureHTML"],
-        "enter": ["금융"],
+        "enter": ["금융기업"],
         "project": ["구축"]
     },
     {
@@ -149,7 +149,7 @@
         "dev": ["mobile"],
         "year": "2020",
         "stack": ["pureHTML"],
-        "enter": ["금융"],
+        "enter": ["금융기업"],
         "project": ["구축"]
     },
     {
@@ -185,7 +185,7 @@
         "dev": ["pc","mobile"],
         "year": "2019",
         "stack": ["WebSquare"],
-        "enter": ["금융"],
+        "enter": ["금융기업"],
         "project": ["구축"]
     },
     {
@@ -194,7 +194,7 @@
         "dev": ["mobile"],
         "year": "2019",
         "stack": ["pureHTML"],
-        "enter": ["금융"],
+        "enter": ["금융기업"],
         "project": ["구축"]
     }
 ]

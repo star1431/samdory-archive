@@ -1,6 +1,7 @@
 <template>
     <footer class="footer">
-        <div class="view-inner" ui-size="normal">
+        <div class="footer-inner">
+            <span class="text">Copyright 2024. samdory Corp. All rights reserved.</span>
         </div>
     </footer>
 </template>

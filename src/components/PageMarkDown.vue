@@ -52,6 +52,7 @@
 <script setup>
 import { ref, onMounted, defineProps, inject } from 'vue'
 import { marked, preprocessMarkdown, getToc, getMatterData } from '@/assets/js/markdownRenderer'
+// 마크다운 커스텀은 복잡해서 markdownRenderer 에서 렌더링해서 다시 받아옴
 
 const props = defineProps({
     loader: {
@@ -60,26 +61,36 @@ const props = defineProps({
     }
 })
 
+// 오버레이스크롤바 때문에  layoutDefault에서 쓴 스크롤바 props 가 아닌 provide 인젝 받아옴
 const scrollbarRef = inject('scrollbarRef', ref(null))
 
+// 앞단 매터정보
+const metterTitle = ref('타이틀없음')
+const metterUpdate = ref('0000.00')
+
+// 마크다운, 목차
+const markdownHtml = ref('')
+const toc = ref([])
+
+// 목차 토글용
 const isToc = ref(false)
 const toggleToc = () => {
     isToc.value = !isToc.value
 }
 
-const metterTitle = ref('타이틀없음')
-const metterUpdate = ref('0000.00')
-
-const markdownHtml = ref('')
-const toc = ref([])
 
 onMounted(() => {
-    // console.log('Tlqkf', scrollbarRef.value)
+    // console.log('넌 누구냐', scrollbarRef.value)
+
+    // 마크다운 커스텀한거 받아옴
     const markdownData = preprocessMarkdown(props.loader)
     const metterData = getMatterData()
+
+    // 매터 정보 꽂음
     metterTitle.value = metterData.title || metterTitle.value
     metterUpdate.value = metterData.date || metterUpdate.value
 
+    // marked 라이브러리 사용
     markdownHtml.value = marked(markdownData, {
         breaks: true,
         pedantic: false,
@@ -87,29 +98,32 @@ onMounted(() => {
         mangle: false,
         headerIds: false,
     })
+    // 목차 꽂음
     toc.value = getToc()
+    // console.log(markdownHtml.value)
 })
 
+// 목차 클릭할때 layout의 오버레이스크롤 제어
 const scrollToElement = (slug) => {
-    const element = document.getElementById(slug)
-    const header = document.querySelector('.header')
+    const targetEl = document.getElementById(slug)
+    const headerEl = document.querySelector('.header')
     const scrollInstance = scrollbarRef.value?.osInstance()
     const viewport = scrollInstance.elements().viewport
 
     console.log('스크롤', scrollInstance, viewport)
-    if (element && header && scrollInstance) {
-        const headerHeight = header.offsetHeight + 36
-        const elementPosition = element.getBoundingClientRect().top + viewport.scrollTop
-        const offsetPosition = elementPosition - headerHeight
+    if (targetEl && headerEl && scrollInstance) {
+        const headerH = headerEl.offsetHeight + 36
+        const tagetOfTop = targetEl.getBoundingClientRect().top + viewport.scrollTop
+        const offsetTop = tagetOfTop - headerH
         // console.log(
         //     `\n headerHeight : ` + headerHeight, 
-        //     `\n element.top : ` + element.getBoundingClientRect().top, 
-        //     `\n elementPosition : ` + elementPosition, 
-        //     `\n offsetPosition : ` + offsetPosition,
+        //     `\n targetEl.top : ` + targetEl.getBoundingClientRect().top, 
+        //     `\n tagetOfTop : ` + tagetOfTop, 
+        //     `\n offsetTop : ` + offsetTop,
         // )
 
         viewport.scrollTo({
-            top: offsetPosition,
+            top: offsetTop,
             behavior: 'smooth'
         })
     }

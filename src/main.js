@@ -9,10 +9,13 @@ import store from '@/store/store'
 // lib
 import 'overlayscrollbars/overlayscrollbars.css'
 // import { OverlayScrollbarsComponent } from 'overlayscrollbars-vue'
+// chart
+import VueApexCharts from "vue3-apexcharts"
 
 const app = createApp(App)
 
 app.use(router)
 app.use(store)
 // app.use(OverlayScrollbarsComponent)
+app.use(VueApexCharts)
 app.mount('#app')

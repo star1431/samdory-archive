@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+.ui-pagination {
+    @include flex($a: center, $j: center);
+    margin-top: 20px;
+    &, .button-group, .paging {
+        @include flex($a: center, $j: center);
+    }
+    .button {
+        &-prev, &-next {
+            border-radius: 4px;
+            border: 1px solid;
+            background-color: transparent;
+            @include themeColor(border-color, md-line-color);
+            &::before {
+                @include flex;
+            }
+            &:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
+            #app.dark-theme & {
+                &:disabled {
+                    opacity: 0.2;
+                }
+            }
+        }
+        &-prev::before {
+            @include xeiconBefore($icon: '\e93c', $s: 24);
+            @include themeColor(color, text-thick-2);
+            transform: translateX(-0.1rem);
+        }
+        &-next::before {
+            @include xeiconBefore($icon: '\e93f', $s: 24);
+            @include themeColor(color, text-thick-2);
+            transform: translateX(0.1rem);
+        }
+        &-number {
+            position: relative;
+            @include flex($a:center, $j:center);
+            min-width: 2.4rem;
+            height: 2.4rem;
+            .text {
+                @include font-16;
+                line-height: 2.6rem;
+                @include themeColor(color, text-thick-2);
+            }
+            &:after {
+                content: '';
+                @include pos($pos: absolute, $lt: 50%, $bt:-0.1rem);
+                display: block;
+                width: 1.2rem;
+                height: 0.2rem;
+                border-radius: 8px;
+                background-color: transparent;
+                transform: translateX(-50%);
+            }
+            &.active {
+                .text {
+                    font-weight: 600;
+                    @include themeColor(color, pri-800);
+                }
+                &:after {
+                    @include themeColor(background-color, pri-800);
+                }
+            }
+        }
+    }
+    .button-group {
+        gap: 1.2rem;
+    }
+    .paging {
+        gap: 0.8rem;
+    }
+}

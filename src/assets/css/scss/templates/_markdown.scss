@@ -3,9 +3,10 @@
 .lottie-banner {
     position: relative;
     margin: 0;
-    width: 100%;
+    width: calc(100% + 0.2rem);
     height: 24rem;
     border-radius: 6px 6px 0 0;
+    margin: -0.1rem -0.1rem 0;
     @include themeColor(background-color, menu-btn-hover);
     overflow: hidden;
     &:after {
@@ -83,10 +84,12 @@
         // overflow: hidden;
         .inner {
             width: 100%;
-            * {
-                @include font-16();
-                @include themeColor(color,text-default);
-                word-break: keep-all;
+            p, span, ul, ol, table {
+                &:not([class*="hljs"]) {
+                    @include font-16();
+                    @include themeColor(color,text-default);
+                    word-break: keep-all;
+                }
             }
 
             h2, h3, h4, h5, h6 {
@@ -106,6 +109,7 @@
             p {
                 margin: 1rem 0;
             }
+
             h2 {
                 margin: 4rem 0 1.8rem;
                 padding-bottom: 1.8rem;
@@ -118,6 +122,7 @@
                     margin-top: 6rem;
                 }
             }
+
             hr {
                 box-sizing: content-box;
                 overflow: hidden;
@@ -132,8 +137,18 @@
             }
 
             a {
+                @include font-16();
                 @include themeColor(color, md-fc-anc);
                 text-decoration: underline;
+            }
+            
+            img {
+                display: block;
+                margin: 3rem auto;
+                width:auto;
+                max-width: 100%;
+                height: auto;
+
             }
 
             blockquote {
@@ -174,11 +189,11 @@
             }
 
             ul > li, ol > li {
-                margin-top: 0.5rem;
+                margin-top: 0.8rem;
             }
             
             li + li, li > ul{
-                margin-top: 0.8rem;
+                margin-top: 1rem;
             }
             & > ul {
                 padding-left: 3rem;
@@ -194,12 +209,62 @@
                 margin: 1.5rem 0;
                 th, td {
                     padding: 0.8rem;
-                    border: 1px solid #ddd;
+                    border: 1px solid;
                     @include themeColor(border-color,md-line-color);
                     text-align: left;
+                    word-break: keep-all;
+                    &[align="left"] {text-align: left;}
+                    &[align="center"] {text-align: center;}
+                    &[align="right"] {text-align: right;}
                 }
                 th {
-                    background-color: #f1f1f1;
+                    @include themeColor(color, text-thick-2);
+                    @include themeColor(background-color, md-bg-incode);
+                }
+            }
+
+            blockquote {
+                position: relative;
+                padding: 1.6rem 1.6rem 1.6rem 4.8rem;
+                border: none;
+                border-radius: 10px;
+                &[class*="prompt-"] {
+                    p,span {
+                        @include themeColor(color, text-thick);
+                    }
+                }
+                &::before {
+                    content: '';
+                    display: block;
+                    @include pos($pos: absolute, $tp:1.6rem, $lt: 1.2rem);
+                }
+                &.prompt-tip {
+                    background-color: rgba(123, 247, 144, 0.2);
+                    &::before {
+                        @include xeiconBefore($icon: '\e9bf', $s: 24);
+                        color: rgb(3, 179, 3);
+                    }
+                }
+                &.prompt-info {
+                    @include themeColor(background-color, bg-bq-info);
+                    &::before {
+                        @include xeiconBefore($icon: '\e9a6', $s: 24);
+                        @include themeColor(color, fc-bq-info);
+                    }
+                }
+                &.prompt-warning {
+                    @include themeColor(background-color, bg-bq-warning);
+                    &::before {
+                        @include xeiconBefore($icon: '\ea2d', $s: 24);
+                        @include themeColor(color, fc-bq-warning);
+                    }
+                }
+                &.prompt-danger {
+                    @include themeColor(background-color, bg-bq-danger);
+                    &::before {
+                        @include xeiconBefore($icon: '\e9aa', $s: 24);
+                        @include themeColor(color, fc-bq-danger);
+                    }
                 }
             }
 
@@ -218,17 +283,16 @@
                 &::-webkit-scrollbar-thumb{background: rgba(250, 248, 248, 0.4);border-radius: 2px;}
                 &::-webkit-scrollbar-track{background:none;}
             }
-            a {
-            }
+
             code:not([class*="language-"]) {
                 display: inline-flex;
                 padding: 0.1rem 0.5rem;
                 margin: 0 0.4rem;
                 border-radius: 4px;
-                font-size: 1.4rem;
+                @include font-16;
                 @include themeColor(color, md-fc-incode);
                 @include themeColor(background-color, md-bg-incode);
-                transform: translateY(-0.1rem);
+                transform: translateY(0rem);
             }
 
             .codeblock {
@@ -284,7 +348,7 @@
                 }
             }
             // 코드블럭 - end
-
+            
 
             // vs2015 테마에서 추가 hljs 커스텀 스타일
             .hljs-title.class_{color:#4FC1FF;}
@@ -301,6 +365,7 @@
         height: 3rem;
         order: 1;
         transform: translateX(3rem) translateY(-3.6rem);
+        z-index: 2;
         &.is-open {
             .toc-close {
                 opacity: 1;
@@ -308,6 +373,7 @@
         }
         .nav-layer {
             @include flex($j: flex-end);
+
         }
         .toc-toggle {
             width: 3rem;

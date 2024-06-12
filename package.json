@@ -17,6 +17,7 @@
     "three": "^0.165.0",
     "vue": "^3.2.13",
     "vue-router": "^4.0.13",
+    "vue3-apexcharts": "^1.5.3",
     "vuex": "^4.0.2",
     "vuex-persistedstate": "^4.1.0"
   },

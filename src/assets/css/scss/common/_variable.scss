@@ -41,7 +41,7 @@ $desktop: 1199px;
 // 폰트 기본컬러
 $font-color-default: var(--gray-900);
 
-// 테마지정 color
+// 테마지정 color (관리잘못함 망한듯..?)
 $theme:(
     light: (
         overlayScrollbar    : #aaa,
@@ -71,6 +71,13 @@ $theme:(
         md-line-color       : #d8dee4,
         fc-tag              : #121315,
         bg-tag              : #f2f6fa,
+        bg-bq-info          : (rgb(225, 245, 254)),
+        fc-bq-info          : (rgb(0, 112, 203)),
+        bg-bq-warning       : (rgb(255, 243, 205)),
+        fc-bq-warning       : (rgb(239, 156, 3)),
+        bg-bq-danger        : (rgba(248, 215, 218, 0.56)),
+        fc-bq-danger        : (rgb(223, 60, 48)),
+        tb-line-color       : #cccccc,
     ),
     dark: (
         overlayScrollbar    : #dedede,
@@ -100,6 +107,13 @@ $theme:(
         md-line-color       : #333F55,
         fc-tag              : #fff,
         bg-tag              : #333F55,
+        bg-bq-info          : (rgba(7, 59, 104, 0.8)),
+        fc-bq-info          : (rgb(0, 117, 209)),
+        bg-bq-warning       : (rgba(90, 69, 3, 0.88)),
+        fc-bq-warning       : (rgba(255, 165, 0, 0.8)),
+        bg-bq-danger        : (rgba(86, 28, 8, 0.8)),
+        fc-bq-danger        : (rgb(205, 2, 2)),
+        tb-line-color       : #333F55,
     )
 );
 
