@@ -61,7 +61,7 @@ const props = defineProps({
     }
 })
 
-// 오버레이스크롤바 때문에  layoutDefault에서 쓴 스크롤바 props 가 아닌 provide 인젝 받아옴
+// 오버레이스크롤바 때문에  layoutDefault 에서 쓴 스크롤바 props 가 아닌 provide 인젝 받아옴
 const scrollbarRef = inject('scrollbarRef', ref(null))
 
 // 앞단 매터정보
@@ -110,7 +110,7 @@ const scrollToElement = (slug) => {
     const scrollInstance = scrollbarRef.value?.osInstance()
     const viewport = scrollInstance.elements().viewport
 
-    console.log('스크롤', scrollInstance, viewport)
+    // console.log('스크롤', scrollInstance, viewport)
     if (targetEl && headerEl && scrollInstance) {
         const headerH = headerEl.offsetHeight + 36
         const tagetOfTop = targetEl.getBoundingClientRect().top + viewport.scrollTop

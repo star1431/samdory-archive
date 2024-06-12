@@ -78,6 +78,8 @@ $theme:(
         bg-bq-danger        : (rgba(248, 215, 218, 0.56)),
         fc-bq-danger        : (rgb(223, 60, 48)),
         tb-line-color       : #cccccc,
+        popup-bg            : #fff,
+        popup-footer        : (linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 100%)),
     ),
     dark: (
         overlayScrollbar    : #dedede,
@@ -90,11 +92,11 @@ $theme:(
         text-thick          : #f0f0f0,
         text-thick-2        : #dde8f7,
         pri-800             : #005DF9,
-        pri-700             : #0074ba,
+        pri-700             : #0596ee,
         gray-800            : #fff,
         secondary           : #E7EDF6,
         menu-btn            : #7c8fac,
-        menu-btn-hover      : #0074ba1a,
+        menu-btn-hover      : #0596ee1a,
         nav-border          : #333F55,
         check-default       : #7c8fac,
         error               : #ff5a5a,
@@ -103,7 +105,7 @@ $theme:(
         border-col          : #333F55,
         md-fc-incode        : #8ab4f8,
         md-bg-incode        : #323238,
-        md-fc-anc           : #0074ba,
+        md-fc-anc           : #0596ee,
         md-line-color       : #333F55,
         fc-tag              : #fff,
         bg-tag              : #333F55,
@@ -114,6 +116,8 @@ $theme:(
         bg-bq-danger        : (rgba(86, 28, 8, 0.8)),
         fc-bq-danger        : (rgb(205, 2, 2)),
         tb-line-color       : #333F55,
+        popup-bg            : #242526,
+        popup-footer        : (linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #242526 100%)),
     )
 );
 

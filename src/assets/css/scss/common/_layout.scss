@@ -4,6 +4,7 @@
     background-color: #000;
 }
 #app {
+    position: relative;
     height: 100%;
     overflow-y: hidden;
     background-color: #fff;
@@ -112,7 +113,6 @@
         .os-scrollbar .os-scrollbar-handle {
             @include themeColor(background-color, overlayScrollbar);
             opacity: 0.6;
-            cursor: pointer;
         }
     }
     > .header + .main {
@@ -341,8 +341,10 @@
         .main {
             @include themeColor(background-color, bg-inner);
             transition: background-color 0.2s;
-            [data-overlayscrollbars-contents] {
-                @include flex($dir: column);
+            > [data-overlayscrollbars-initialize] {
+                [data-overlayscrollbars-contents] {
+                    @include flex($dir: column);
+                }
             }
             .container {
                 padding: $containerPadding;
@@ -424,13 +426,11 @@
         max-width: 100%;
         min-height: 10rem;
         border-radius: 6px;
-        border: 1px solid;
-        #app.dark-theme & {
-        }
-        @include themeColor(border-color, border-col);
+        @include themeColor(box-shadow, shadow-col);
         &:not([class*='type-bg']) {
+            border: 1px solid;
+            @include themeColor(border-color, border-col);
             @include themeColor(background-color, bg-col);
-            @include themeColor(box-shadow, shadow-col);
         }
         &.posts {
             padding: 0;

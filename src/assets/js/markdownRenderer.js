@@ -83,8 +83,8 @@ renderer.link = (href, title, text) => {
 renderer.heading = (text, level) => {
     // 연속된 비알파벳 문자를 하나의 하이픈으로 변환하고 양 끝의 하이픈을 제거
     const slug = text.toLowerCase()
-                      .replace(/[^a-zA-Z0-9가-힣]+/g, '-') // 비알파벳/비숫자 문자를 하이픈으로 변환
-                      .replace(/^-+|-+$/g, ''); // 양 끝의 하이픈 제거
+                      .replace(/[^a-zA-Z0-9가-힣]+/g, '-')   // 비알파벳/비숫자 문자를 하이픈으로 변환
+                      .replace(/^-+|-+$/g, '');             // 양 끝의 하이픈 제거
 
     toc.push({ level, text, slug })
     return `<h${level} id="${slug}">${text}</h${level}>`

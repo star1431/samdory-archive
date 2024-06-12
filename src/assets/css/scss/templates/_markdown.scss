@@ -151,16 +151,66 @@
 
             }
 
+            // blockquote {
+            //     margin: 1.5rem 0;
+            //     padding: 1rem;
+            //     background-color: #e9ecef;
+            //     border-left: 5px solid #007bff;
+            //     color: #555;
+            //     p {
+            //         margin: unset;
+            //         & ~ p {
+            //             margin-top: 1.5rem;
+            //         }
+            //     }
+            // }
+            
             blockquote {
+                position: relative;
                 margin: 1.5rem 0;
-                padding: 1rem;
-                background-color: #e9ecef;
-                border-left: 5px solid #007bff;
-                color: #555;
-                p {
-                    margin: unset;
-                    & ~ p {
-                        margin-top: 1.5rem;
+                padding: 1.6rem 1.6rem 1.6rem 4.8rem;
+                border: none;
+                border-radius: 10px;
+                &[class*="prompt-"] {
+                    p,span {
+                        margin: unset;
+                        @include themeColor(color, text-thick);
+                        & ~ p {
+                            margin-top: 1.5rem;
+                        }
+                    }
+                }
+                &::before {
+                    content: '';
+                    display: block;
+                    @include pos($pos: absolute, $tp:1.5rem, $lt: 1.2rem);
+                }
+                &.prompt-tip {
+                    background-color: rgba(123, 247, 144, 0.2);
+                    &::before {
+                        @include xeiconBefore($icon: '\e9bf', $s: 24);
+                        color: rgb(3, 179, 3);
+                    }
+                }
+                &.prompt-info {
+                    @include themeColor(background-color, bg-bq-info);
+                    &::before {
+                        @include xeiconBefore($icon: '\e9a6', $s: 24);
+                        @include themeColor(color, fc-bq-info);
+                    }
+                }
+                &.prompt-warning {
+                    @include themeColor(background-color, bg-bq-warning);
+                    &::before {
+                        @include xeiconBefore($icon: '\ea2d', $s: 24);
+                        @include themeColor(color, fc-bq-warning);
+                    }
+                }
+                &.prompt-danger {
+                    @include themeColor(background-color, bg-bq-danger);
+                    &::before {
+                        @include xeiconBefore($icon: '\e9aa', $s: 24);
+                        @include themeColor(color, fc-bq-danger);
                     }
                 }
             }
@@ -223,50 +273,6 @@
                 }
             }
 
-            blockquote {
-                position: relative;
-                padding: 1.6rem 1.6rem 1.6rem 4.8rem;
-                border: none;
-                border-radius: 10px;
-                &[class*="prompt-"] {
-                    p,span {
-                        @include themeColor(color, text-thick);
-                    }
-                }
-                &::before {
-                    content: '';
-                    display: block;
-                    @include pos($pos: absolute, $tp:1.6rem, $lt: 1.2rem);
-                }
-                &.prompt-tip {
-                    background-color: rgba(123, 247, 144, 0.2);
-                    &::before {
-                        @include xeiconBefore($icon: '\e9bf', $s: 24);
-                        color: rgb(3, 179, 3);
-                    }
-                }
-                &.prompt-info {
-                    @include themeColor(background-color, bg-bq-info);
-                    &::before {
-                        @include xeiconBefore($icon: '\e9a6', $s: 24);
-                        @include themeColor(color, fc-bq-info);
-                    }
-                }
-                &.prompt-warning {
-                    @include themeColor(background-color, bg-bq-warning);
-                    &::before {
-                        @include xeiconBefore($icon: '\ea2d', $s: 24);
-                        @include themeColor(color, fc-bq-warning);
-                    }
-                }
-                &.prompt-danger {
-                    @include themeColor(background-color, bg-bq-danger);
-                    &::before {
-                        @include xeiconBefore($icon: '\e9aa', $s: 24);
-                        @include themeColor(color, fc-bq-danger);
-                    }
-                }
-            }
 
             // 코드블럭 - start 
             pre[class*="language-"],

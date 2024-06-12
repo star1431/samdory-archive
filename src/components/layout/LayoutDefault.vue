@@ -22,7 +22,7 @@ import { useRoute, useRouter } from 'vue-router'
 import Header from '@/components/layout/Header.vue'
 import Footer from '@/components/layout/Footer.vue'
 import SideNav from '@/components/layout/SideNav.vue'
-import { OverlayScrollbarsComponent } from "overlayscrollbars-vue" // OverlayScrollbar 도 퍼펙트스크롤 만큼 역겨움
+import { OverlayScrollbarsComponent } from "overlayscrollbars-vue" // OverlayScrollbar 도 퍼펙트스크롤 만큼 답없음
 
 const scrollbarRef = ref(null)
 provide('scrollbarRef', scrollbarRef)

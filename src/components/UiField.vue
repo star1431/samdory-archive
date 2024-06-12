@@ -132,7 +132,7 @@ const btnBefEnt = (el) => {
     el.style.opacity = 0
 }
 const btnEnt = (el, done) => {
-    el.offsetHeight // 트리거 리플로우
+    el.offsetHeight // 트리거 리플로우?
     el.style.transition = 'transform 0.2s, opacity 0.2s'
     el.style.transform = 'scale(1)'
     el.style.opacity = 1

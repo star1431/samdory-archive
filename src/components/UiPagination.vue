@@ -1,7 +1,7 @@
 <template>
     <div class="ui-pagination">
         <span class="ally-hidden">
-            총 페이지는 {{ totalPage }} 이며,<br>
+            총 페이지는 {{ totalPage }} 이며,
             현재 페이지는 {{ modelValue }} 입니다.
         </span>
         <div class="button-group">

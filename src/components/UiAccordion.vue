@@ -39,16 +39,21 @@ const toggleAccordion = () => {
 }
 
 // 트랜지션 hock
-const accBeforeEnt = (el) => {
-    el.style.maxHeight = '0'
+const accBeforeEnt = () => {
+    const el = accordionBody.value
+    el.style.maxHeight = '0px'
 }
-const accEnt = (el) => {
+const accEnt = () => {
+    const el = accordionBody.value
     el.style.maxHeight = el.scrollHeight + 'px'
-    el.style.transition = 'max-height 0.2s'
+    el.style.transition = 'max-height 0.3s'
 }
-const accLeave = (el) => {
-    el.style.maxHeight = '0'
-    el.style.transition = 'max-height 0.2s'
+const accLeave = () => {
+    const el = accordionBody.value
+    setTimeout(() => {
+        el.style.transition = 'max-height 0.3s'
+        el.style.maxHeight = '0px'
+    }, 10) // 떠날때 100번중 1번 꼴 안되서 딜레이
 }
 
 // 마운트시 부모에서 디폴트로 열고 있어야 할 때
@@ -57,11 +62,11 @@ onMounted(() => {
         const el = accordionBody.value
         if (el) {
             el.style.maxHeight = el.scrollHeight + 'px'
-            el.style.transition = 'max-height 0.2s'
-            setTimeout(() => {
+            el.style.transition = 'max-height 0.3s'
+            setTimeout(() => { // 간혹 마운트 후에도 제대로 안될 경우 딜레이 후 똑같이 진행
                 el.style.maxHeight =  el.scrollHeight + 'px'
-                el.style.transition = 'max-height 0.2s'
-            }, 200)
+                el.style.transition = 'max-height 0.3s'
+            }, 400)
         }
     }
 })

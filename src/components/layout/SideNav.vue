@@ -60,7 +60,7 @@ import { routes } from '@/router'
 import { useRouter, useRoute } from 'vue-router'
 import { useStore } from 'vuex'
 import UiAccordion from '@/components/UiAccordion.vue'
-import { OverlayScrollbarsComponent } from "overlayscrollbars-vue" // 퍼펙트스크롤 급 역겨움
+import { OverlayScrollbarsComponent } from "overlayscrollbars-vue" // 퍼펙트스크롤 급 답없음
 
 const store = useStore()
 const router = useRouter()
@@ -113,8 +113,8 @@ const checkAcc = (item) => {
 const reflashAct = (item) => {
     if (isAccordion(item)) {
         return item.children.some(subItem => route.path.includes(`${item.path}/${subItem.path}`))
-    }
-    return false
+    } 
+    // return false
 }
 
 onMounted(() => {

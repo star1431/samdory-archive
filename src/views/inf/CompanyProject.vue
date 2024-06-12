@@ -34,7 +34,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="row" v-for="(item, i) in paginatedData" :key="item.id">
+                                        <tr class="row" v-for="(item, i) in paginatedData" :key="item.id" @click="openPopup(item)">
                                             <td class="cell-num">
                                                 <div class="num">
                                                     <span>{{ tableData.length - ((currentPage - 1) * itemsPerPage + i) }}</span>
@@ -79,6 +79,9 @@
             </div>
         </div>
     </div>
+
+    <!-- 팝업 컴포넌트 -->
+    <PopupDetail v-if="isPopupVisible" :item="selectedItem" @close="closePopup" />
 </template>
 
 <script setup>
@@ -87,6 +90,7 @@ import PageTopSlot from '@/components/PageTopSlot.vue'
 import { fetchProjects } from '@/api/projectApi.js'
 import ProjectChart from '@/components/ProjectChart.vue'
 import UiPagination from '@/components/UiPagination.vue'
+import PopupDetail from '@/components/popup/PopupDetail.vue' // 팝업 컴포넌트 임포트
 
 const title = ref('프로젝트 통계')
 const pageClass = ref(['inf', 'CompanyProject'])
@@ -110,6 +114,20 @@ onMounted(async () => {
         console.error('[CompanyProject.vue || fetchProjects 에러] :', error)
     }
 })
+
+
+const isPopupVisible = ref(false)
+const selectedItem = ref(null)
+
+const openPopup = (item) => {
+    selectedItem.value = item
+    isPopupVisible.value = true
+}
+
+const closePopup = () => {
+    isPopupVisible.value = false
+    selectedItem.value = null
+}
 </script>
 
 <style scoped>

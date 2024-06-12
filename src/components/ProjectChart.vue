@@ -3,7 +3,7 @@
     <div class="chart-area bar" v-if="props.showYear">
         <div class="chart-header">
             <div class="text-box">
-                <p class="title">프로젝트 연도별 수행 현황</p>
+                <p class="title">연도별 프로젝트 현황</p>
                 <p class="sub-text">최근 6년 기준</p>
             </div>
         </div>
@@ -173,7 +173,7 @@ const setEnterData = (projects) => {
     // 오브젝트 키 벨류 나눔
     const enterLabels = Object.keys(enterData)
     const enterSeries = Object.values(enterData)
-    console.log(enterData)
+    // console.log(enterData)
     seriesEnter.value = enterSeries
     chartEnter.value.labels = enterLabels
 }
