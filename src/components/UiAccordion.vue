@@ -28,13 +28,19 @@ const props = defineProps({
     beforeActive: {
         type: Boolean,
         default: false
+    },
+    notActive: {
+        type: Boolean,
+        default: false
     }
 })
 
 const isActive = ref(props.beforeActive)
+const notActive = ref(props.notActive)
 const accordionBody = ref(null)
 
 const toggleAccordion = () => {
+    if(notActive.value) return
     isActive.value = !isActive.value
 }
 

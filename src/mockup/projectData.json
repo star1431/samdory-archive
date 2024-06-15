@@ -1,200 +1,326 @@
 [
     {
-        "id": "get22",
         "name": "우리카드 유니버셜뱅킹 대응개발",
-        "dev": ["mobile"],
-        "year": "2024",
-        "stack": ["gulp"],
-        "enter": ["금융기업"],
-        "project": ["구축"]
-    },
-    {
-        "id": "get21",
-        "name": "IBK기업은행 태블릿뱅킹 구축",
         "dev": ["mobile"],
         "year": "2024",
         "stack": ["pureHTML"],
         "enter": ["금융기업"],
-        "project": ["구축"]
+        "project": ["구축"],
+        "work" : ["퍼블리싱", "테마모드 구현"],
+        "site" : [{
+            "link1" : null
+        }],
+        "imgfile" : [{
+            "mb" : null
+        }]
     },
     {
-        "id": "get20",
+        "name": "IBK기업은행 태블릿뱅킹 구축",
+        "dev": ["tablet"],
+        "year": "2024",
+        "stack": ["pureHTML"],
+        "enter": ["금융기업"],
+        "project": ["구축"],
+        "work" : ["퍼블리싱", "부분 스크립트"],
+        "site" : [{
+            "link1" : null
+        }],
+        "imgfile" : [{
+            "pc" : null
+        }]
+    },
+    {
         "name": "여가부 청소년1388 또래상담 고도화",
         "dev": ["pc", "mobile"],
         "year": "2024",
         "stack": ["vue3"],
         "enter": ["공공기관"],
-        "project": ["고도화"]
+        "project": ["고도화"],
+        "work" : ["프론트개발", "퍼블리싱", "el-plus 라이브러리 사용"],
+        "site" : [{
+            "link1" : "https://www.1388.go.kr/ind/YTOSP_SC_IND_01"
+        }],
+        "imgfile" : [{
+            "pc" : "2024_또래상담_pc.png",
+            "mb" : "2024_또래상담_mb.png"
+        }]
     },
     {
-        "id": "get19",
         "name": "NH농협 디지털금융 플랫폼 전환 사업",
         "dev": ["mobile"],
         "year": "2024",
         "stack": ["pureHTML"],
         "enter": ["금융기업"],
-        "project": ["구축"]
+        "project": ["구축"],
+        "work" : ["퍼블리싱", "jqueryUI 라이브러리 사용"],
+        "site" : [{
+            "link1" : null
+        }],
+        "imgfile" : [{
+            "mb" : "2024_NH농협_디지털_mb.png"
+        }]
     },
     {
-        "id": "get18",
         "name": "신한은행 New SOL-Biz 구축",
         "dev": ["mobile"],
         "year": "2023",
         "stack": ["pureHTML"],
         "enter": ["금융기업"],
-        "project": ["구축"]
+        "project": ["구축"],
+        "work" : ["퍼블리싱", "공통 ui스크립트 구현"],
+        "site" : [{
+            "link1" : "https://play.google.com/store/apps/details?id=com.shinhan.sbizbank&hl=ko&gl=US"
+        }],
+        "imgfile" : [{
+            "mb" : "2023_신한쏠비즈_mb.png"
+        }]
     },
     {
-        "id": "get17",
         "name": "여가부 청소년1388 통합포탈 구축",
         "dev": ["pc","mobile"],
         "year": "2023",
         "stack": ["vue3"],
         "enter": ["공공기관"],
-        "project": ["구축"]
+        "project": ["구축"],
+        "work" : ["프론트개발", "퍼블리싱", "el-plus 라이브러리 사용"],
+        "site" : [{
+            "link1" : "https://www.1388.go.kr/ind/YTOSP_SC_IND_01"
+        }],
+        "imgfile" : [{
+            "pc" : "2023_1388청소년_pc.png",
+            "mb" : "2023_1388청소년_mb.png"
+        }]
     },
     {
-        "id": "get16",
         "name": "우리은행 Web CMS 구축",
         "dev": ["pc","mobile"],
         "year": "2023",
         "stack": ["pureHTML"],
         "enter": ["금융기업"],
-        "project": ["구축"]
+        "project": ["구축"],
+        "work" : ["퍼블리싱", "부분 스크립트"],
+        "site" : [{
+            "link1" : null
+        }],
+        "imgfile" : [{
+            "pc" : "2023_우리은행_CMS_pc.png",
+            "mb" : "2023_우리은행_CMS_mb.png"
+        }]
     },
     {
-        "id": "get15",
         "name": "신한은행 기업뱅킹 부분 고도화",
         "dev": ["pc"],
         "year": "2023",
         "stack": ["WebSquare"],
         "enter": ["금융기업"],
-        "project": ["고도화"]
+        "project": ["고도화"],
+        "work" : ["퍼블리싱", "부분 스크립트"],
+        "site" : [{
+            "link1" : "https://bizbank.shinhan.com/main.html"
+        }],
+        "imgfile" : [{
+            "pc" : "2022_신한기업뱅킹_pc.png"
+        }]
     },
     {
-        "id": "get14",
         "name": "NH농협은행 글로벌뱅킹 구축",
         "dev": ["pc","mobile"],
         "year": "2023",
         "stack": ["WebSquare"],
         "enter": ["금융기업"],
-        "project": ["구축"]
+        "project": ["구축"],
+        "work" : ["퍼블리싱", "부분 스크립트"],
+        "site" : [{
+            "link1" : "https://in.nhbankglobal.com/index.jsp"
+        }],
+        "imgfile" : [{
+            "pc" : "2023_NH농협_글로벌_pc.png",
+            "mb" : null
+        }]
     },
     {
-        "id": "get13",
         "name": "신한은행 기업뱅킹 비대면 채널 개편",
         "dev": ["pc","mobile"],
         "year": "2022",
         "stack": ["WebSquare"],
         "enter": ["금융기업"],
-        "project": ["구축"]
+        "project": ["구축"],
+        "work" : ["퍼블리싱", "ui스크립트 구현"],
+        "site" : [{
+            "link1" : "https://bizbank.shinhan.com/main.html"
+        }],
+        "imgfile" : [{
+            "pc" : "2022_신한기업뱅킹_pc.png",
+            "mb" : "2022_신한기업뱅킹_mb.png"
+        }]
     },
     {
-        "id": "get12",
         "name": "한국평가데이터 CRETOP 구축",
         "dev": ["pc","mobile"],
         "year": "2022",
         "stack": ["vue3"],
         "enter": ["공공기관"],
-        "project": ["구축"]
+        "project": ["구축"],
+        "work" : ["퍼블리싱", "tostUI 라이브러리 사용"],
+        "site" : [{
+            "link1" : "https://new.cretop.com/?h=1718340734342"
+        }],
+        "imgfile" : [{
+            "pc" : "2022_한기데_pc.png",
+            "mb" : "2022_한기데_mb.png"
+        }]
     },
     {
-        "id": "get11",
         "name": "KB Star CMS2.0 고도화",
-        "dev": ["pc","mobile"],
+        "dev": ["pc"],
         "year": "2022",
         "stack": ["pureHTML"],
         "enter": ["금융기업"],
-        "project": ["고도화"]
+        "project": ["고도화"],
+        "work" : ["퍼블리싱", "부분 스크립트"],
+        "site" : [{
+            "link1" : "https://cms.kbstar.com/quics?page=ocms#loading"
+        }],
+        "imgfile" : [{
+            "pc" : "2022_KBstarCMS_pc.png"
+        }]
     },
     {
-        "id": "get10",
         "name": "KB카드 디지털채널 운영",
         "dev": ["pc","mobile"],
         "year": "2021",
         "stack": ["pureHTML"],
         "enter": ["금융기업"],
-        "project": ["운영"]
+        "project": ["운영"],
+        "work" : ["퍼블리싱", "부분 스크립트"],
+        "site" : [{
+            "link1" : "https://card.kbcard.com/CMN/DVIEW/HOAMCXPRIZZC0002"
+        }],
+        "imgfile" : [{
+            "pc" : "2021_KB카드_ 디지털채널_pc.png",
+            "mb" : "2021_KB카드_ 디지털채널_mb.png"
+        }]
     },
     {
-        "id": "get09",
         "name": "KB캐피탈 차차차 마이데이터 구축",
-        "dev": ["pc"],
+        "dev": ["mobile"],
         "year": "2021",
         "stack": ["pureHTML"],
         "enter": ["금융기업"],
-        "project": ["구축"]
+        "project": ["구축"],
+        "work" : ["퍼블리싱", "부분 스크립트"],
+        "site" : [{
+            "link1" : "https://m.kbchachacha.com/"
+        }],
+        "imgfile" : [{
+            "mb" : "KB캐피탈_차차차_mb.png"
+        }]
     },
     {
-        "id": "get08",
         "name": "현대 H몰 웹사이트 리뉴얼",
         "dev": ["pc"],
         "year": "2021",
         "stack": ["pureHTML"],
         "enter": ["브랜드기업"],
-        "project": ["구축"]
+        "project": ["구축"],
+        "work" : ["퍼블리싱", "부분 스크립트"],
+        "site" : [{
+            "link1" : "https://www.hmall.com/pd/dpl/tvMainR?mainDispSeq=3&utm_source=google&utm_medium=cpc_key&utm_campaign=sale&utm_content=%7Bkeyword%7D&utm_term=%7Bquery%7D&pReferCode=441&pTcCode=0000004275%7C2521491297&NaPm=undefined"
+        }],
+        "imgfile" : [{
+            "pc" : "2021_현대H몰_pc.png"
+        }]
     },
     {
-        "id": "get07",
         "name": "르노캐피탈 Front Office",
         "dev": ["mobile"],
         "year": "2020",
         "stack": ["pureHTML"],
         "enter": ["금융기업"],
-        "project": ["구축"]
+        "project": ["구축"],
+        "work" : ["퍼블리싱", "부분 스크립트"],
+        "site" : [{
+            "link1" : "https://play.google.com/store/apps/details?id=com.rcikorea.fo&hl=ko-KR"
+        }],
+        "imgfile" : [{
+            "mb" : "2020_르노캐피탈_mb.png"
+        }]
     },
     {
-        "id": "get06",
-        "name": "KB캐피탈 차차차 마이데이터 구축",
-        "dev": ["mobile"],
-        "year": "2020",
-        "stack": ["pureHTML"],
-        "enter": ["금융기업"],
-        "project": ["구축"]
-    },
-    {
-        "id": "get05",
         "name": "해피포인트 웹사이트 리뉴얼",
         "dev": ["pc","mobile"],
         "year": "2020",
         "stack": ["pureHTML"],
         "enter": ["브랜드기업"],
-        "project": ["구축"]
+        "project": ["구축"],
+        "work" : ["퍼블리싱", "부분 스크립트"],
+        "site" : [{
+            "link1" : "https://www.happypointcard.com/page/main/index.spc;jsessionid=9553543AC0220354C7078133B6370742"
+        }],
+        "imgfile" : [{
+            "pc" : "2020_해피포인트_pc.png",
+            "mb" : "2020_해피포인트_mb.png"
+        }]
     },
     {
-        "id": "get04",
         "name": "롯데스카이힐 리조트 웹사이트 리뉴얼",
         "dev": ["pc"],
         "year": "2020",
         "stack": ["pureHTML"],
         "enter": ["브랜드기업"],
-        "project": ["구축"]
+        "project": ["구축"],
+        "work" : ["퍼블리싱", "부분 스크립트"],
+        "site" : [{
+            "link1" : "https://www.lotteskyhill.com/"
+        }],
+        "imgfile" : [{
+            "pc" : "2020_롯데스카이힐_pc.png"
+        }]
     },
     {
-        "id": "get03",
         "name": "한화아쿠아플라넷 웹사이트 리뉴얼",
         "dev": ["pc"],
         "year": "2019",
         "stack": ["pureHTML"],
         "enter": ["브랜드기업"],
-        "project": ["구축"]
+        "project": ["구축"],
+        "work" : ["퍼블리싱", "부분 스크립트"],
+        "site" : [{
+            "link1" : "https://www.aquaplanet.co.kr/index.do"
+        }],
+        "imgfile" : [{
+            "pc" : "2019_한화아쿠아플라넷_pc.png"
+        }]
     },
     {
-        "id": "get02",
         "name": "NH Global 베트남뱅킹 구축",
         "dev": ["pc","mobile"],
         "year": "2019",
         "stack": ["WebSquare"],
         "enter": ["금융기업"],
-        "project": ["구축"]
+        "project": ["구축"],
+        "work" : ["퍼블리싱", "부분 스크립트"],
+        "site" : [{
+            "link1" : "https://vn.nhbankglobal.com/index.jsp"
+        }],
+        "imgfile" : [{
+            "pc" : "2019_NH베트남_pc.png",
+            "mb" : "2019_NH베트남_mb.png"
+        }]
     },
     {
-        "id": "get01",
         "name": "SC제일은행 하이브리드앱 개발",
         "dev": ["mobile"],
         "year": "2019",
         "stack": ["pureHTML"],
         "enter": ["금융기업"],
-        "project": ["구축"]
+        "project": ["구축"],
+        "work" : ["퍼블리싱", "부분 스크립트"],
+        "site" : [{
+            "link1" : "https://play.google.com/store/apps/details?id=com.scbank.ma30&hl=ko-KR"
+        }],
+        "imgfile" : [{
+            "mb" : "2019_SC제일은행_하이브리드_mb.png"
+        }]
     }
 ]

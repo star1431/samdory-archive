@@ -29,7 +29,9 @@
                             <UiAccordion 
                                 :title="item.meta.title" 
                                 :class="['menu', item.path.substring(1), !checkAcc(item) ? 'not-acc' : '']"
-                                :beforeActive="reflashAct(item)">
+                                :beforeActive="reflashAct(item)"
+                                :notActive="!checkAcc(item)"
+                                @click.prevent="notAccClick(!checkAcc(item))">
                                 <template v-slot:inner>
                                     <ul class="list-2depth">
                                         <li v-for="(subItem, j) in item.children" :key="j">
@@ -42,9 +44,16 @@
                             </UiAccordion>
                         </li>
                         <li v-else-if="item.name !== 'Login'">
-                            <router-link :to="item.path" :class="[item.name, !checkAcc(item) ? 'not-acc' : '']">
-                                <span class="text">{{ item.meta.title }}</span>
-                            </router-link>
+                            <template v-if="checkAcc(item)">
+                                <router-link :to="item.path" :class="[item.name]">
+                                    <span class="text">{{ item.meta.title }}</span>
+                                </router-link>
+                            </template>
+                            <template v-else>
+                                <a href="javascript:void(0)" :class="[item.name, 'not-acc']" @click="notAccClick(true)">
+                                    <span class="text">{{ item.meta.title }}</span>
+                                </a>
+                            </template>
                         </li>
                     </template>
                 </ul>
@@ -52,6 +61,7 @@
             <!--// 메뉴 -->
         </OverlayScrollbarsComponent>
     </nav>
+    <MessageBox v-model="alertModel" :item="alertItem"/>
 </template>
 
 <script setup>
@@ -61,6 +71,7 @@ import { useRouter, useRoute } from 'vue-router'
 import { useStore } from 'vuex'
 import UiAccordion from '@/components/UiAccordion.vue'
 import { OverlayScrollbarsComponent } from "overlayscrollbars-vue" // 퍼펙트스크롤 급 답없음
+import MessageBox from '@/components/popup/MessageBox.vue'
 
 const store = useStore()
 const router = useRouter()
@@ -100,9 +111,10 @@ const isAccordion = (item) => {
     return item.children && item.children.length > 0
 }
 
-// 권한 여부 클래스 제어 (일단 클래스만 넣음)
+// 권한 여부 불리언 값 뱉음
 const checkAcc = (item) => {
     const _acc = item.meta.roles || []
+    // false : 접근못함
     if (_acc.length === 0 || _acc.includes(user.value?.role)) {
         return true
     }
@@ -115,6 +127,27 @@ const reflashAct = (item) => {
         return item.children.some(subItem => route.path.includes(`${item.path}/${subItem.path}`))
     } 
     // return false
+}
+
+// 얼럿
+const alertModel = ref(false)
+const alertItem = ref({
+    title: '접근불가 안내',
+    message: '해당 메뉴 권한이 없습니다.\n 다른 사용자로 로그인 하시겠습니까?',
+    textAlign: 'center',
+    innerHtml : false,
+    cancelText: '취소',
+    confirmText: '로그아웃',
+    onCancel: () => {},
+    onConfirm: () => {
+        logout()
+    },
+})
+
+// 사용자권한 접근불가 메뉴 클릭
+const notAccClick = (Boolean) => {
+    if(!Boolean) return
+    alertModel.value = true
 }
 
 onMounted(() => {

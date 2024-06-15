@@ -40,7 +40,7 @@ const props = defineProps({
     }
 })
 
-const emits = defineEmits(['update:modelValue']) // 현재 대상 v-model 의 값 (currentPage)
+const emits = defineEmits(['update:modelValue']) // 부모에서 v-model 양방향 바인딩 (currentPage)
 
 // 넘버 제어
 const numberControl = computed(() => {

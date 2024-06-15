@@ -199,21 +199,25 @@ const setStackData = (projects) => {
     chartStack.value.labels = stackLabels
 }
 
+// 감지추가
+const observer = new MutationObserver(() => {
+    theme.value = getTheme()
+})
 onMounted(async () => {
     const projects = await fetchProjects()
     setYearData(projects)
     setStackData(projects)
     setEnterData(projects)
-    const observer = new MutationObserver(() => {
-        theme.value = getTheme()
-    })
+
     // theme 감지 (로컬스토리지 감지가 안되서 대응)
     const appEl = document.querySelector('#app')
     observer.observe(appEl, { attributes: true, attributeFilter: ['class'] })
 
-    onBeforeUnmount(() => {
-        observer.disconnect()
-    })
+})
+
+// 컴포넌트 없어지면 감지 끔
+onBeforeUnmount(() => {
+    observer.disconnect()
 })
 
 watch(theme, (newTheme) => {

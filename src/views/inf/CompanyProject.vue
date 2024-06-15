@@ -26,7 +26,7 @@
                         <div class="table-body">
                             <div class="pure-board-list-table">
                                 <table>
-                                    <caption>통계</caption>
+                                    <caption>프로젝트 목록 게시판</caption>
                                     <thead class="ally-hidden">
                                         <tr>
                                             <th scope="col">목록 번호</th>
@@ -59,14 +59,6 @@
                                                 </div>
                                             </td>
                                         </tr>
-
-                                        <tr class="row nodata" v-if="tableData.length === 0">
-                                            <td class="cell">
-                                                <div class="nodata-box icon-1">
-                                                    <p class="txt">데이터 없음</p>
-                                                </div>
-                                            </td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -81,7 +73,9 @@
     </div>
 
     <!-- 팝업 컴포넌트 -->
-    <PopupDetail v-if="isPopupVisible" :item="selectedItem" @close="closePopup" />
+    <PopupUI customClass="full size-large" v-model="isPopupVisible" @close="closePopup">
+        <ProjectDetail :item="selectedItem" />
+    </PopupUI>
 </template>
 
 <script setup>
@@ -90,8 +84,8 @@ import PageTopSlot from '@/components/PageTopSlot.vue'
 import { fetchProjects } from '@/api/projectApi.js'
 import ProjectChart from '@/components/ProjectChart.vue'
 import UiPagination from '@/components/UiPagination.vue'
-import PopupDetail from '@/components/popup/PopupDetail.vue' // 팝업 컴포넌트 임포트
-
+// import PopupDetail from '@/components/popup/PopupDetail.vue' // 팝업 컴포넌트 임포트
+import ProjectDetail  from '@/views/inf/module/ProjectDetail.vue'
 const title = ref('프로젝트 통계')
 const pageClass = ref(['inf', 'CompanyProject'])
 
@@ -125,6 +119,7 @@ const openPopup = (item) => {
 }
 
 const closePopup = () => {
+    // console.log('안녕?난부모의 closePopup야')
     isPopupVisible.value = false
     selectedItem.value = null
 }

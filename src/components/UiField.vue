@@ -67,7 +67,7 @@ const props = defineProps({
         default: false
     }
 })
-const emits = defineEmits(['update:modelValue'])
+const emits = defineEmits(['update:modelValue']) // 부모에서 v-model 양방향 바인딩 (양방향 제어)
 const inputValue = ref(props.modelValue)
 const clearShow = ref(false)
 const focusState = ref('')

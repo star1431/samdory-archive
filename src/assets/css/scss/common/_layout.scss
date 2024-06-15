@@ -328,13 +328,20 @@
                 .training .toggle-button::before {@include xeiconBefore($icon:'\ea35',$s:20,$fw:100);}
                 .rules .toggle-button::before {@include xeiconBefore($icon:'\ea88',$s:20,$fw:100);}
                 .Resources::before {@include xeiconBefore($icon:'\ea93',$s:20,$fw:100);}
+
+                .menu.not-acc .accordion-header .toggle-button,
+                a.not-acc {
+                    @include themeColor(color, error, !important);
+                    &:hover {
+                        background-color: rgba(255, 0, 0, 0.1) !important;
+                    }
+                    &::before, &:after {
+                        @include themeColor(color, error, !important);
+                    }
+                }
             }
         }
 
-        .not-acc {
-            pointer-events: none;
-            color: red !important;
-        }
     }
 
     &[ui-layout="layoutDefault"] {

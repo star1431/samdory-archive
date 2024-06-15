@@ -10,7 +10,7 @@
                 @os-updated="scrollOnUpdated" 
                 defer>
                 <router-view name="content" />
-                <Footer v-if="true" />
+                <Footer />
             </OverlayScrollbarsComponent>
         </main>
     </div>

@@ -56,6 +56,8 @@ renderer.code = (code, lang) => {
 
 // [tag : a] 커스텀 렌더링
 renderer.link = (href, title, text) => {
+    href = typeof href === 'string' ? href : '';
+    text = typeof text === 'string' ? text : '';
     if (href.startsWith('@/assets/file/')) {
         const filePath = requireFile(`./${href.replace('@/assets/file/', '')}`)
         return `<a href="${filePath.default}" download>${text}</a>`
@@ -67,20 +69,15 @@ renderer.link = (href, title, text) => {
     return `<a href="${href}"${targetAttr}${titleAttr}>${cleanText}</a>`
 }
 
-// [tag : blockquote] 커스텀 렌더링
-// renderer.blockquote = (quote) => {
-//     const classMatch = quote.match(/(.*)\s+\{:class="([^"]+)"\}/)
-//     if (classMatch) {
-//         console.log(classMatch, 1111111111111111111111111111111111111111111111)
-//         const className = classMatch[2]
-//         const cleanQuote = classMatch[1].trim()
-//         return `<blockquote class="${className}">${marked.parse(cleanQuote)}</blockquote>`
-//     }
-//     return `<blockquote>${marked(quote.replace(/^>\s*/, ''))}</blockquote>`
-// }
 
 // [tag : h1,h2,h3] 목차용 id값 렌더링
-renderer.heading = (text, level) => {
+renderer.heading = (token) => {
+    // console.log('콘솔', token)
+    let text = token.text;
+    let level = token.depth;
+
+    text = typeof text === 'string' ? text : '';
+
     // 연속된 비알파벳 문자를 하나의 하이픈으로 변환하고 양 끝의 하이픈을 제거
     const slug = text.toLowerCase()
                       .replace(/[^a-zA-Z0-9가-힣]+/g, '-')   // 비알파벳/비숫자 문자를 하이픈으로 변환
@@ -119,7 +116,6 @@ const preprocessMarkdown = (markdown) => {
     // [tag : blockquote] 클래스 처리
     // ex: > 안녕하세요.{:class="info"}
     mdData = mdData.replace(/>\s+(.*)\s+\{:class="([^"]+)"\}/g, (match, p1, p2) => {
-        console.log(p1)
         return `<blockquote class="${p2}">${marked.parse(p1)}</blockquote>`
     })
 

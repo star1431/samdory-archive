@@ -14,7 +14,6 @@
     "lottie-web": "^5.12.2",
     "marked-highlight": "^2.1.1",
     "overlayscrollbars-vue": "^0.5.9",
-    "three": "^0.165.0",
     "vue": "^3.2.13",
     "vue-router": "^4.0.13",
     "vue3-apexcharts": "^1.5.3",

@@ -35,6 +35,7 @@
 
     .preview-img-box {
         @include pos;
+        margin-bottom: 2.4rem;
         width: 100%;
         aspect-ratio: 960 / 420;
         border-radius: 8px;
@@ -60,48 +61,112 @@
         width: 100%;
         height: auto;
     }
-    .mockup-pc {
-        @include pos($pos: absolute, $tp: 50%, $lt: 8%);
-        @include flex($a: center, $j: center);
-        width: 60%;
-        aspect-ratio: 600 / 350;
-        transform: translateY(-50%);
-        overflow: hidden;
-        &::before {
-            content: '';
-            @include pos($pos: absolute);
-            width: 100%;
-            height: 100%;
-            background: url('@/assets/images/project/mockup/img-mockup-tablet.png') no-repeat center/contain;
-            z-index: 2;
+    .mockup {
+        &-pc, &-mobile {
+            @include flex($a: center, $j: center);
+            transform: translateY(-50%);
+            overflow: hidden;
+            img {
+                image-rendering:-webkit-optimize-contrast;
+            }
+            &::before {
+                content: '';
+                @include pos($pos: absolute);
+                width: 100%;
+                height: 100%;
+                z-index: 2;
+            }
+            .no-data-box {
+                @include flex($dir: column, $a:center, $j: center, $gap: 0.8rem);
+                width: 98%;
+                height: 92%;
+                border-radius: 8px;
+                @include themeColor(background-color, popup-bg);
+                .text {
+                    @include font-16;
+                    font-size: min(1.6rem,2.5dvw);
+                    @include themeColor(color, text-thick);
+                }
+                &::before {
+                    @include xeiconBefore($icon: '\eb79', $s: 24);
+                    @include themeColor(color, text-thick);
+                }
+            }
         }
-        .pc {
-            @include pos;
-            width: 92%;
-            height: 90%;
-            z-index: 1;
+        &-pc {
+            @include pos($pos: absolute, $tp: 50%, $lt: 8%);
+            width: 60%;
+            aspect-ratio: 860 / 500;
+            &::before {
+                background: url('@/assets/images/project/mockup/img-mockup-tablet.png') no-repeat center/contain;
+            };
+            .pc {
+                @include pos;
+                width: 100%;
+                height: 100%;
+                transform: scale(0.94) translate(-2px, 2px);
+                z-index: 1;
+            }
+        }
+        &-mobile {
+            @include pos($pos: absolute, $tp: 50%, $rt: 8%);
+            width: 20%;
+            aspect-ratio: 320 / 568;
+            &::before {
+                background: url('@/assets/images/project/mockup/img-mockup-mobile.png') no-repeat center/contain;
+            }
+            .mobile {
+                @include pos;
+                width: 92%;
+                height: 100%;
+                transform: scale(0.96) translate(1px, -1px);
+                border-radius: 8px;
+                z-index: 1;
+            }
         }
     }
-    .mockup-mobile {
-        @include pos($pos: absolute, $tp: 50%, $rt: 8%);
-        @include flex($a: center, $j: center);
-        width: 20%;
-        aspect-ratio: 200 / 355;
-        transform: translateY(-50%);
-        overflow: hidden;
-        &::before {
-            content: '';
-            @include pos($pos: absolute);
-            width: 100%;
-            height: 100%;
-            background: url('@/assets/images/project/mockup/img-mockup-mobile.png') no-repeat center/contain;
-            z-index: 2;
+
+    .info-group {
+        .inner {
+            padding: 2rem;
+            border-radius: 6px;
+            border: 1px solid;
+            @include themeColor(box-shadow, shadow-col);
+            @include themeColor(border-color, md-line-color);
         }
-        .mobile {
-            @include pos;
-            width: 89%;
-            height: 95%;
-            z-index: 1;
+    }
+
+}
+.info-list {
+    @include flex($gap: 1.2rem, $wrap: wrap);
+    > li.item {
+        @include flex($gap:0.8rem);
+        width: calc(100%*(1/2) - 1.2rem*(1/2));
+        &.size-full {
+            width: 100%;
+        }
+        .item-name {
+            width: 14rem;
+            flex-shrink: 0;
+            .name {
+                @include font-14;
+                @include themeColor(color, text-thick);
+                font-weight: 500;
+            }
+        }
+        .item-content {
+            .text {
+                @include font-14;
+                @include themeColor(color, text-thick-2);
+            }
+        }
+        .item-link {
+            @include font-14;
+            text-decoration: underline;
+            @include themeColor(color, md-fc-anc);
+        }
+        .no-link {
+            @include themeColor(color, error, !important);
         }
     }
 }
