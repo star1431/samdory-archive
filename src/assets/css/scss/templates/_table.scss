@@ -190,7 +190,7 @@
     // }
 }
 ul.item-sub-list {
-    @include flex($a:center, $wrap: warp, $gap: 0.8rem calc(1.6rem*2 + 0.1rem));
+    @include flex($a:center, $wrap: wrap, $gap: 0.8rem calc(1.6rem*2 + 0.1rem));
     overflow: hidden;
     & + .item-sub-list {
         margin-top: 1.2rem;

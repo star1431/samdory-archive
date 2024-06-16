@@ -7,10 +7,9 @@
                 id="layoutDefault-scroll" 
                 ref="scrollbarRef" 
                 :options="{ scrollbars: { autoHide: 'scroll' } }" 
-                @os-updated="scrollOnUpdated" 
                 defer>
                 <router-view name="content" />
-                <Footer v-if="true" />
+                <Footer/>
             </OverlayScrollbarsComponent>
         </main>
     </div>

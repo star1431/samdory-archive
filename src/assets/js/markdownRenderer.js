@@ -35,24 +35,65 @@ const matterDataReform = (markdown) => {
 }
 
 // [code tag] 커스텀 렌더링
-renderer.code = (code, lang) => {
-    const langClass = 'language-' + (lang || 'unknown')
-    const highlightedCode = lang && renderer?.options?.highlight ? renderer.options.highlight(code, lang) : code
+// renderer.code = (code, lang) => {
+//     console.log(code, lang)
+//     const langClass = 'language-' + (lang || 'unknown')
+//     const highlightedCode = lang && renderer?.options?.highlight ? renderer.options.highlight(code, lang) : code
+//     return `
+//         <div class="codeblock">
+//             <div class="top">
+//                 <p>${(lang || 'unknown').toUpperCase()}</p>
+//                 <div></div>
+//                 <div></div>
+//                 <div></div>
+//             </div>
+//             <button class="button-copy" onclick="markdownCodeCopy(this)">
+//                 <span class="ally-hidden">코드 복사</span>
+//             </button>
+//             <pre class="${langClass}">${highlightedCode}</pre>
+//         </div>
+//     `
+// }
+
+// 패키지 락 절대 삭제하면 안됨. 버전업되서 각각 받던게 오브젝트로 변경되었네..
+renderer.code = (code) => {
+    const codeText = code.text || code.raw || ''
+    const lang = code.lang || 'plaintext'
+    const langClass = 'language-' + lang
+    const highlightedCode = hljs.getLanguage(lang) ? hljs.highlight(codeText, { language: lang }).value : hljs.highlightAuto(codeText).value
     return `
         <div class="codeblock">
             <div class="top">
-                <p>${(lang || 'unknown').toUpperCase()}</p>
+                <p>${lang.toUpperCase()}</p>
                 <div></div>
                 <div></div>
                 <div></div>
             </div>
-            <button class="button-copy" onclick="copyCode(this)">
+            <button type="button" class="ui-button markdown-copy" onclick="markdownCodeCopy(this)">
                 <span class="ally-hidden">코드 복사</span>
             </button>
             <pre class="${langClass}">${highlightedCode}</pre>
         </div>
     `
 }
+
+function markdownCodeCopy(button) {
+    const target = button.nextElementSibling
+    console.log(target, button)
+    const codeText = target.textContent || target.innerText
+    navigator.clipboard.writeText(codeText).then(() => {
+        // 복사 성공 시 버튼에 메시지 표시
+        button.classList.add('success')
+        button.disabled = true
+        setTimeout(() => {
+            button.classList.remove('success')
+            button.disabled = false
+        }, 2000)
+    }).catch(err => {
+        console.error('Failed to copy: ', err)
+    })
+}
+window.markdownCodeCopy = markdownCodeCopy
 
 // [tag : a] 커스텀 렌더링
 renderer.link = (href, title, text) => {

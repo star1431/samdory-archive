@@ -35,7 +35,7 @@
                                 <template v-slot:inner>
                                     <ul class="list-2depth">
                                         <li v-for="(subItem, j) in item.children" :key="j">
-                                            <router-link :to="`${item.path}/${subItem.path}`">
+                                            <router-link :to="`${item.path}/${subItem.path}`" @click="handleCloseMenu">
                                                 <span class="text">{{ subItem.meta.title }}</span>
                                             </router-link>
                                         </li>
@@ -45,7 +45,7 @@
                         </li>
                         <li v-else-if="item.name !== 'Login'">
                             <template v-if="checkAcc(item)">
-                                <router-link :to="item.path" :class="[item.name]">
+                                <router-link :to="item.path" :class="[item.name]" @click="handleCloseMenu">
                                     <span class="text">{{ item.meta.title }}</span>
                                 </router-link>
                             </template>
@@ -65,7 +65,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, onMounted } from 'vue'
+import { ref, reactive, computed, onMounted, inject, watch } from 'vue'
 import { routes } from '@/router'
 import { useRouter, useRoute } from 'vue-router'
 import { useStore } from 'vuex'
@@ -77,28 +77,32 @@ const store = useStore()
 const router = useRouter()
 const route = useRoute()
 
+// App.vue의 전달값 받아오기
+const viewportNotPC = inject('viewportNotPC')
+const classWatch = inject('classWatch')
+
 // 유저정보 이미지 src
 const user = computed(() => store.state.user)
 const setUserImg = computed(() => {
-    if (user?.value?.role === 'admin') { // 어드민
-        return require('@/assets/images/common/img_user_profile_a.png')
-    } else if (user?.value?.role === 'employee') { // 직원
-        return require('@/assets/images/common/img_user_profile_sd.png')
-    } else { // 그외
-        return require('@/assets/images/common/img_user_profile_p.png')
-    } 
+    if(user?.value?.img) {
+        return require('@/assets/images/profile/' + user?.value?.img)
+    } else {
+        return require('@/assets/images/profile/' + 'img_user_profile_p.png')
+    }
 })
 
 // 로그아웃 페이지 전환
 const logout = () => {
     store.dispatch('logout')
-    
-    if(document.querySelector('#app').classList.contains('login-animation')) {
-        document.querySelector('#app').classList.replace('login-animation', 'logout-animation')
+    const _app = document.querySelector('#app')
+    if(_app.classList.contains('login-animation')) {
+        _app.classList.replace('login-animation', 'logout-animation')
     } else {
-        document.querySelector('#app').classList.add('logout-animation')
+        _app.classList.add('logout-animation')
     }
-
+    if(viewportNotPC?.value && classWatch?.value && _app.classList.contains('lnb-control')) {
+        _app.classList.remove('lnb-control')
+    }
     router.push({ name: 'Login' })
 }
 
@@ -111,10 +115,17 @@ const isAccordion = (item) => {
     return item.children && item.children.length > 0
 }
 
+const handleCloseMenu = () => {
+    if(!viewportNotPC && !classWatch) return
+    const _app = document.querySelector('#app')
+    if(_app.classList.contains('lnb-control')) {
+        _app.classList.remove('lnb-control')
+    }
+}
+
 // 권한 여부 불리언 값 뱉음
 const checkAcc = (item) => {
     const _acc = item.meta.roles || []
-    // false : 접근못함
     if (_acc.length === 0 || _acc.includes(user.value?.role)) {
         return true
     }
@@ -126,16 +137,20 @@ const reflashAct = (item) => {
     if (isAccordion(item)) {
         return item.children.some(subItem => route.path.includes(`${item.path}/${subItem.path}`))
     } 
-    // return false
+    return false
 }
 
 // 얼럿
 const alertModel = ref(false)
 const alertItem = ref({
     title: '접근불가 안내',
-    message: '해당 메뉴 권한이 없습니다.\n 다른 사용자로 로그인 하시겠습니까?',
+    message: `
+        <div class="error-message-box">
+            <p class="text">메뉴 권한이 없습니다.<br/>다른 사용자로 로그인 하시겠습니까?</p>
+        </div>
+    `,
     textAlign: 'center',
-    innerHtml : false,
+    innerHtml : true,
     cancelText: '취소',
     confirmText: '로그아웃',
     onCancel: () => {},

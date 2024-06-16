@@ -14,16 +14,21 @@
             aspect-ratio: 2 / 1;
         }
     }
-}
-.chart-area {
-    &.bar {
-        .chart-body {
-            margin-top: -3rem;
+    @include tablet {
+        &.col-1 {
+            .chart-area .chart-body {
+                margin-top: 0rem;
+                aspect-ratio: 1 / 1;
+            }
         }
-        .apx-legend-position-top {
-            justify-content: flex-end !important;
+        &.col-1-2 {
+            .chart-area .chart-body {
+                aspect-ratio: 1 / 1;
+            }
         }
     }
+}
+.chart-area {
     .chart-header {
         .title {
             @include font-18;
@@ -62,5 +67,27 @@
         .apexcharts-gridlines-horizontal {
             opacity: 0;
         }
+    }
+    &.bar {
+        .chart-body {
+            margin-top: -2.4rem;
+        }
+        .apx-legend-position-top {
+            justify-content: flex-end !important;
+        }
+    }
+    &.donut {
+        .chart-body {
+            margin-top: -5rem;
+            padding-top: 5rem;
+            padding-bottom: 0.8rem;
+            .vue-apexcharts {
+                top: 5rem;
+                .apexcharts-canvas > svg {
+                    overflow: unset;
+                }
+            }
+        }
+
     }
 }

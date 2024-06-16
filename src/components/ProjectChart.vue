@@ -1,10 +1,10 @@
 <template>
-    
+    <!-- https://apexcharts.com/vue-chart-demos/line-charts/ -->
     <div class="chart-area bar" v-if="props.showYear">
         <div class="chart-header">
             <div class="text-box">
                 <p class="title">연도별 프로젝트 현황</p>
-                <p class="sub-text">최근 6년 기준</p>
+                <p class="sub-text">최근 5년 기준</p>
             </div>
         </div>
         <div class="chart-body">
@@ -24,7 +24,7 @@
         <div class="chart-header">
             <div class="text-box">
                 <p class="title">프로젝트 기업 유형</p>
-                <p class="sub-text">발주처 업종 형태</p>
+                <p class="sub-text">고객사 업종</p>
             </div>
         </div>
         <div class="chart-body">
@@ -105,7 +105,17 @@ const chartYear = ref({
         },
     },
     xaxis: { categories: [] },
-    colors: ['#238ed3', '#0b70fb', '#f64e60', '#059510', '#ffa800', '#7e6afd', '#03a917'],
+    // colors: ['#238ed3', '#0b70fb', '#f64e60', '#059510', '#ffa800', '#7e6afd', '#03a917'],
+        theme: {
+        mode: 'light', 
+        palette: 'palette2', 
+        monochrome: {
+            enabled: false,
+            color: '#255aee',
+            shadeTo: 'light',
+            shadeIntensity: 1
+        },
+    },
     dataLabels: { enabled: true },
     stroke: { show: true, width: 2, colors: ['transparent'] },
     legend: { show: true, position: 'top' },
@@ -122,7 +132,17 @@ const chartEnter = ref({
     },
     stroke: { show: true, width: 3, colors: theme.value === 'light' ? ['#fff'] : ['#14181e'] },
     labels: [],
-    colors: ['#238ed3', '#0b70fb', '#f64e60', '#059510', '#ffa800', '#7e6afd', '#03a917'],
+    // colors: ['#238ed3', '#0b70fb', '#f64e60', '#059510', '#ffa800', '#7e6afd', '#03a917'],
+        theme: {
+        mode: 'light', 
+        palette: 'palette2', 
+        monochrome: {
+            enabled: false,
+            color: '#255aee',
+            shadeTo: 'light',
+            shadeIntensity: 1
+        },
+    },
     legend: { show: true, position: 'right' },
     dataLabels: { enabled: true },
     tooltip: { y: {formatter: (val) => {return `${val}`}} },
@@ -137,7 +157,17 @@ const chartStack = ref({
     },
     stroke: { show: true, width: 3, colors: theme.value === 'light' ? ['#fff'] : ['#14181e'] },
     labels: [],
-    colors: ['#238ed3', '#0b70fb', '#f64e60', '#059510', '#ffa800', '#7e6afd', '#03a917'],
+    // colors: ['#238ed3', '#0b70fb', '#f64e60', '#059510', '#ffa800', '#7e6afd', '#03a917'],
+        theme: {
+        mode: 'light', 
+        palette: 'palette2', 
+        monochrome: {
+            enabled: false,
+            color: '#255aee',
+            shadeTo: 'light',
+            shadeIntensity: 1
+        },
+    },
     legend: { show: true, position: 'right' },
     dataLabels: { enabled: true },
     tooltip: { y: {formatter: (val) => {return `${val}`}} },
@@ -147,7 +177,7 @@ const chartStack = ref({
 // 년도별 데이터 설정
 const setYearData = (projects) => {
     const currentYear = 2024 // 기준날짜 (추후 유지할때 현재날짜 받아서 넣어야함)
-    const yearArr = Array.from({ length: 6 }, (_, i) => currentYear - i)  // 최근 6년 까지
+    const yearArr = Array.from({ length: 5 }, (_, i) => currentYear - i)  // 최근 6년 까지
     const data = yearArr.map(year => {
         //지정한 년도들의 각각 총갯수 반환
         return projects.filter(project => project.year == year).length

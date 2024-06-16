@@ -12,14 +12,12 @@ date: 0000.00.00 (metter의 date)
 
 `code inline` : 백틱(`) 내
 
-[a태그](javascript:void(0)) : javascript:void(0)도 가능
-
 [a태그 블링크](https://google.com/){:target="_blank"}
 
 [첨부파일](@/assets/file/휴가신청서_이름_00월.docx) : `@assets/file/` 기준에서 정규식 처리 (public 안쓰고 vue cli3 동적 커스텀 상태)
 
 **이미지(block center) :** `@assets/images/` 기준에서 정규식 처리 (public 안쓰고 vue cli3 동적 커스텀 상태)
-![나는alt](@/assets/images/common/img_user_profile_a.png)   
+![나는alt](@/assets/images/common/img_user_background_4.png)   
 
 
 

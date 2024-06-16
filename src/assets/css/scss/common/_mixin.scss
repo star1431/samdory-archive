@@ -36,6 +36,9 @@
 @mixin desktop {
     @media (min-width: $desktop) {@content;}
 }
+@mixin rwd1000 {
+    @media (max-width: 999px) {@content;}
+}
 
 // 공통여백 컨테이너 ================================================
 @mixin container {
@@ -74,6 +77,16 @@
     margin: -1px;
     overflow: hidden;
     white-space: nowrap;
+}
+@mixin ally-hidden-unset {
+    position: initial;
+    clip: unset;
+    clip-path: unset;
+    width: initial;
+    height: initial;
+    margin: initial;
+    overflow: unset;
+    white-space: initial;
 }
 
 // 말줄임 ================================================

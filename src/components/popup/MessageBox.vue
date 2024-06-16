@@ -13,7 +13,7 @@
                     </template>
                     <template v-else>
                         <div :class="['alert-inner', item.textAlign ? item.textAlign : '']">
-                            <p class="text">{{ item.message }}</p>
+                            <p class="alert-text">{{ item.message }}</p>
                         </div>
                     </template>
                 </div>
@@ -41,27 +41,21 @@ import PopupUI from './PopupUI.vue'
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-vue'
 
 /** ******************************************************************
-* 사용 방법
+* MessageBox 사용 방법
 * 부모 마크업 : <MessageBox v-model="alertModel" :item="alertItem"/>
 * ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 * 스크립트 셋업
+    import MessageBox from '@/components/popup/MessageBox.vue'
     const alertModel = ref(false)
     const alertItem = ref({
-        title: '접근불가 안내',
-        message: `
-            <p class="text">
-                해당 메뉴 권한이 없습니다.<br/> 
-                다른 사용자로 로그인 하시겠습니까?
-            </p>
-        `,
+        title: '팝업타이틀',
+        message: '팝업내용 \n 줄바꿈',
         textAlign : 'center'
-        innerHtml : true,
+        innerHtml : false,
         cancelText: '취소',
-        confirmText: '로그아웃',
+        confirmText: '확인',
         onCancel: () => {},
-        onConfirm: () => {
-            logout()
-        },
+        onConfirm: () => {},
     })
 * ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 * item 오브젝트

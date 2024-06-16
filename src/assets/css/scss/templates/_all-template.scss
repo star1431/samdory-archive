@@ -56,11 +56,6 @@
             .mockup-pc {display: none;}
         }
     }
-    .preview-background {
-        display: block;
-        width: 100%;
-        height: auto;
-    }
     .mockup {
         &-pc, &-mobile {
             @include flex($a: center, $j: center);
@@ -136,6 +131,33 @@
         }
     }
 
+    @include tablet {
+        .preview-img-box {
+            aspect-ratio: 960 / 560;
+            background-size: 100% 100%;
+            &.mb-only {
+                .mockup-mobile {
+                    width: 30%;
+                }
+            }
+        }
+        .mockup {
+            &-pc {
+                width: 80%;
+                left: 1.6rem;
+                &::before {
+                    background-size: 100% 100%;
+                }
+            }
+            &-mobile {
+                width: 20%;
+                right: 1.6rem;
+                &::before {
+                    background-size: 100% 100%;
+                }
+            }
+        }
+    }
 }
 .info-list {
     @include flex($gap: 1.2rem, $wrap: wrap);
@@ -157,6 +179,7 @@
         .item-content {
             .text {
                 @include font-14;
+                word-break: keep-all;
                 @include themeColor(color, text-thick-2);
             }
         }
@@ -168,5 +191,25 @@
         .no-link {
             @include themeColor(color, error, !important);
         }
+    }
+    @include tablet {
+        > li.item {
+            width: 100%;
+            .item-name {
+                width: 10rem;
+            }
+        }
+    }
+}
+
+.error-message-box {
+    @include flex($dir: column, $a:center, $j:center, $gap: 0.8rem);
+    &::before {
+        @include xeiconBefore($icon:'\e9aa', $s: 48);
+        @include themeColor(color, fc-bq-danger);
+    }
+    .text {
+        @include font-16();
+        @include themeColor(color, text-default);
     }
 }

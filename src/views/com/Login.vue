@@ -2,7 +2,7 @@
     <div :class="['container', pageClass]">
         <!-- 비주얼 -->
         <div class="login-visual">
-            <img class="login-img" src="@/assets/images/common/img_login_visual.png" alt="">
+            <LottieLoader :lottieData="lottieJson" :startFrame="0" :endFrame="110"/>
         </div>
         <!--// 비주얼 -->
         <!-- 로그인 -->
@@ -64,6 +64,8 @@ import { ref, reactive, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 import UiField from '@/components/UiField.vue'
+import LottieLoader from '@/components/LottieLoader.vue'
+import lottieJson from '@/assets/js/lottie/lottieCom.json'
 
 const pageClass = ref(['com', 'Login'])
 
@@ -123,7 +125,7 @@ computed(() => {
 onMounted(() => {
     // 아이디저장값 갖고오기
     const savedId = localStorage.getItem('savedId')
-    console.log(savedId)
+    // console.log(savedId)
     if (savedId) {
         userName.value = savedId
         saveId.value = true

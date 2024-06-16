@@ -7,7 +7,7 @@ let routes = [
             layout: 'LayoutDefault',
             side: false,
             requiresAuth: true,
-            roles: ['employee'],
+            // roles: ['employee'],
         },
         components: Object.assign({
             content: () => import(/* webpackChunkName: "res" */ '@/views/res/Resources.vue'),

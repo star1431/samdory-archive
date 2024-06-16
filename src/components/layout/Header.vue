@@ -37,18 +37,23 @@
             <!-- 헤더 컨텐츠 etc -->
         </div>
     </header>
+    <template v-if="viewportNotPC && classWatch">
+        <teleport to="main">
+            <div class="dimmed type-inner" tabindex="-1" @click="menuClick"></div>
+        </teleport>
+    </template>
 </template>
 
 <script setup>
-import { ref, reactive, watch, onMounted } from 'vue'
+import { ref, reactive, watch, onMounted, inject } from 'vue'
 
 // 메뉴버튼 클릭
 const menuClick = () => {
     const appEl = document.querySelector('#app')
-    if(appEl.classList.contains('lnb-close')) {
-        appEl.classList.remove('lnb-close')
+    if(appEl.classList.contains('lnb-control')) {
+        appEl.classList.remove('lnb-control')
     } else {
-        appEl.classList.add('lnb-close')
+        appEl.classList.add('lnb-control')
     }
 }
 // 확대축소 토글
@@ -69,7 +74,13 @@ watch(switchCheck, (newValue) => {
         sessionStorage.setItem('themeSet', 'true')
     }
 })
+// App.vue의 전달값 받아오기
+const viewportNotPC = inject('viewportNotPC')
+const classWatch = inject('classWatch')
+
+
 onMounted(() => {
+
     const appEl = document.querySelector('#app')
     const savedTheme = localStorage.getItem('theme')
     const themeSet = sessionStorage.getItem('themeSet')
@@ -88,6 +99,15 @@ onMounted(() => {
         appEl.classList.remove('dark-theme')
     }
 })
+
+
+
+// watch(viewportNotPC, (newValue) => {
+//     console.log('[header.vue] viewportNotPC:', newValue)
+// })
+// watch(classWatch, (newValue) => {
+//     console.log('[header.vue] classWatch:', newValue)
+// })
 </script>
 
 <style scoped>

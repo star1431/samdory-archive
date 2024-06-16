@@ -30,22 +30,22 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
-    console.log('상태:', store.getters.isAuthenticated) // 상태 확인
-    console.log('유저정보:', store.getters.user) // 유저 정보
-    if(store.getters.user) console.log('권한:', store.getters.user.role) // 권한
+    // console.log('상태:', store.getters.isAuthenticated) // 상태 확인
+    // console.log('유저정보:', store.getters.user) // 유저 정보
+    // if(store.getters.user) console.log('권한:', store.getters.user.role) // 권한
 
-    console.log('현재경로 to:', to)
+    // console.log('현재경로 to:', to)
 
     if (to.matched.some(record => record.meta.requiresAuth)) {
         if (!store.getters.isAuthenticated) {
-            console.log('[로그인이동] : 어떤url로 들어오든 로그인 안했음')
+            // console.log('[로그인이동] : 어떤url로 들어오든 로그인 안했음')
             return next({ name: 'Login' })
         } else {
             const userRole = store.getters.user ? store.getters.user.role : null // 사용자 역할 가져오기
             const requiredRoles = to.meta.roles
-            console.log('index.js', userRole)
+            // console.log('index.js', userRole)
             if (requiredRoles && (!userRole || !requiredRoles.includes(userRole))) {
-                console.log('[메인이동] : 로그인했지만 접근권한 없음')
+                // console.log('[메인이동] : 로그인했지만 접근권한 없음')
                 return next({ name: 'Home' })
             } else {
                 return next()

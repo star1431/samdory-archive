@@ -35,16 +35,6 @@
     }
 }
 
-.dimmed {
-    position: fixed;
-    z-index: 1000;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, .6);
-    opacity: 1;
-}
 
 .popup {
     // 어차피 os scroll 안써서 팝업호출시 body클래스제어 필요없음 (overlayscrollbars)
@@ -154,12 +144,11 @@
         .popup-wrap {
             max-width: 30rem;
             .popup-content {
-                padding: 2rem 2rem;
+                padding: 1rem 2rem 1rem;
             }
         }
         .alert-inner {
             text-align: left;
-            white-space: pre-wrap;
             @include font-16();
             @include themeColor(color, text-default);
             &.left {
@@ -170,6 +159,9 @@
             }
             &.right {
                 text-align: right;
+            }
+            .alert-text {
+                white-space: pre;
             }
         }
     }

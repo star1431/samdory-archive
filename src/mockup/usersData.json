@@ -1,44 +1,66 @@
 [
     {
         "username": "admin",
-        "password": "1",
+        "password": "samdory!123",
         "role": "admin",
-        "nick": "관리자"
+        "nick": "관리자",
+        "profileImg": "img_user_profile_a.png",
+        "pos": "site manager"
+    },
+    {
+        "username": "이상훈",
+        "password": "samdory!",
+        "role": "admin",
+        "nick": "이상훈",
+        "profileImg": "lee.png",
+        "pos": "SD CEO"
     },
     {
         "username": "samdory",
         "password": "samdory!1",
         "role": "employee",
-        "nick": "퍼블리셔"
+        "nick": "퍼블리셔",
+        "profileImg": "img_user_profile_sd.png",
+        "pos": "pub"
     },
     {
         "username": "삼도리신입",
         "password": "samdory",
         "role": "employee",
-        "nick": "삼도리 신입s"
+        "nick": "new face",
+        "profileImg": "img_user_profile_sd.png",
+        "pos": "pub"
     },
     {
         "username": "star1431",
         "password": "1",
         "role": "employee",
-        "nick": "테스트 (직원)"
+        "nick": "테스트(직원)",
+        "profileImg": "img_user_profile_sd.png",
+        "pos": "pub"
     },
     {
         "username": "testfree",
         "password": "1",
         "role": "freelancer",
-        "nick": "테스트 (프리)"
+        "nick": "테스트 (프리)",
+        "profileImg": null,
+        "pos": "pub"
     },
     {
-        "username": "파트너",
+        "username": "퍼블리셔",
         "password": "123",
         "role": "freelancer",
-        "nick": "삼도리 파트너"
+        "nick": "파트너(퍼블)",
+        "profileImg": null,
+        "pos": "pub"
     },
     {
-        "username": "partner",
+        "username": "디자이너",
         "password": "123",
         "role": "freelancer",
-        "nick": "삼도리 파트너"
+        "nick": "파트너(디자인)",
+        "profileImg": null,
+        "pos": "design"
     }
 ]

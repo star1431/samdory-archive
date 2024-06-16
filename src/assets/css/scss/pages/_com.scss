@@ -10,7 +10,10 @@
             // background-color: #E0ECF8;
             @include themeColor(background-color, bg-login);
             img {
-                max-width: 360px;
+                max-width: 36rem;
+            }
+            .lottie-box {
+                max-width: 56rem;
             }
         }
         .login-area {
@@ -31,8 +34,7 @@
                 .ui-logo {
                     @include flex($a: center, $j: center);
                     .logo {
-                        width: 64px;
-                        margin-left: -32px;
+                        width: 6.4rem;
                     }
                     span {
                         @include font($s:42,$lh:56); 
@@ -41,7 +43,153 @@
                 }
             }
         }
+        @include rwd1000 {
+            align-items: center;
+            justify-content: center;
+            padding: $containerPadding 0;
+            .login-visual {
+                @include pos($pos: fixed, $tp:0, $lt:0);
+                width: 100%;
+                min-height: 100%;
+                z-index: 0;
+            }
+            .login-area {
+                position: relative;
+                z-index: 1;
+                border-radius: 12px;
+                width: calc(100% - $containerPadding*2);
+                max-width: 76rem;
+                height: 90vh;
+                max-height: 50rem;
+                min-height: 40rem;
+            }
+        }
     }
     // 메인페이지
-    &.Home {}
+    &.Home {
+        .home-card {
+            &-info {
+                padding: 2rem;
+                height: 18rem;
+                background-color: rgba(0, 86, 178, 1);
+                #app.dark-theme & {background-color: rgba(0, 86, 178, 0.1);}
+                .text-box {
+                    padding: 2.2rem 0 0 5.6rem;
+                    &::before {
+                        @include pos($pos: absolute, $tp: 0, $lt: 0);
+                        @include xeiconBefore($icon:'\ea15', $s: 48); 
+                        @include themeColor(color, fc-card);
+                        transform: scale(-1, 1);
+                    }
+                    .title {
+                        margin-bottom: 0.4rem;
+                        @include font-24;
+                        white-space: nowrap;
+                    }
+                    .text {
+                        @include font-16;
+                    }
+                }
+                //0056b2
+                .lottie-box {
+                    height: 17rem;
+                    transform: translate(2rem, 0.4rem);
+                }
+            }
+            &-small {
+                padding: 2rem;
+                height: 100%;
+                min-height: 10rem;
+                background-color: rgba(38, 128, 255, 0.9) ;
+                #app.dark-theme & {background-color: rgba(38, 128, 255, 0.1);}
+                // &:hover {
+                //     background-color: rgba(38, 128, 255, 0.75) ;
+                //     #app.dark-theme & {background-color: rgba(38, 128, 255, 0.4);}
+                // }
+                .text-box {
+                    @include flex($dir: column);
+                    width: 100%;
+                    .title {
+                        @include flex($a: center, $gap: 0.8rem);
+                        @include font-18;
+                    }
+                    .text {
+                        margin-top: auto;
+                        text-align: right;
+                        @include font-14;
+                        .acc {
+                            font-weight: 500;
+                            font-size: 1.6rem !important;
+                        }
+                    }
+                    &.type-link {
+                        margin: -2rem;
+                        padding: 2rem;
+                        width: calc(100% + 4rem);
+                        &:after {
+                            @include pos($pos: absolute,$tp: 2rem, $rt: 2rem);
+                            @include xeiconBefore($icon:'\e9c0', $s:24);
+                            @include themeColor(color, fc-card);
+                        }
+                        .title {
+                            padding-right: 2.4rem;
+                        }
+                    }
+                }
+                &.samdory {
+                    background-color: rgba(133, 68, 231, 0.9);
+                    #app.dark-theme & {background-color: rgba(133, 68, 231, 0.2);}
+                    &:hover {
+                        background-color: rgba(133, 68, 231, 0.75);
+                        #app.dark-theme & {background-color: rgba(133, 68, 231, 0.4);}
+                    }
+                    .title::before {
+                        @include xeiconBefore($icon:'\e99b', $s: 24); 
+                        @include themeColor(color, fc-card);
+                    }
+                }
+                &.ftp {
+                    background-color: rgba(14, 177, 69, 0.9);
+                    #app.dark-theme & {background-color: rgba(14, 177, 69, 0.2);}
+                    &:hover {
+                        background-color: rgba(14, 177, 69, 0.75);
+                        #app.dark-theme & {background-color: rgba(14, 177, 69, 0.4);}
+                    }
+                    .title::before {
+                        @include xeiconBefore($icon:'\eb96', $s: 24); 
+                        @include themeColor(color, fc-card);
+                    }
+                }
+                &.project {
+                    .title::before {
+                        @include xeiconBefore($icon:'\e9cf', $s: 24); 
+                        @include themeColor(color, fc-card);
+                    }
+                }
+
+            }
+
+            &-info, &-small {
+                @include flex($j: space-between, $gap: 0rem);
+                transition: background-color 0.2s;
+                width: 100%;
+                .text-box {
+                    flex-shrink: 1;
+                    position: relative;
+                    .title {
+                        @include themeColor(color, fc-card);
+                        font-weight: 600;
+                    }
+                    .text {
+                        @include themeColor(color, fc-card);
+                        font-weight: 400;
+                    }
+                }
+                .slot-right {
+                    height: 100%;
+                    @include flex($a: center, $j: center);
+                }
+            }
+        }
+    }
 }

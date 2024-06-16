@@ -74,7 +74,7 @@
 
     <!-- 팝업 컴포넌트 -->
     <PopupUI customClass="full size-large" v-model="isPopupVisible" @close="closePopup">
-        <ProjectDetail :item="selectedItem" />
+        <ProjectDetail :item="selectedItem" @close="closePopup" />
     </PopupUI>
 </template>
 
@@ -84,7 +84,6 @@ import PageTopSlot from '@/components/PageTopSlot.vue'
 import { fetchProjects } from '@/api/projectApi.js'
 import ProjectChart from '@/components/ProjectChart.vue'
 import UiPagination from '@/components/UiPagination.vue'
-// import PopupDetail from '@/components/popup/PopupDetail.vue' // 팝업 컴포넌트 임포트
 import ProjectDetail  from '@/views/inf/module/ProjectDetail.vue'
 const title = ref('프로젝트 통계')
 const pageClass = ref(['inf', 'CompanyProject'])

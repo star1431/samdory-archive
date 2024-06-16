@@ -39,7 +39,7 @@ export default createStore({
                 const user = state.users.find(u => u.username === credentials.username && u.password === credentials.password)
 
                 if (user) {
-                    commit('setAuth', { isAuthenticated: true, user: { name: user.username, nick: user.nick, role: user.role } })
+                    commit('setAuth', { isAuthenticated: true, user: { name: user.username, nick: user.nick, role: user.role, img: user.profileImg } })
                     resolve()
                 } else {
                     reject('잘못된 아이디 또는 비밀번호 입니다.')
