@@ -1,5 +1,5 @@
 ---
-title: metter 타이틀 
+title: 포스트 작업용 샘플 (metter의 title) 
 date: 0000.00.00 (metter의 date)
 ---
 
@@ -12,7 +12,11 @@ date: 0000.00.00 (metter의 date)
 
 `code inline` : 백틱(`) 내
 
-[a태그 블링크](https://google.com/){:target="_blank"}
+https://google.com/  : 블링크 아님
+
+[javascript:void(0)](javascript:void(0)) : void 가능
+
+[a태그 블링크](https://google.com/){:target="_blank"} : `{:target="_blank"}` 붙여서 사용
 
 [첨부파일](@/assets/file/휴가신청서_이름_00월.docx) : `@assets/file/` 기준에서 정규식 처리 (public 안쓰고 vue cli3 동적 커스텀 상태)
 
@@ -29,8 +33,12 @@ date: 0000.00.00 (metter의 date)
 * 리스트 1depth
    - 리스트 2depth
 
+1. ol 1depth
+   - 리스트 2depth
+2. **ol 1depth**
+   - 리스트 2depth
 
-## md 표형식 (table)
+## markdown 표 형식 (table)
 
 ### 기본
 | Header 1 | Header 2 | Header 3 |
@@ -43,7 +51,7 @@ date: 0000.00.00 (metter의 date)
 
 | Header 1 (왼쪽정렬) | Header 2 (센터정렬) | Header 3 (오른쪽정렬) |
 | :---------------------- | :-----------------------: | -----------------------: |
-| Cell 1                  | Cell 2                    | Cell 3                   |
+| Cell 1                  | Cell 2 Cell 2 Cell 2 Cell 2 Cell 2 Cell 2 Cell 2 Cell 2 Cell 2 Cell 2 Cell 2                    | Cell 3                   |
 | Cell 4                  | Cell 5                    | Cell 6                   |
 | Cell 7                  | Cell 8                    | Cell 9                   |
 

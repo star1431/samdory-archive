@@ -35,27 +35,6 @@ const matterDataReform = (markdown) => {
 }
 
 // [code tag] 커스텀 렌더링
-// renderer.code = (code, lang) => {
-//     console.log(code, lang)
-//     const langClass = 'language-' + (lang || 'unknown')
-//     const highlightedCode = lang && renderer?.options?.highlight ? renderer.options.highlight(code, lang) : code
-//     return `
-//         <div class="codeblock">
-//             <div class="top">
-//                 <p>${(lang || 'unknown').toUpperCase()}</p>
-//                 <div></div>
-//                 <div></div>
-//                 <div></div>
-//             </div>
-//             <button class="button-copy" onclick="markdownCodeCopy(this)">
-//                 <span class="ally-hidden">코드 복사</span>
-//             </button>
-//             <pre class="${langClass}">${highlightedCode}</pre>
-//         </div>
-//     `
-// }
-
-// 패키지 락 절대 삭제하면 안됨. 버전업되서 각각 받던게 오브젝트로 변경되었네..
 renderer.code = (code) => {
     const codeText = code.text || code.raw || ''
     const lang = code.lang || 'plaintext'
@@ -96,24 +75,27 @@ function markdownCodeCopy(button) {
 window.markdownCodeCopy = markdownCodeCopy
 
 // [tag : a] 커스텀 렌더링
-renderer.link = (href, title, text) => {
-    href = typeof href === 'string' ? href : '';
-    text = typeof text === 'string' ? text : '';
+renderer.link = (token) => {
+    const href = token.href || ''
+    const title = token.title || ''
+    const text = token.text || ''
+    let targetAttr = ''
+    let link = href
+    if (/:target="_blank"/.test(text)) {
+        token.text = token.text.replace(/{:target="_blank"}/, '').trim()
+        targetAttr = ' target="_blank"'
+    }
     if (href.startsWith('@/assets/file/')) {
         const filePath = requireFile(`./${href.replace('@/assets/file/', '')}`)
-        return `<a href="${filePath.default}" download>${text}</a>`
+        link = filePath.default
     }
-    const isExternal = /{:target="_blank"}/.test(text)
-    const cleanText = text.replace(/{:target="_blank"}/, '').trim()
-    const targetAttr = isExternal ? ' target="_blank"' : ''
-    const titleAttr = title ? ` title="${title}"` : ''
-    return `<a href="${href}"${targetAttr}${titleAttr}>${cleanText}</a>`
+
+    return `<a href="${link}"${targetAttr}${title ? ` title="${title}"` : ''}>${text}</a>`
 }
 
 
 // [tag : h1,h2,h3] 목차용 id값 렌더링
 renderer.heading = (token) => {
-    // console.log('콘솔', token)
     let text = token.text;
     let level = token.depth;
 
@@ -127,6 +109,31 @@ renderer.heading = (token) => {
     toc.push({ level, text, slug })
     return `<h${level} id="${slug}">${text}</h${level}>`
 }
+
+// [tag : table] 커스텀 렌더링
+renderer.table = (token) => {
+    const header = token.header.map(cell => {
+        const align = cell.align ? ` style="text-align:${cell.align}"` : ''
+        return `<th${align}>${cell.text}</th>`
+    }).join('')
+
+    const body = token.rows.map(row => {
+        const cells = row.map(cell => {
+            const align = cell.align ? ` style="text-align:${cell.align}"` : ''
+            return `<td${align}>${cell.text}</td>`
+        }).join('')
+        return `<tr>${cells}</tr>`
+    }).join('')
+
+    return `
+        <div class="markdown-table-area">
+            <table>
+                <thead><tr>${header}</tr></thead>
+                <tbody>${body}</tbody>
+            </table>
+        </div>
+    `;
+};
 
 // 마크다운 변환 사전 처리
 const preprocessMarkdown = (markdown) => {

@@ -49,6 +49,34 @@ let routes = [
                     content: () => import(/* webpackChunkName: "rul" */ '@/views/rul/RuleName.vue'),
                 }),
             },
+            {
+                path: 'Ally',
+                name: 'RuleAlly',
+                meta: {
+                    title: '웹 접근성 가이드',
+                    layout: 'LayoutDefault',
+                    side: true,
+                    requiresAuth: true,
+                    // roles: ['employee', 'freelancer']
+                },
+                components: Object.assign({
+                    content: () => import(/* webpackChunkName: "rul" */ '@/views/rul/RuleAlly.vue'),
+                }),
+            },
+            {
+                path: 'WAI-ARIA',
+                name: 'RuleAria',
+                meta: {
+                    title: 'WAI-ARIA 가이드',
+                    layout: 'LayoutDefault',
+                    side: true,
+                    requiresAuth: true,
+                    // roles: ['employee', 'freelancer']
+                },
+                components: Object.assign({
+                    content: () => import(/* webpackChunkName: "rul" */ '@/views/rul/RuleAria.vue'),
+                }),
+            },
         ]
 	},
 ]

@@ -184,11 +184,14 @@
                             margin-top: 1.5rem;
                         }
                     }
+                    code {
+                        margin: -0.1rem 0 ;
+                    }
                 }
                 &::before {
                     content: '';
                     display: block;
-                    @include pos($pos: absolute, $tp:1.6rem, $lt: 1.2rem);
+                    @include pos($pos: absolute, $tp:1.5rem, $lt: 1.2rem);
                 }
                 &.prompt-tip {
                     background-color: rgba(123, 247, 144, 0.2);
@@ -237,10 +240,16 @@
             
             ol {
                 list-style-type: decimal;
+                li:has( > strong)::marker,
+                > li:has( > p strong)::marker {
+                    font-weight: 600;
+                }
             }
 
             li {
                 display: list-item;
+                font-size: 1.6rem;
+                line-height: 2.4rem;
             }
 
             ul > li, ol > li {
@@ -257,27 +266,34 @@
             tt{
                 padding: 0.4rem 0.4rem;
             }
-
-            table {
-                width: 100%;
-                border-collapse: collapse;
+            .markdown-table-area {
                 margin: 1.5rem 0;
-                th, td {
-                    padding: 0.8rem;
-                    border: 1px solid;
-                    @include themeColor(border-color,md-line-color);
-                    text-align: left;
-                    word-break: keep-all;
-                    &[align="left"] {text-align: left;}
-                    &[align="center"] {text-align: center;}
-                    &[align="right"] {text-align: right;}
-                }
-                th {
-                    @include themeColor(color, text-thick-2);
-                    @include themeColor(background-color, md-bg-incode);
+                width: 100%;
+                overflow-x: auto;
+                table {
+                    width: 100%;
+                    // min-width: 70%;
+                    border-collapse: collapse;
+                    overflow-x: auto;
+                    table-layout: auto;
+                    th, td {
+                        padding: 0.8rem 1.2rem;
+                        border: 1px solid;
+                        @include themeColor(border-color,md-line-color);
+                        text-align: left;
+                        // word-break: keep-all;
+                        white-space: nowrap;
+                        &[align="left"] {text-align: left;}
+                        &[align="center"] {text-align: center;}
+                        &[align="right"] {text-align: right;}
+                    }
+                    th {
+                        text-align: center !important;
+                        @include themeColor(color, text-thick-2);
+                        @include themeColor(background-color, md-bg-incode);
+                    }
                 }
             }
-
 
             // 코드블럭 - start 
             pre[class*="language-"],
@@ -295,6 +311,9 @@
                 &::-webkit-scrollbar-track{background:none;}
                 tab-size: 4;
             }
+            pre * {
+                letter-spacing: 0.04rem;
+            }
 
             code:not([class*="language-"]) {
                 display: inline-flex;
@@ -309,7 +328,7 @@
 
             .codeblock {
                 position: relative;
-                margin: 1rem 0;
+                margin: 1rem 0 2rem;
                 .top {
                     position: relative;
                     width: 100%;
@@ -448,7 +467,9 @@
         
         .layer-inner {
             // width: 0;
+            @include flex($dir: column);
             height: max-content;
+            max-height: calc(100dvh - 6rem - 3rem);
             border-radius: 0 0 0 6px;
             background-color: #fff;
             border: 1px solid;
@@ -465,15 +486,17 @@
                 @include flex($a: center);
                 padding: 0 1.4rem;
                 margin-top: -1px;
-                @include themeColor(color,text-thick-2);
                 height: 3rem;
+                flex-shrink: 0;
+                @include themeColor(color,text-thick-2);
             }
         }
         .toc {
             padding: 1.4rem;
             width: max-content;
             min-width: 14rem;
-            height: auto;
+            height: calc(100% - 3rem);
+            overflow-y: auto;
             ul > li ~ li {
                 margin-top: 0.8rem;
             }
@@ -481,10 +504,25 @@
                 &.level-3 {
                     margin-left: 1rem;
                     a {
-                        padding-left: 1.2rem;
+                        padding-left: 1.8rem;
                         &::before {
-                            content: '-';
-                            @include pos($pos: absolute, $tp: 50%, $lt: 0.2rem);
+                            content: '└';
+                            @include pos($pos: absolute, $tp: calc(50% - 0.2rem), $lt: 0.2rem);
+                            display: block;
+                            font-size: 10px;
+                            transform: translateY(-50%);
+                        }
+                    }
+                }
+                &.level-4 {
+                    margin-left: 2.4rem;
+                    a {
+                        padding-left: 1.8rem;
+                        &::before {
+                            content: '└';
+                            @include pos($pos: absolute, $tp: calc(50% - 0.2rem), $lt: 0.2rem);
+                            display: block;
+                            font-size: 10px;
                             transform: translateY(-50%);
                         }
                     }

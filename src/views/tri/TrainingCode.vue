@@ -8,7 +8,7 @@
                     <div class="lottie-banner">
                         <LottieLoader :lottieData="lottieJson"/>
                     </div>
-                    <PageMarkDown :loader="postMd" :scrollbarRef="scrollbarRef" />
+                    <PageMarkDown :loader="postMd"/>
                 </div>
             </div>
         </div>
@@ -25,7 +25,6 @@ import postMd from '@/posts/tri/코드에디터.md'
 
 const title = ref('코드 에디터')
 const pageClass = ref(['tri', 'TrainingCode'])
-const scrollbarRef = ref(null)
 
 </script>
 

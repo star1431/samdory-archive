@@ -8,9 +8,6 @@
             <div class="title-box">
                 <span class="title">{{ metterTitle }}</span>
             </div>
-            <div class="slot-bottom" v-if="false">
-                <span class="update">update : {{ metterUpdate }}</span>
-            </div>
         </div>
         <!--// 포스트 제목 영역 -->
 
@@ -29,9 +26,11 @@
                             <span class="layer-title">목차</span>
                             <nav class="toc" v-if="toc.length">
                                 <ul>
-                                    <li v-for="item in toc" :key="item.slug" :class="`level-${item.level}`">
+                                    <template v-for="item in toc" :key="item.slug">
+                                    <li v-if="item.level < 4" :class="`level-${item.level}`">
                                         <a href="javascript:void(0);" @click.prevent="scrollToElement(item.slug)">{{ item.text }}</a>
                                     </li>
+                                    </template>
                                 </ul>
                             </nav>
                             <button class="toc-close" type="button" @click="toggleToc">

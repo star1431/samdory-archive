@@ -2561,11 +2561,14 @@ input[type=radio] {
 .markdown-area .markdown-body .inner blockquote[class*=prompt-] p ~ p, .markdown-area .markdown-body .inner blockquote[class*=prompt-] span ~ p {
   margin-top: 1.5rem;
 }
+.markdown-area .markdown-body .inner blockquote[class*=prompt-] code {
+  margin: -0.1rem 0;
+}
 .markdown-area .markdown-body .inner blockquote::before {
   content: "";
   display: block;
   position: absolute;
-  top: 1.6rem;
+  top: 1.5rem;
   left: 1.2rem;
 }
 .markdown-area .markdown-body .inner blockquote.prompt-tip {
@@ -2665,8 +2668,14 @@ input[type=radio] {
 .markdown-area .markdown-body .inner ol {
   list-style-type: decimal;
 }
+.markdown-area .markdown-body .inner ol li:has(> strong)::marker,
+.markdown-area .markdown-body .inner ol > li:has(> p strong)::marker {
+  font-weight: 600;
+}
 .markdown-area .markdown-body .inner li {
   display: list-item;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
 }
 .markdown-area .markdown-body .inner ul > li, .markdown-area .markdown-body .inner ol > li {
   margin-top: 0.8rem;
@@ -2680,40 +2689,47 @@ input[type=radio] {
 .markdown-area .markdown-body .inner tt {
   padding: 0.4rem 0.4rem;
 }
-.markdown-area .markdown-body .inner table {
+.markdown-area .markdown-body .inner .markdown-table-area {
+  margin: 1.5rem 0;
+  width: 100%;
+  overflow-x: auto;
+}
+.markdown-area .markdown-body .inner .markdown-table-area table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.5rem 0;
+  overflow-x: auto;
+  table-layout: auto;
 }
-.markdown-area .markdown-body .inner table th, .markdown-area .markdown-body .inner table td {
-  padding: 0.8rem;
+.markdown-area .markdown-body .inner .markdown-table-area table th, .markdown-area .markdown-body .inner .markdown-table-area table td {
+  padding: 0.8rem 1.2rem;
   border: 1px solid;
   border-color: #d8dee4;
   text-align: left;
-  word-break: keep-all;
+  white-space: nowrap;
 }
-#app.dark-theme .markdown-area .markdown-body .inner table th, #app.dark-theme .markdown-area .markdown-body .inner table td {
+#app.dark-theme .markdown-area .markdown-body .inner .markdown-table-area table th, #app.dark-theme .markdown-area .markdown-body .inner .markdown-table-area table td {
   border-color: #333F55;
 }
 
-.markdown-area .markdown-body .inner table th[align=left], .markdown-area .markdown-body .inner table td[align=left] {
+.markdown-area .markdown-body .inner .markdown-table-area table th[align=left], .markdown-area .markdown-body .inner .markdown-table-area table td[align=left] {
   text-align: left;
 }
-.markdown-area .markdown-body .inner table th[align=center], .markdown-area .markdown-body .inner table td[align=center] {
+.markdown-area .markdown-body .inner .markdown-table-area table th[align=center], .markdown-area .markdown-body .inner .markdown-table-area table td[align=center] {
   text-align: center;
 }
-.markdown-area .markdown-body .inner table th[align=right], .markdown-area .markdown-body .inner table td[align=right] {
+.markdown-area .markdown-body .inner .markdown-table-area table th[align=right], .markdown-area .markdown-body .inner .markdown-table-area table td[align=right] {
   text-align: right;
 }
-.markdown-area .markdown-body .inner table th {
+.markdown-area .markdown-body .inner .markdown-table-area table th {
+  text-align: center !important;
   color: var(--gray-900);
   background-color: #f6f6f7;
 }
-#app.dark-theme .markdown-area .markdown-body .inner table th {
+#app.dark-theme .markdown-area .markdown-body .inner .markdown-table-area table th {
   color: #dde8f7;
 }
 
-#app.dark-theme .markdown-area .markdown-body .inner table th {
+#app.dark-theme .markdown-area .markdown-body .inner .markdown-table-area table th {
   background-color: #323238;
 }
 
@@ -2750,6 +2766,9 @@ input[type=radio] {
 .markdown-area .markdown-body .inner code[class*=language-]::-webkit-scrollbar-track {
   background: none;
 }
+.markdown-area .markdown-body .inner pre * {
+  letter-spacing: 0.04rem;
+}
 .markdown-area .markdown-body .inner code:not([class*=language-]) {
   display: inline-flex;
   padding: 0.1rem 0.5rem;
@@ -2772,7 +2791,7 @@ input[type=radio] {
 
 .markdown-area .markdown-body .inner .codeblock {
   position: relative;
-  margin: 1rem 0;
+  margin: 1rem 0 2rem;
 }
 .markdown-area .markdown-body .inner .codeblock .top {
   position: relative;
@@ -2957,8 +2976,11 @@ input[type=radio] {
 }
 
 .markdown-area .side-box .layer-inner {
+  display: flex;
+  flex-direction: column;
   height: -moz-max-content;
   height: max-content;
+  max-height: calc(100dvh - 6rem - 3rem);
   border-radius: 0 0 0 6px;
   background-color: #fff;
   border: 1px solid;
@@ -2985,8 +3007,9 @@ input[type=radio] {
   align-items: center;
   padding: 0 1.4rem;
   margin-top: -1px;
-  color: var(--gray-900);
   height: 3rem;
+  flex-shrink: 0;
+  color: var(--gray-900);
 }
 #app.dark-theme .markdown-area .side-box .layer-inner .layer-title {
   color: #dde8f7;
@@ -2997,7 +3020,8 @@ input[type=radio] {
   width: -moz-max-content;
   width: max-content;
   min-width: 14rem;
-  height: auto;
+  height: calc(100% - 3rem);
+  overflow-y: auto;
 }
 .markdown-area .side-box .toc ul > li ~ li {
   margin-top: 0.8rem;
@@ -3006,13 +3030,30 @@ input[type=radio] {
   margin-left: 1rem;
 }
 .markdown-area .side-box .toc ul li.level-3 a {
-  padding-left: 1.2rem;
+  padding-left: 1.8rem;
 }
 .markdown-area .side-box .toc ul li.level-3 a::before {
-  content: "-";
+  content: "└";
   position: absolute;
-  top: 50%;
+  top: calc(50% - 0.2rem);
   left: 0.2rem;
+  display: block;
+  font-size: 10px;
+  transform: translateY(-50%);
+}
+.markdown-area .side-box .toc ul li.level-4 {
+  margin-left: 2.4rem;
+}
+.markdown-area .side-box .toc ul li.level-4 a {
+  padding-left: 1.8rem;
+}
+.markdown-area .side-box .toc ul li.level-4 a::before {
+  content: "└";
+  position: absolute;
+  top: calc(50% - 0.2rem);
+  left: 0.2rem;
+  display: block;
+  font-size: 10px;
   transform: translateY(-50%);
 }
 .markdown-area .side-box .toc a {
@@ -3548,7 +3589,7 @@ ul.item-sub-list > li span + span {
   color: var(--gray-900);
 }
 .com.Home .home-card-small .text-box .text .acc {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1.6rem !important;
 }
 .com.Home .home-card-small .text-box.type-link {

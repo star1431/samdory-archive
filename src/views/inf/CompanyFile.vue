@@ -8,7 +8,7 @@
                     <div class="lottie-banner">
                         <LottieLoader :lottieData="lottieJson"/>
                     </div>
-                    <PageMarkDown :loader="postMd" :scrollbarRef="scrollbarRef" />
+                    <PageMarkDown :loader="postMd"/>
                 </div>
             </div>
         </div>
@@ -25,7 +25,6 @@ import postMd from '@/posts/inf/파일서버.md'
 
 const title = ref('파일서버')
 const pageClass = ref(['inf', 'CompanyFile'])
-const scrollbarRef = ref(null)
 
 </script>
 

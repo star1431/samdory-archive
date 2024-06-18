@@ -8,7 +8,7 @@
                     <div class="lottie-banner">
                         <LottieLoader :lottieData="lottieJson"/>
                     </div>
-                    <PageMarkDown :loader="postMd" :scrollbarRef="scrollbarRef" />
+                    <PageMarkDown :loader="postMd"/>
                 </div>
             </div>
         </div>
@@ -21,11 +21,10 @@ import PageTopSlot from '@/components/PageTopSlot.vue'
 import PageMarkDown from '@/components/PageMarkDown.vue'
 import LottieLoader from '@/components/LottieLoader.vue'
 import lottieJson from '@/assets/js/lottie/lottieinf.json'
-import postMd from '@/posts/inf/sample.md' 
+import postMd from '@/posts/sample.md' 
 
 const title = ref('markdown 샘플')
 const pageClass = ref(['inf', 'mdSample'])
-const scrollbarRef = ref(null)
 
 </script>
 
