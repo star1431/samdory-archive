@@ -45,7 +45,7 @@
                         </li>
                         <li v-else-if="item.name !== 'Login'">
                             <template v-if="checkAcc(item)">
-                                <router-link :to="item.path" :class="[item.name]" @click="handleCloseMenu; underConstruction(item.name);">
+                                <router-link :to="item.path" :class="[item.name]" @click="handleCloseMenu">
                                     <span class="text">{{ item.meta.title }}</span>
                                 </router-link>
                             </template>
@@ -164,9 +164,9 @@ const notAccClick = (Boolean) => {
     if(!Boolean) return
     alertModel.value = true
 }
-const underConstruction = (name) => {
-    if(name !== 'Resources') return
-}
+// const underConstruction = (name) => {
+//     if(name !== 'Resources') return
+// }
 
 
 onMounted(() => {

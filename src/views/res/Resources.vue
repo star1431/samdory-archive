@@ -4,15 +4,8 @@
             <PageTopSlot :title="title" :pagePath="pageClass" />
 
             <div class="section-area row">
-                <div class="inner-col col-1"></div>
-
-                <div class="inner-col col-2-3"></div>
-                <div class="inner-col col-1-3"></div>
-
-                <div class="inner-col col-1-3"></div>
-                <div class="inner-col col-1-3"></div>
-                <div class="inner-col col-1-3"></div>
-
+                <div class="inner-col col-1 type-expected">
+                </div>
             </div>
         </div>
     </div>

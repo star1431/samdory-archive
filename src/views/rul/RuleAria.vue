@@ -43,7 +43,7 @@ import { ref, onMounted, reactive } from 'vue'
 import PageTopSlot from '@/components/PageTopSlot.vue'
 import PageMarkDown from '@/components/PageMarkDown.vue'
 import LottieLoader from '@/components/LottieLoader.vue'
-import lottieJson from '@/assets/js/lottie/lottieTri.json'
+import lottieJson from '@/assets/js/lottie/lottieRul.json'
 import postMd from '@/posts/rul/WAI-ARIA가이드.md' 
 
 

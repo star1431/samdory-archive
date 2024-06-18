@@ -22,8 +22,16 @@
             }
         }
         &.col-1-2 {
-            .chart-area .chart-body {
-                aspect-ratio: 1 / 1;
+            .chart-area {
+                &.donut .chart-body {
+                    padding-top: 6rem;
+                    .vue-apexcharts {
+                        top: 6rem;
+                    }
+                }
+                .chart-body {
+                    aspect-ratio: 1 / 1;
+                }
             }
         }
     }

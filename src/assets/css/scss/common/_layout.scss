@@ -6,6 +6,7 @@
 
 #app {
     position: relative;
+    width: 100%;
     height: 100%;
     overflow-y: hidden;
     background-color: #fff;
@@ -14,20 +15,18 @@
     }
     // 트랜지션 훅 스타일
     .wrap[class*="slide-fade"] {
-        position: fixed;
-        left:0;
-        right: 0;
+        @include pos($pos: fixed, $tp: 0, $bt: 0, $lt: 0, $rt: 0);
         z-index: 101;
         &, & > [data-overlayscrollbars] {
             height: 100%;
         }
-        .main > div {
-            width: 100%;
-            height: 100%;
-        }
-        .side-nav + div {
-            margin-left:var(--navWidth);
-        }
+        // .main > div {
+        //     width: 100%;
+        //     height: 100%;
+        // }
+        // .side-nav + div {
+        //     margin-left: var(--navWidth);
+        // }
         &.slide-fade-enter-active {
             transition: all 0.4s cubic-bezier(1, 0.5, 0.8, 1);
         }
@@ -201,7 +200,7 @@
         0 3px 5px -1px rgba(0, 0, 0, .2),
         0 5px 8px 0 rgba(0, 0, 0, .14),
         0 1px 14px 0 rgba(0, 0, 0, .12);
-        @include themeColor(background-color, pri-700);
+        @include themeColor(background-color, pri-700-bg); //pri
         transition: background-color 0.2s;
         z-index: 100;
         .view-inner {
@@ -223,11 +222,13 @@
 
     .main {
         display: flex;
+        width: 100%;
         height: 100%;
         min-height: 100%;
         background-color: #fff;
         transform: translateZ(0);
-        & > [data-overlayscrollbars] {
+        & > #layoutLogin-scroll,
+        & > #layoutDefault-scroll {
             height: 100%;
             width: 100%;
         }
@@ -276,7 +277,7 @@
         & > [data-overlayscrollbars] {
             height: 100%;
         }
-        & + [data-overlayscrollbars],
+        & + #layoutDefault-scroll,
         & + .container {
             transition: margin-left 0.2s;
             margin-left:var(--navWidth);
@@ -358,7 +359,7 @@
                         transition: 0.2s all;
                         padding:0 1.2rem;
                         &.router-link-active {
-                            @include themeColor(background-color, pri-700, important);
+                            @include themeColor(background-color, pri-700-bg, important); //pri
                             color: #fff !important;
                             &::before {
                                 color: #fff !important;
@@ -525,6 +526,21 @@
         }
         &.posts {
             padding: 0;
+        }
+        &.type-expected {
+            position: relative;
+            min-height: 20rem;
+            &::before {
+                content: '작업 예정';
+                @include flex($a: center, $j: center);
+                @include pos($pos: absolute, $tp: 0, $lt: 0);
+                width: 100%;
+                height: 100%;
+                border-radius: 6px;
+                @include font-22($color : #fff);
+                font-weight: 600;
+                background-color: rgba(0, 0, 0, 0.6);
+            }
         }
         &.col {
             &-1 {flex: 0 0 100%;}

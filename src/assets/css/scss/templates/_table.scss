@@ -149,45 +149,25 @@
             }
         }
     }
-    // @include tablet {
-    //     tbody {
-    //         tr.row {
-    //             padding: 2.4rem 0 2.6rem;
-    //             td {
-    //                 &.cell-num, &.cell-check {
-    //                     width: 4.8rem;
-    //                     padding: unset;
-    //                     & + .cell-content {
-    //                         padding-left: 1.9rem;
-    //                     }
-    //                 }
-    //                 &.cell-content {
-    //                     .item-head {
-    //                         .title-box {
-    //                             .title {
-    //                                 font-size: 1.5rem;
-    //                                 line-height: normal;
-    //                                 font-weight: 500;
-    //                             }
-    //                         }
-    //                         & + .item-body {
-    //                             margin-top: calc(1.6rem - 0.7rem);
-    //                         }
-    //                     }
-    //                 }
-    //             }
-    //             .icon-preview {
-    //                 span {
-    //                     @include blind;
-    //                 }
-    //                 &:after {
-    //                     margin-left: -0.4rem !important;
-    //                     transform: translateY(0) !important;
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
+    @include rwd($w: 550) {
+        table tbody .row td {
+            &.cell-num {
+                width: 4.8rem;
+                & + td {
+                    padding-left: 1.2rem;
+                }
+            }
+            &.cell-content {
+                .item-head .title-box .title {
+                    @include font-16;
+                }
+            }
+
+        }
+        .item-sub-list {
+            max-width: 31rem;
+        }
+    }
 }
 ul.item-sub-list {
     @include flex($a:center, $wrap: wrap, $gap: 0.8rem calc(1.6rem*2 + 0.1rem));

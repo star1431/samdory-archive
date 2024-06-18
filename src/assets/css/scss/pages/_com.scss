@@ -85,6 +85,9 @@
                         margin-bottom: 0.4rem;
                         @include font-24;
                         white-space: nowrap;
+                        span {
+                            display: inline-block;
+                        }
                     }
                     .text {
                         @include font-16;
@@ -188,6 +191,45 @@
                 .slot-right {
                     height: 100%;
                     @include flex($a: center, $j: center);
+                }
+            }
+            
+            @include rwd($w: 680) {
+                &-info {
+                    flex-direction: column;
+                    height: auto;
+                    .lottie-box {
+                        margin-left: auto;
+                        width: 40dvw;
+                        height: auto;
+                        transform: translate(0, 1rem);
+                    }
+                    .text-box {
+                        padding: 1.2rem 0 0 3.6rem;
+                        &::before {
+                            width: 3.2rem;
+                            height: 3.2rem;
+                            font-size: 3.2rem;
+                        }
+                    }
+                }
+            }
+            @include rwd($w: 480) {
+                &-info {
+                    .text-box {
+                        margin-left: -1rem;
+                        .title, .text {
+                            word-break: keep-all;
+                        }
+                        .title {
+                            font-size: 1.8rem;
+                            line-height: 2.6rem;
+                            white-space: wrap;
+                        }
+                        .text {
+                            @include ally-hidden;
+                        }
+                    }
                 }
             }
         }

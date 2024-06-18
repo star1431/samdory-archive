@@ -7,7 +7,7 @@
     height: 24rem;
     border-radius: 6px 6px 0 0;
     margin: -0.1rem -0.1rem 0;
-    @include themeColor(background-color, menu-btn-hover);
+    @include themeColor(background-color, pri-300);
     overflow: hidden;
     &:after {
         content: 'POST';
@@ -35,9 +35,22 @@
             transform: translateX(-50%);
         }
         .tri &  {
-            width: 28rem;
-            top: 0rem;
+            width: 32rem;
+            top: -2rem;
             transform: translateX(-50%);
+        }
+        .rul &  {
+            width: 38rem;
+            top: -0.2rem;
+            transform: translateX(-50%);
+        }
+    }
+    @include rwd(420) {
+        .lottie-box {
+            .rul &  {
+                width: 34rem;
+                top: 0.2rem;
+            }
         }
     }
 }
@@ -496,7 +509,7 @@
             width: max-content;
             min-width: 14rem;
             height: calc(100% - 3rem);
-            overflow-y: auto;
+            // overflow-y: auto;
             ul > li ~ li {
                 margin-top: 0.8rem;
             }
@@ -536,7 +549,7 @@
                 @include themeColor(color,text-thick-2);
                 transition: all 0.2s;
                 &:hover {
-                    @include themeColor(background-color, pri-700);
+                    @include themeColor(background-color, pri-700-bg); //pri
                     color: #fff;
                 }
 
@@ -552,6 +565,15 @@
         .toc-slide-enter-to,
         .toc-slide-leave-from {
             width: 100%;
+        }
+        @include rwd(480) {
+            .layer-title {
+                font-weight: 600;
+            }
+            .toc a {
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
         }
     }
 }

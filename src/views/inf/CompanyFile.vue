@@ -20,7 +20,7 @@ import { ref, onMounted, reactive } from 'vue'
 import PageTopSlot from '@/components/PageTopSlot.vue'
 import PageMarkDown from '@/components/PageMarkDown.vue'
 import LottieLoader from '@/components/LottieLoader.vue'
-import lottieJson from '@/assets/js/lottie/lottieinf.json'
+import lottieJson from '@/assets/js/lottie/lottieInf.json'
 import postMd from '@/posts/inf/파일서버.md' 
 
 const title = ref('파일서버')

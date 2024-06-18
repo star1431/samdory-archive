@@ -24,15 +24,17 @@
                     <transition name="toc-slide">
                         <div v-if="isToc" class="layer-inner">
                             <span class="layer-title">목차</span>
-                            <nav class="toc" v-if="toc.length">
-                                <ul>
-                                    <template v-for="item in toc" :key="item.slug">
-                                    <li v-if="item.level < 4" :class="`level-${item.level}`">
-                                        <a href="javascript:void(0);" @click.prevent="scrollToElement(item.slug)">{{ item.text }}</a>
-                                    </li>
-                                    </template>
-                                </ul>
-                            </nav>
+                            <OverlayScrollbarsComponent :options="{ scrollbars: { autoHide: 'scroll' } }" defer>
+                                <nav class="toc" v-if="toc.length">
+                                    <ul>
+                                        <template v-for="item in toc" :key="item.slug">
+                                        <li v-if="item.level < 4" :class="`level-${item.level}`">
+                                            <a href="javascript:void(0);" @click.prevent="scrollToElement(item.slug)">{{ item.text }}</a>
+                                        </li>
+                                        </template>
+                                    </ul>
+                                </nav>
+                            </OverlayScrollbarsComponent>
                             <button class="toc-close" type="button" @click="toggleToc">
                                 <span class="ally-hidden">목차 닫기</span>
                             </button>
@@ -51,6 +53,7 @@
 <script setup>
 import { ref, onMounted, defineProps, inject } from 'vue'
 import { marked, preprocessMarkdown, getToc, getMatterData } from '@/assets/js/markdownRenderer'
+import { OverlayScrollbarsComponent } from "overlayscrollbars-vue" 
 // 마크다운 커스텀은 복잡해서 markdownRenderer 에서 렌더링해서 다시 받아옴
 
 const props = defineProps({

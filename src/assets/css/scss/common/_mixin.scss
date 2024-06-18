@@ -30,6 +30,10 @@
 @mixin mobile {
     @media (min-width: 280px) and (max-width: $mobile) {@content;}
 }
+
+@mixin rwd($w: 768) {
+    @media (max-width: #{$w}px) {@content;}
+}
 @mixin tablet {
     @media (max-width: $tablet) {@content;}
 }

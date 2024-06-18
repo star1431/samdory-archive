@@ -7,7 +7,7 @@
                 <div class="inner-col col-1 type-bg">
                     <div class="home-card-info">
                         <div class="text-box">
-                            <p class="title">SD Archive 에 오신 것을 환영합니다 !</p>
+                            <p class="title">SD Archive 에 오신 것을 <span>환영합니다 !</span></p>
                             <p class="text">메뉴를 통해서 최신 정보와 자료 등 확인해주세요.</p>
                         </div>
                         <div class="slot-right">

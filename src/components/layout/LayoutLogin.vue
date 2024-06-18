@@ -1,7 +1,7 @@
 <template>
     <div class="wrap" ui-layout="layoutLogin">
         <main class="main">
-            <OverlayScrollbarsComponent :options="{scrollbars:{autoHide:'scroll'}}" defer>
+            <OverlayScrollbarsComponent id="layoutLogin-scroll" :options="{scrollbars:{autoHide:'scroll'}}" defer>
                 <RouterView name="content" />
             </OverlayScrollbarsComponent>
         </main>

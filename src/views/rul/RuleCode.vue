@@ -20,7 +20,7 @@ import { ref, onMounted, reactive } from 'vue'
 import PageTopSlot from '@/components/PageTopSlot.vue'
 import PageMarkDown from '@/components/PageMarkDown.vue'
 import LottieLoader from '@/components/LottieLoader.vue'
-import lottieJson from '@/assets/js/lottie/lottieTri.json'
+import lottieJson from '@/assets/js/lottie/lottieRul.json'
 import postMd from '@/posts/rul/코드규칙.md' 
 
 const title = ref('코드 규칙')

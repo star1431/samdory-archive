@@ -41,7 +41,7 @@
     &.menu {
         &.is-active {
             .accordion-header .toggle-button {
-                @include themeColor(background-color, pri-700, !important);
+                @include themeColor(background-color, pri-700-bg, !important); //pri
                 color: #fff !important;
                 &::after,
                 &::before {
