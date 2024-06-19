@@ -49,20 +49,20 @@ let routes = [
                     content: () => import(/* webpackChunkName: "inf" */ '@/views/inf/CompanyProject.vue'),
                 }),
             },
-            {
-                path: 'mdSample',
-                name: 'mdSample',
-                meta: {
-                    title: 'post.md 샘플',
-                    layout: 'LayoutDefault',
-                    side: true,
-                    requiresAuth: true,
-                    roles: ['admin', 'employee']
-                },
-                components: Object.assign({
-                    content: () => import(/* webpackChunkName: "inf" */ '@/views/inf/mdSample.vue'),
-                }),
-            },
+            // {
+            //     path: 'mdSample',
+            //     name: 'mdSample',
+            //     meta: {
+            //         title: 'post.md 샘플',
+            //         layout: 'LayoutDefault',
+            //         side: true,
+            //         requiresAuth: true,
+            //         roles: ['admin', 'employee']
+            //     },
+            //     components: Object.assign({
+            //         content: () => import(/* webpackChunkName: "inf" */ '@/views/inf/mdSample.vue'),
+            //     }),
+            // },
         ]
     },
 ]

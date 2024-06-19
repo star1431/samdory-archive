@@ -17,7 +17,6 @@ const layoutComponents = {
     LayoutDefault,
     LayoutLogin
 }
-
 const route = useRoute()
 
 // 현재 라우트의 메타에서 레이아웃 정보를 가져옴
@@ -29,6 +28,16 @@ const layoutComponent = computed(() => {
     }
     return 'LayoutDefault'
 })
+
+const viewPortReflow  = () => {
+    const _app = document.querySelector('#app')
+    if (_app) {
+        _app.style.display = 'none'
+        _app.offsetHeight; // 리플로우 트리거
+        _app.style.display = ''
+    }
+}
+
 
 
 /** 반응형 작업 - start  ***************************************************************** */
@@ -73,15 +82,16 @@ const APPclassWatch = () => {
     classWatch.value = _app.classList.contains('lnb-control')
 
     // 컴포넌트가 언마운트될 때 observer 해제
-    // onBeforeUnmount(() => {
-    //     observer.disconnect()
-    // })
+    onBeforeUnmount(() => {
+        observer.disconnect()
+    })
 }
 
 // 마운트
 onMounted(() => {
     window.addEventListener('resize', handleResize)
     // 이벤트 아니여도 실행
+    viewPortReflow()
     handleResize()
     APPclassWatch()
 })
@@ -89,6 +99,7 @@ onMounted(() => {
 // 컴포넌트가 언마운트될 때 이벤트 리스너 제거
 onBeforeUnmount(() => {
     window.removeEventListener('resize', handleResize)
+    viewPortReflow()
 })
 
 // watch(viewportNotPC, (newValue) => {
