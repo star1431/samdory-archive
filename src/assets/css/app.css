@@ -370,9 +370,20 @@ input[type=radio] {
   color: #fff;
 }
 
+@media (max-width: 480px) {
+  html {
+    font-size: 9px;
+  }
+  .os-scrollbar-vertical {
+    --os-size: 8px !important;
+  }
+}
 #app.dark-theme {
   --autofill: #171C23;
   background-color: #000;
+}
+#app.dark-theme .wrap [data-overlayscrollbars] .os-scrollbar .os-scrollbar-handle {
+  opacity: 0.2;
 }
 
 #app {
@@ -475,8 +486,8 @@ input[type=radio] {
 }
 @media (max-width: 999px) {
   #app {
+    --navPadding: 1.2rem;
     --navWidth: 0;
-    --navPadding: 2rem;
   }
   #app.lnb-control .header .ui-logo {
     width: auto;
@@ -499,7 +510,6 @@ input[type=radio] {
     justify-content: flex-end;
   }
   #app.lnb-control .side-nav .logout .text {
-    transition: opacity 0.2s;
     opacity: 1;
     position: initial;
     clip: unset;
@@ -1121,6 +1131,21 @@ input[type=radio] {
     flex: 0 0 100% !important;
   }
 }
+@media (max-width: 480px) {
+  .section-area > .inner-col.posts {
+    margin: 0 -2rem;
+    width: calc(100% + 4rem);
+    max-width: unset;
+    flex: unset !important;
+    border: unset;
+    border-radius: unset;
+  }
+  .section-area > .inner-col.posts .lottie-banner {
+    margin: unset;
+    width: 100%;
+    border-radius: unset;
+  }
+}
 
 .dimmed {
   position: fixed;
@@ -1269,7 +1294,7 @@ input[type=radio] {
 }
 
 .popup .popup-wrap .popup-content {
-  padding: 2rem 2rem 4rem;
+  padding: 2rem 2rem;
 }
 .popup .popup-wrap .popup-footer {
   position: relative;
@@ -2332,10 +2357,7 @@ input[type=radio] {
   margin-top: -0.4rem;
 }
 .form-default .field-footer {
-  margin-top: 2.4rem;
-}
-.form-default .field-footer .error-text {
-  margin-top: 0;
+  margin-top: 3.2rem;
 }
 
 .lottie-banner {
@@ -2762,6 +2784,18 @@ input[type=radio] {
   background-color: #323238;
 }
 
+.markdown-area .markdown-body .inner .markdown-table-area.custom table thead tr th:nth-child(1) {
+  width: 14rem;
+  min-width: 10rem;
+}
+.markdown-area .markdown-body .inner .markdown-table-area.custom table thead tr th:nth-child(2) {
+  width: 14rem;
+  min-width: 10rem;
+}
+.markdown-area .markdown-body .inner .markdown-table-area.custom table thead tr th:nth-child(3) {
+  width: 14rem;
+  min-width: 10rem;
+}
 .markdown-area .markdown-body .inner pre[class*=language-],
 .markdown-area .markdown-body .inner code[class*=language-] {
   background-color: #161d2c;
@@ -2783,13 +2817,14 @@ input[type=radio] {
 
 .markdown-area .markdown-body .inner pre[class*=language-]::-webkit-scrollbar,
 .markdown-area .markdown-body .inner code[class*=language-]::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 14px;
 }
 .markdown-area .markdown-body .inner pre[class*=language-]::-webkit-scrollbar-thumb,
 .markdown-area .markdown-body .inner code[class*=language-]::-webkit-scrollbar-thumb {
-  background: rgba(250, 248, 248, 0.4);
-  border-radius: 2px;
+  border: 4px solid #161d2c;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
 }
 .markdown-area .markdown-body .inner pre[class*=language-]::-webkit-scrollbar-track,
 .markdown-area .markdown-body .inner code[class*=language-]::-webkit-scrollbar-track {
@@ -3049,7 +3084,6 @@ input[type=radio] {
   width: -moz-max-content;
   width: max-content;
   min-width: 14rem;
-  height: calc(100% - 3rem);
 }
 .markdown-area .side-box .toc ul > li ~ li {
   margin-top: 0.8rem;
@@ -3116,11 +3150,13 @@ input[type=radio] {
   width: 100%;
 }
 @media (max-width: 480px) {
-  .markdown-area .side-box .layer-title {
+  .markdown-area .markdown-body .inner blockquote::before {
+    top: 1.7rem;
+  }
+  .markdown-area .layer-title {
     font-weight: 600;
   }
-  .markdown-area .side-box .toc a {
-    font-size: 1.2rem;
+  .markdown-area .toc a {
     font-weight: 600;
   }
 }
@@ -3566,10 +3602,13 @@ ul.item-sub-list > li span + span {
     z-index: 1;
     border-radius: 12px;
     width: calc(100% - 4rem);
-    max-width: 76rem;
-    height: 90vh;
-    max-height: 50rem;
-    min-height: 40rem;
+    max-width: 54rem;
+    height: 100%;
+    max-height: 52rem;
+  }
+  .com.Login .login-area .inner {
+    transform: translateY(0);
+    margin: 2rem 0;
   }
 }
 .com.Home .home-card-info {

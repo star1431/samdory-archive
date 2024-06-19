@@ -1,7 +1,7 @@
 [
     {
         "username": "admin",
-        "password": "samdory!123",
+        "password": "samdory!456",
         "role": "admin",
         "nick": "관리자",
         "profileImg": "img_user_profile_a.png",
@@ -9,7 +9,7 @@
     },
     {
         "username": "이상훈",
-        "password": "samdory!",
+        "password": "samdory!456",
         "role": "admin",
         "nick": "이상훈",
         "profileImg": "lee.png",
@@ -17,7 +17,7 @@
     },
     {
         "username": "samdory",
-        "password": "samdory!1",
+        "password": "samdory!",
         "role": "employee",
         "nick": "퍼블리셔",
         "profileImg": "img_user_profile_sd.png",
@@ -37,14 +37,6 @@
         "role": "employee",
         "nick": "테스트(직원)",
         "profileImg": "img_user_profile_sd.png",
-        "pos": "pub"
-    },
-    {
-        "username": "testfree",
-        "password": "1",
-        "role": "freelancer",
-        "nick": "테스트 (프리)",
-        "profileImg": null,
         "pos": "pub"
     },
     {

@@ -1,7 +1,19 @@
 @charset "UTF-8";
+@include rwd(480) {
+    html {
+        font-size: 9px;
+    }
+    .os-scrollbar-vertical {
+        --os-size: 8px !important;
+    }
+}
+
 #app.dark-theme {
     --autofill : #171C23;
     background-color: #000;
+    .wrap [data-overlayscrollbars] .os-scrollbar .os-scrollbar-handle {
+        opacity: 0.2;
+    }
 }
 
 #app {
@@ -106,8 +118,8 @@
     }
 
     @include rwd1000 {
+        --navPadding    : 1.2rem;
         --navWidth      : 0;
-        --navPadding    : 2rem;
         &.lnb-control {
             .header {
                 .ui-logo {
@@ -132,7 +144,6 @@
                 }
                 .logout {
                     .text {
-                        transition: opacity 0.2s;
                         opacity: 1;
                         @include ally-hidden-unset;
                     }
@@ -558,6 +569,21 @@
     @include tablet {
         > .inner-col {
             flex: 0 0 100% !important;
+        }
+    }
+    @include rwd(480) {
+        > .inner-col.posts {
+            margin: 0 -2rem;
+            width: calc(100% + 4rem);
+            max-width: unset;
+            flex: unset !important;
+            border: unset;
+            border-radius: unset;
+            .lottie-banner {
+                margin: unset;
+                width: 100%;
+                border-radius: unset;
+            }
         }
     }
 }

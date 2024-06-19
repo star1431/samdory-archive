@@ -112,6 +112,18 @@ renderer.heading = (token) => {
 
 // [tag : table] 커스텀 렌더링
 renderer.table = (token) => {
+    const lastRowAttr = token.rows.find(row => row.some(cell => cell.text && cell.text.includes('{:class=')))
+    let customClass = ''
+
+    if (lastRowAttr) {
+        const classCell = lastRowAttr.find(cell => cell.text.includes('{:class='))
+        const classMatch = classCell.text.match(/\{:class="([^"]+)"\}/)
+        customClass = classMatch ? classMatch[1] : ''
+
+        // 해당 클래스를 포함하는 행을 제거
+        token.rows = token.rows.filter(row => !row.includes(classCell))
+    }
+
     const header = token.header.map(cell => {
         const align = cell.align ? ` style="text-align:${cell.align}"` : ''
         return `<th${align}>${cell.text}</th>`
@@ -126,14 +138,14 @@ renderer.table = (token) => {
     }).join('')
 
     return `
-        <div class="markdown-table-area">
+        <div class="markdown-table-area ${customClass}">
             <table>
                 <thead><tr>${header}</tr></thead>
                 <tbody>${body}</tbody>
             </table>
         </div>
     `;
-};
+}
 
 // 마크다운 변환 사전 처리
 const preprocessMarkdown = (markdown) => {

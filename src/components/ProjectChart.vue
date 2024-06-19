@@ -20,7 +20,7 @@
         </div>
     </div>
 
-    <div class="chart-area donut"  v-if="props.showEnter">
+    <div class="chart-area donut"  v-if="props.showEnter" id="씨발년아">
         <div class="chart-header">
             <div class="text-box">
                 <p class="title">프로젝트 기업 유형</p>
@@ -233,6 +233,8 @@ const setStackData = (projects) => {
 const observer = new MutationObserver(() => {
     theme.value = getTheme()
 })
+
+
 onMounted(async () => {
     const projects = await fetchProjects()
     setYearData(projects)
@@ -242,7 +244,6 @@ onMounted(async () => {
     // theme 감지 (로컬스토리지 감지가 안되서 대응)
     const appEl = document.querySelector('#app')
     observer.observe(appEl, { attributes: true, attributeFilter: ['class'] })
-
 })
 
 // 컴포넌트 없어지면 감지 끔

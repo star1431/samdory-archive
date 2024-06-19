@@ -4,7 +4,11 @@
             <PageTopSlot :title="title" :pagePath="pageClass" />
 
             <div class="section-area row">
-                <div class="inner-col col-1 type-expected">
+                <div class="inner-col col-1 posts">
+                    <div class="lottie-banner">
+                        <LottieLoader :lottieData="lottieJson"/>
+                    </div>
+                    <PageMarkDown :loader="postMd"/>
                 </div>
             </div>
         </div>
@@ -12,18 +16,16 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, onMounted } from 'vue'
+import { ref, onMounted, reactive } from 'vue'
 import PageTopSlot from '@/components/PageTopSlot.vue'
+import PageMarkDown from '@/components/PageMarkDown.vue'
+import LottieLoader from '@/components/LottieLoader.vue'
+import lottieJson from '@/assets/js/lottie/lottieRul.json'
+import postMd from '@/posts/rul/네임규칙.md' 
 
 const title = ref('네임 규칙')
 const pageClass = ref(['rul', 'RuleName'])
 
-computed(() => {
-
-})
-onMounted(() => {
-
-})
 </script>
 
 <style scoped>

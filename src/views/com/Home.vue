@@ -27,7 +27,7 @@
                 <div class="inner-col col-1-3 type-bg">
                     <div class="home-card-small ftp">
                         <a href="http://samdory.synology.me:5000/" target="_blank" class="text-box type-link">
-                            <p class="title">FTP 사용량</p>
+                            <p class="title">FTP 서버</p>
                             <p class="text"><span class="acc">0.18TB</span> / 2.68TB</p>
                         </a>
                     </div>
