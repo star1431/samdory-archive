@@ -20,14 +20,15 @@ WAI-ARIA 속성을 모든 HTML 요소에 무분별하게 사용할 수 있는 �
 `role` 또는 `aria-*` 속성을 특정 HTML 요소에 사용할 수 있는지 [ARIA in HTML](https://www.w3.org/TR/html-aria/){:target="_blank"} 명세를 검토하면서 적용해야 합니다.
 <br>
 
-#### 관련 문서
-* [WAI-ARIA 1.1](https://www.w3.org/TR/wai-aria/){:target="_blank"}
-* [Using ARIA](https://www.w3.org/TR/using-aria/){:target="_blank"}
-* [ARIA in HTML](https://www.w3.org/TR/html-aria/){:target="_blank"}
-* [WAI-ARIA Authoring Practices 1.1](https://www.w3.org/TR/wai-aria-practices/){:target="_blank"}
-* [ARIA Landmarks Example](https://www.w3.org/TR/wai-aria-practices/examples/landmarks/){:target="_blank"}
+* **사례 참고 사이트**
+    * 주요 UI별 ARIA 적용 사례 : https://aoa.gitbook.io/skymimo/aoa-2022-2023/ui-aria-2022{:target="_blank"}
 
-
+* **관련 문서**
+    * [WAI-ARIA 1.1](https://www.w3.org/TR/wai-aria/){:target="_blank"}
+    * [Using ARIA](https://www.w3.org/TR/using-aria/){:target="_blank"}
+    * [ARIA in HTML](https://www.w3.org/TR/html-aria/){:target="_blank"}
+    * [WAI-ARIA Authoring Practices 1.1](https://www.w3.org/TR/wai-aria-practices/){:target="_blank"}
+    * [ARIA Landmarks Example](https://www.w3.org/TR/wai-aria-practices/examples/landmarks/){:target="_blank"}
 
 
 
