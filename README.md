@@ -1,9 +1,9 @@
 ---
-title: samdori-archive
+title: samdory-archive
 date: 2024.06
 ---
 
-# samdori-archive
+# samdory-archive
 
 ## 사이트 정보
 
@@ -25,6 +25,10 @@ date: 2024.06
     - marked-highlight : markdown를 html로 변환
     - highlight.js : 코드블럭 커스텀 (marked에서만 적용)
     - vue3-apexcharts : 프로젝트통계 차트
+
+* vue 전용 기능
+    - router
+    - transition
 
 ### 디렉토리 구조
 ```bash

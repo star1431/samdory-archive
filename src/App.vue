@@ -29,17 +29,6 @@ const layoutComponent = computed(() => {
     return 'LayoutDefault'
 })
 
-const viewPortReflow  = () => {
-    const _app = document.querySelector('#app')
-    if (_app) {
-        _app.style.display = 'none'
-        _app.offsetHeight; // 리플로우 트리거
-        _app.style.display = ''
-    }
-}
-
-
-
 /** 반응형 작업 - start  ***************************************************************** */
 // 이전 뷰트 너비 
 let preView = window.innerWidth
@@ -91,7 +80,6 @@ const APPclassWatch = () => {
 onMounted(() => {
     window.addEventListener('resize', handleResize)
     // 이벤트 아니여도 실행
-    viewPortReflow()
     handleResize()
     APPclassWatch()
 })
@@ -99,7 +87,6 @@ onMounted(() => {
 // 컴포넌트가 언마운트될 때 이벤트 리스너 제거
 onBeforeUnmount(() => {
     window.removeEventListener('resize', handleResize)
-    viewPortReflow()
 })
 
 // watch(viewportNotPC, (newValue) => {

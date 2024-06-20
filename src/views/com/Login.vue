@@ -119,10 +119,17 @@ const chageImg = computed(() => {
     } 
 })
 
-computed(() => {
 
-})
+
 onMounted(() => {
+    // // 새로고침 확인을 위한 세션 스토리지 키
+    // const RELOADED_KEY = 'pageReloaded'
+    // if (!sessionStorage.getItem(RELOADED_KEY)) {
+    //     // 세션 스토리지에 새로고침 표시 설정
+    //     sessionStorage.setItem(RELOADED_KEY, 'true')
+    //     location.reload()
+    // }
+
     // 아이디저장값 갖고오기
     const savedId = localStorage.getItem('savedId')
     // console.log(savedId)
@@ -148,7 +155,10 @@ onMounted(() => {
         srcChange.value = false
         _app.classList.remove('dark-theme')
     }
+
 })
+
+
 </script>
 
 <style scoped>

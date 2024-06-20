@@ -46,34 +46,6 @@ export default createStore({
                 }
             });
         },
-        /** 
-         * http://samdory.synology.me/ 같은 도메인이지만
-         * 파일스테이션은 포트 5000 할당이고, 웹스테이션은 다른포트? 같아보여서 같은 도메인 취급을 못받음.
-         * CORS 정책에 걸려서 로그인 안되고, 되게끔할라면 관리자로 DSM 제어판에서 역방향프록시 설정을 해야되는데
-         * 관리자 아니라서 패스 && 이 사이트에서 메뉴권한 설정도 빡셀것같아 패스.
-         * */
-        // async login({ commit }, credentials) {
-        //     try {
-        //         // 시놀로지 인증 API 호출
-        //         const response = await axios.post('http://samdory.synology.me:5000/webapi/auth.cgi', {
-        //             api: 'SYNO.API.Auth',
-        //             method: 'login',
-        //             version: 2,
-        //             account: credentials.username,
-        //             passwd: credentials.password,
-        //             session: 'FileStation',
-        //             format: 'sid'
-        //         })
-                
-        //         if (response.data.success) {
-        //             commit('setAuth', { isAuthenticated: true, user: { name: credentials.username } })
-        //         } else {
-        //             throw new Error('잘못된 사용자명 또는 비밀번호입니다.')
-        //         }
-        //     } catch (error) {
-        //         throw new Error('잘못된 사용자명 또는 비밀번호입니다.')
-        //     }
-        // },
         logout({ commit }) {
             commit('logout')
         }

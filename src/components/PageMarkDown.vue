@@ -114,7 +114,7 @@ const scrollToElement = (slug) => {
 
     // console.log('스크롤', scrollInstance, viewport)
     if (targetEl && headerEl && scrollInstance) {
-        const headerH = headerEl.offsetHeight + 36
+        const headerH = headerEl.offsetHeight + 20
         const tagetOfTop = targetEl.getBoundingClientRect().top + viewport.scrollTop
         const offsetTop = tagetOfTop - headerH
         // console.log(

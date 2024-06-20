@@ -6,6 +6,11 @@
     .os-scrollbar-vertical {
         --os-size: 8px !important;
     }
+    .quick-slot {
+        .scroll-top::before{
+            transform: translate(0, 0) !important;
+        }
+    }
 }
 
 #app.dark-theme {
@@ -599,5 +604,29 @@
     opacity: 1;
     &.type-inner {
         z-index: 9;
+    }
+}
+
+.quick-slot {
+    --bottomVal: 0;
+    position: fixed;
+    bottom: calc(2rem + var(--bottomVal));
+    right: 2rem;
+    
+    &-enter-active,
+    &-leave-active {
+        transition: 
+        opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+        transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    &-enter-to,
+    &-leave-from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    &-enter-from,
+    &-leave-to {
+        opacity: 0;
+        transform: translateY(2rem);
     }
 }

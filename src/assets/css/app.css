@@ -377,6 +377,9 @@ input[type=radio] {
   .os-scrollbar-vertical {
     --os-size: 8px !important;
   }
+  .quick-slot .scroll-top::before {
+    transform: translate(0, 0) !important;
+  }
 }
 #app.dark-theme {
   --autofill: #171C23;
@@ -1160,6 +1163,24 @@ input[type=radio] {
   z-index: 9;
 }
 
+.quick-slot {
+  --bottomVal: 0;
+  position: fixed;
+  bottom: calc(2rem + var(--bottomVal));
+  right: 2rem;
+}
+.quick-slot-enter-active, .quick-slot-leave-active {
+  transition: opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.quick-slot-enter-to, .quick-slot-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
+.quick-slot-enter-from, .quick-slot-leave-to {
+  opacity: 0;
+  transform: translateY(2rem);
+}
+
 .popup-effect-enter-active.popup, .popup-effect-leave-active.popup {
   transition: opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
@@ -1493,6 +1514,33 @@ input[type=radio] {
   font-family: "xeicon";
   font-weight: 200;
   line-height: 1;
+}
+.ui-button.icon.scroll-top {
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  background-color: var(--primary-700);
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+#app.dark-theme .ui-button.icon.scroll-top {
+  background-color: #0244a0;
+}
+
+.ui-button.icon.scroll-top::before {
+  content: "\e945";
+  width: 2.4rem;
+  height: 2.4rem;
+  font-size: 2.4rem;
+  color: #fff;
+  font-family: "xeicon";
+  font-weight: 200;
+  line-height: 1;
+  font-weight: bold;
+  transform: translate(0, -0.1rem);
+}
+.ui-button.icon.scroll-top:hover {
+  opacity: 0.9;
 }
 
 .ui-checkbox {

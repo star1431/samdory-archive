@@ -78,5 +78,21 @@
                 @include xeiconBefore($icon: '\e94c', $s: 18, $color: #fff);
             }
         }
+        &.scroll-top {
+            width: 3.6rem;
+            height: 3.6rem;
+            border-radius: 50%;
+            @include themeColor(background-color, pri-700-bg);
+            opacity: 1;
+            transition: opacity 0.2s;
+            &::before {
+                @include xeiconBefore($icon: '\e945', $s: 24, $color: #fff);
+                font-weight: bold;
+                transform: translate(0, -0.1rem);
+            }
+            &:hover {
+                opacity: 0.9;
+            }
+        }
     }
 }

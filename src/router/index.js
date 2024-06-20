@@ -29,13 +29,13 @@ const router = createRouter({
 	routes,
 })
 
+
 router.beforeEach(async (to, from, next) => {
     // console.log('상태:', store.getters.isAuthenticated) // 상태 확인
     // console.log('유저정보:', store.getters.user) // 유저 정보
     // if(store.getters.user) console.log('권한:', store.getters.user.role) // 권한
 
     // console.log('현재경로 to:', to)
-
     if (to.matched.some(record => record.meta.requiresAuth)) {
         if (!store.getters.isAuthenticated) {
             // console.log('[로그인이동] : 어떤url로 들어오든 로그인 안했음')
