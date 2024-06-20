@@ -55,22 +55,50 @@ renderer.code = (code) => {
         </div>
     `
 }
-
+// 클립보드 복사
 function markdownCodeCopy(button) {
     const target = button.nextElementSibling
-    console.log(target, button)
     const codeText = target.textContent || target.innerText
-    navigator.clipboard.writeText(codeText).then(() => {
-        // 복사 성공 시 버튼에 메시지 표시
-        button.classList.add('success')
-        button.disabled = true
-        setTimeout(() => {
-            button.classList.remove('success')
-            button.disabled = false
-        }, 2000)
-    }).catch(err => {
-        console.error('Failed to copy: ', err)
-    })
+
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(codeText).then(() => {
+            button.classList.add('success')
+            button.disabled = true
+            setTimeout(() => {
+                button.classList.remove('success')
+                button.disabled = false
+            }, 2000)
+        }).catch(err => {
+            console.error('Failed to copy: ', err)
+        })
+    } else {
+        // 클립보드 API가 지원되지 않거나 HTTPS가 아닌 경우
+        const textArea = document.createElement("textarea")
+        textArea.value = codeText
+        textArea.classList.add('ally-hidden')
+        textArea.style.position = "fixed"
+        textArea.style.opacity = '0'
+        document.body.appendChild(textArea)
+        textArea.focus()
+        textArea.select()
+        try {
+            const successful = document.execCommand('copy')
+            if (successful) {
+                button.classList.add('success') // 복사 성공 시 클래스 추가
+                button.disabled = true
+                setTimeout(() => {
+                    button.classList.remove('success')
+                    button.disabled = false
+                }, 2000)
+            } else {
+                console.error('Failed to copy: 클립보드 복사 실패')
+            }
+        } catch (err) {
+            console.error('Failed to copy: ', err)
+        }
+        document.body.removeChild(textArea)
+        button.focus()
+    }
 }
 window.markdownCodeCopy = markdownCodeCopy
 

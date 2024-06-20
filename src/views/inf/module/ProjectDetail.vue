@@ -1,5 +1,5 @@
 <template>
-    <div class="popup-wrap" role="document">
+    <div class="popup-wrap" role="document" v-if="props.item !== null">
         <div class="popup-header">
             <div class="title-box">
                 <span class="title">프로젝트 상세보기</span>
@@ -142,7 +142,6 @@ const deviceClass = computed(() => {
 })
 
 const getImageUrl = (filename) => {
-    console.log('filename', filename)
     if (!filename) return ''
     try {
         return require(`@/assets/images/project/${filename}`)

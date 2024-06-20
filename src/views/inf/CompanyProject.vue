@@ -74,7 +74,7 @@
 
     <!-- 팝업 컴포넌트 -->
     <PopupUI customClass="full size-large" v-model="isPopupVisible" @close="closePopup">
-        <ProjectDetail :item="selectedItem" @close="closePopup" />
+        <ProjectDetail :item="selectedItem" @close="closePopup"/>
     </PopupUI>
 </template>
 
@@ -113,8 +113,8 @@ const isPopupVisible = ref(false)
 const selectedItem = ref(null)
 
 const openPopup = (item) => {
-    selectedItem.value = item
     isPopupVisible.value = true
+    selectedItem.value = item
 }
 
 const closePopup = () => {
@@ -122,6 +122,7 @@ const closePopup = () => {
     isPopupVisible.value = false
     selectedItem.value = null
 }
+
 </script>
 
 <style scoped>
