@@ -14,7 +14,7 @@
 
 ---
 
-* 활용한 라이브러리
+* 활용한 라이브러리 (npm)
     - overlayscrollbars-vue : 커스텀스크롤
     - lottie-web : 배너에 들어간 lottie 애니메이션 
         - 무료 애니메이션 참고 : [link](https://lottiefiles.com/kr/animations)
@@ -22,8 +22,12 @@
         - 참고 사이트 : [link](https://velog.io/@larshavin/vue.js%EB%A1%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-UI-%EB%A7%8C%EB%93%A4%EA%B8%B0-3)
     - highlight.js : 코드블럭 커스텀 (marked에서만 적용)
         - 참고 사이트 : [link](https://blog.itcode.dev/posts/2021/11/07/nextjs-reorganization-5)
-    - vue3-apexcharts : 프로젝트통계 차트
+    - vue3-apexcharts : 프로젝트 통계 차트
         - API : [link](https://apexcharts.com/vue-chart-demos/line-charts/)
+
+* 아이콘 (xeicon)
+    * [xeicon 사이트](https://xpressengine.github.io/XEIcon/library-2.3.3.html) 에 들어가서 해당모양과 클래스 확인 후
+xeicon.css에서 해당 클래스의 content 값 가지고, `@include xeiconBefore($icon:'\eac0',$s:20,$fw:100);` 이런식으로 사용합니다.
 
 * vue 내장 기능 활용
     - router
