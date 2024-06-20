@@ -1,8 +1,3 @@
----
-title: samdory-archive
-date: 2024.06
----
-
 # samdory-archive
 
 ## 사이트 정보
