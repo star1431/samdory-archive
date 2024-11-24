@@ -18,6 +18,7 @@ const layoutComponents = {
     LayoutLogin
 }
 const route = useRoute()
+const gitHubURL = window.location.href.includes('github.com')
 
 // 현재 라우트의 메타에서 레이아웃 정보를 가져옴
 const layoutComponent = computed(() => {
@@ -95,12 +96,13 @@ onBeforeUnmount(() => {
 // watch(classWatch, (newValue) => {
 //     console.log('[App.vue] classWatch:', newValue)
 // })
+/** 반응형 작업 - end  ***************************************************************** */
 
 // provide로 App.vue 내 돌아가는 모든 하위컴포넌트에 전달
 provide('viewportNotPC', viewportNotPC)
 provide('classWatch', classWatch)
+provide('gitHubURL', gitHubURL)  // 개인포폴용 표시
 
-/** 반응형 작업 - end  ***************************************************************** */
 </script>
 
 <style scoped>

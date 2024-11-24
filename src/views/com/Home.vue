@@ -18,7 +18,11 @@
                 
                 <div class="inner-col col-1-3 type-bg">
                     <div class="home-card-small samdory">
-                        <a href="http://samdory.synology.me/samdory/#/" target="_blank" class="text-box type-link">
+                        <a href="http://samdory.synology.me/samdory/#/" target="_blank" class="text-box type-link" v-if="!gitHubURL">
+                            <p class="title">홈페이지 리뉴얼</p>
+                            <p class="text underline">베타버전 미리보기</p>
+                        </a>
+                        <a href="https://star1431.github.io/samdory/#/" target="_blank" class="text-box type-link" v-else>
                             <p class="title">홈페이지 리뉴얼</p>
                             <p class="text underline">베타버전 미리보기</p>
                         </a>
@@ -26,7 +30,11 @@
                 </div>
                 <div class="inner-col col-1-3 type-bg">
                     <div class="home-card-small ftp">
-                        <a href="http://samdory.synology.me:5000/" target="_blank" class="text-box type-link">
+                        <a href="http://samdory.synology.me:5000/" target="_blank" class="text-box type-link" v-if="!gitHubURL">
+                            <p class="title">FTP 서버</p>
+                            <p class="text"><span class="acc">0.18TB</span> / 2.68TB</p>
+                        </a>
+                        <a href="javascript:void(0)" class="text-box type-link" @click="alertShow(true)" v-else>
                             <p class="title">FTP 서버</p>
                             <p class="text"><span class="acc">0.18TB</span> / 2.68TB</p>
                         </a>
@@ -54,20 +62,45 @@
             </div>
         </div>
     </div>
+    <MessageBox v-model="alertModel" :item="alertItem"/>
 </template>
 
 <script setup>
-import { ref, reactive, computed, onMounted, watch } from 'vue'
+import { ref, reactive, computed, onMounted, watch, inject } from 'vue'
 // import { useStore } from 'vuex'
 import PageTopSlot from '@/components/PageTopSlot.vue'
 import LottieLoader from '@/components/LottieLoader.vue'
 import lottieJson from '@/assets/js/lottie/lottieCom.json'
 import ProjectChart from '@/components/ProjectChart.vue'
 import { fetchProjects } from '@/api/projectApi.js'
+import MessageBox from '@/components/popup/MessageBox.vue'
+
+const gitHubURL = inject('gitHubURL') // 개인포폴용 표시
 
 const title = ref('홈 화면')
 const pageClass = ref(['com', 'Home'])
 
+
+const alertShow = (Boolean) => {
+    if(!Boolean) return
+    alertModel.value = true
+}
+
+// 얼럿
+const alertModel = ref(false)
+const alertItem = ref({
+    title: 'link 연동 해제',
+    message: `
+        <div class="error-message-box">
+            <p class="text">star1431 깃허브페이지로<br> link 연동 제거되었습니다.</p>
+        </div>
+    `,
+    textAlign: 'center',
+    innerHtml : true,
+    confirmText: '확인',
+    onCancel: () => {},
+    onConfirm: () => {},
+})
 
 // 유저프로필넣으려다가 lnb도 있으니 제거
 // const store = useStore()
