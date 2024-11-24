@@ -18,7 +18,7 @@ const layoutComponents = {
     LayoutLogin
 }
 const route = useRoute()
-const gitHubURL = window.location.href.includes('github.com')
+const gitHubURL = window.location.href.includes('github.io')
 
 // 현재 라우트의 메타에서 레이아웃 정보를 가져옴
 const layoutComponent = computed(() => {
